@@ -82,16 +82,13 @@ pip install .
 pip install -e .[dev]
 pre-commit install
 ```
- ## Example Usage: Federated lung cancer classification
+ ## Example Usage: Federated lung cancer classification 
 
 ### Downloading Lung cancer dataset
 
-You can download lung cancer dataset from kaggle and put it in `dataset/lung`repository.
+You can download lung cancer dataset from kaggle and put it in `dataset/lung`  directory.
 
-Here's some example images from three classes
-<h1 align="center">
-    <img src="doc/lungcancer.png" width="700"   overflow= "hidden" alt="medscale-logo">
-</h1> 
+
  
 ### Running training script
 ```bash
@@ -114,6 +111,29 @@ For a personalized , improved method you can run:
 python federatedscope/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
 ```
 
+ ## Example Usage: Federated brain MRI tumor detection 
+### Downloading Lung cancer dataset
+
+You can download lung cancer dataset from kaggle and put it in `dataset/MRI`  directory.
+
+
+ 
+### Running training script
+
+To run a federated learning example with `FedOPT` algorithm, for unbalanced dataset run:
+```bash 
+python federatedscope/main.py --cfg scripts/my_configs/FedOPT_MRI.yaml
+```
+All adjustable parameters can be found in the second cell. Careful with the `BATCH_SIZE`, as we are using it to parallelize head and time chunk calculations.
+
+To run a federated learning example with `Fedem` algorithm, for unbalanced dataset run:
+```bash 
+python federatedscope/main.py --cfg scripts/my_configs/fedem_MRI.yaml
+```
+For a personalized , improved method you can run:
+```bash 
+python federatedscope/main.py --cfg scripts/my_configs/pfedme_MRI.yaml
+```
 
 ## License
 
