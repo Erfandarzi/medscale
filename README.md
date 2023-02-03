@@ -6,8 +6,10 @@
 ![](https://img.shields.io/badge/license-Apache-000000.svg)
 [![Website](https://img.shields.io/badge/website-MedScale-0000FF)](https://medscale.me/)
  
-MedScale is a comprehensive medical learning platform that provides convenient usage and flexible customization for various medical learning tasks in both academia and industry. Based on an event-driven architecture, MedScale integrates rich collections of functionalities to satisfy the burgeoning demands from medical learning, and aims to build up an easy-to-use platform for promoting learning safely and effectively. 
- 
+Medscale is an attempt to build a medical software based on pipelines of Federated Scope platform. Our goal is to create an intelligent, secure, and reliable platform for medical applications with features to protect data privacy, improve data analysis and interpretation, and facilitate interoperability between healthcare systems and multiple cloud platforms.
+
+The features of Medscale include support for multi-center clinical trials, data privacy enforcement, automated anomaly detection, and tools for data interpretation and visualization. Currently, the project is in its early stages, and our team is working hard to implement these features and ensure that the platform meets the high standards of data security and performance required for medical applications.
+
 A detailed tutorial is provided on our website: [medscale.me](https://medscale.me/).
  
 You can try MedScale via [MedScale Playground](https://try.medscale.me/) or [Google Colab](https://colab.research.google.com/github/medscale/MedScale/).
