@@ -82,11 +82,17 @@ pip install .
 pip install -e .[dev]
 pre-commit install
 ```
- ## Example Usage
+ ## Example Usage: Federated lung cancer classification
 
 ### Downloading Lung cancer dataset
 
 You can download lung cancer dataset from kaggle and put it in 'dataset' repository.
+
+Here's some example images from three classes
+<h1 align="center">
+    <img src="doc/lungcancer.png" width="300"   overflow= "hidden" alt="medscale-logo">
+</h1> 
+ 
 ### Running training script
 ```bash
 # Or (for dev mode)
