@@ -113,12 +113,18 @@ python federatedscope/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
  ## Example Usage: Federated  brain MRI tumor detection 
 ### Downloading brain MRI tumor dataset
 
-You can download brain MRI tumor dataset from kaggle and put it in `dataset/MRI`  directory.
+You can download brain MRI tumor dataset from kaggle and put it in `dataset/MRI`  directory. 
 
 <h1 align="center">
     <img src="doc/FL_MRI.png" width="700"   overflow= "hidden" alt="medscale-logo">
 </h1> 
  
+You can put as many MRI data samples in the directory. Download Kaggle datasets and BrainDevelopment.org: [Kaggle 2018](https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection), [Kaggle 2020](https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri),Some types of brain tissue are more visible under contrast material and others propagate magnetization differently.
+           Proton Density Scan            |  Transverse Magnetization (Type 2) Scan
+:----------------------------------------:|:----------------------------------------:
+![Scan Type PD](report/figures/PD.gif)    | ![Scan Type T2](report/figures/T2.gif)
+
+
 ### Running training script
 
 To run a federated learning example with `FedOPT` algorithm, for unbalanced dataset run:
