@@ -15,89 +15,26 @@ You can try MedScale via [MedScale Playground](https://try.medscale.me/) or [Goo
 
 | [Code Structure](#code-structure) | [Quick Start](#quick-start) | [Advanced](#advanced) | [Documentation](#documentation) | [Publications](#publications) | [Contributing](#contributing) | 
 
-## News
-- ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png) [10-05-2022] Our benchmark paper for personalized FL, [pFL-Bench](https://arxiv.org/abs/2206.03655) has been accepted by NeurIPS'22, Dataset and Benchmark Track!
-- ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png) [08-18-2022] Our KDD 2022 [paper](https://arxiv.org/abs/2204.05562) on federated graph learning receives the KDD Best Paper Award for ADS track!
-- ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png) [07-30-2022] We release FederatedScope v0.2.0! 
-- [06-17-2022] We release **pFL-Bench**, a comprehensive benchmark for personalized Federated Learning (pFL), containing 10+ datasets and 20+ baselines. [[code](https://github.com/alibaba/FederatedScope/tree/master/benchmark/pFL-Bench), [pdf](https://arxiv.org/abs/2206.03655)]
-- [06-17-2022] We release **FedHPO-Bench**, a benchmark suite for studying federated hyperparameter optimization. [[code](https://github.com/alibaba/FederatedScope/tree/master/benchmark/FedHPOBench), [pdf](https://arxiv.org/abs/2206.03966)]
-- [06-17-2022] We release **B-FHTL**, a benchmark suit for studying federated hetero-task learning. [[code](https://github.com/alibaba/FederatedScope/tree/master/benchmark/B-FHTL), [pdf](https://arxiv.org/abs/2206.03436)]
-- [06-13-2022] Our project was receiving an attack, which has been resolved. [More details](https://github.com/alibaba/FederatedScope/blob/master/doc/news/06-13-2022_Declaration_of_Emergency.txt).
-- [05-25-2022] Our paper [FederatedScope-GNN](https://arxiv.org/abs/2204.05562) has been accepted by KDD'2022!
-- [05-06-2022] We release FederatedScope v0.1.0! 
+## Quick Start for Medscale
 
-## Code Structure
-```
-FederatedScope
-├── federatedscope
-│   ├── core           
-│   |   ├── workers              # Behaviors of participants (i.e., server and clients)
-│   |   ├── trainers             # Details of local training
-│   |   ├── aggregators          # Details of federated aggregation
-│   |   ├── configs              # Customizable configurations
-│   |   ├── monitors             # The monitor module for logging and demonstrating  
-│   |   ├── communication.py     # Implementation of communication among participants   
-│   |   ├── fed_runner.py        # The runner for building and running an FL course
-│   |   ├── ... ..
-│   ├── cv                       # Federated learning in CV        
-│   ├── nlp                      # Federated learning in NLP          
-│   ├── gfl                      # Graph federated learning          
-│   ├── autotune                 # Auto-tunning for federated learning         
-│   ├── contrib                          
-│   ├── main.py           
-│   ├── ... ...          
-├── scripts                      # Scripts for reproducing existing algorithms
-├── benchmark                    # We release several benchmarks for convenient and fair comparisons
-├── doc                          # For automatic documentation
-├── enviornment                  # Installation requirements and provided docker files
-├── materials                    # Materials of related topics (e.g., paper lists)
-│   ├── notebook                        
-│   ├── paper_list                                        
-│   ├── tutorial                                       
-│   ├── ... ...                                      
-├── tests                        # Unittest modules for continuous integration
-├── LICENSE
-└── setup.py
-```
-
-## Quick Start
-
-We provide an end-to-end example for users to start running a standard FL course with FederatedScope.
+We provide an end-to-end example for users to start running a medical course with Medscale.
 
 ### Step 1. Installation
 
-First of all, users need to clone the source code and install the required packages (we suggest python version >= 3.9). You can choose between the following two installation methods (via docker or conda) to install FederatedScope.
+First of all, users need to clone the source code and install the required packages (we suggest python version >= 3.9). You can choose between the following two installation methods (via docker or conda) to install Medscale.
 
 ```bash
-git clone https://github.com/alibaba/FederatedScope.git
-cd FederatedScope
+git clone https://github.com/medscale/medscale.me.git
+cd medscale.me
 ```
-#### Use Docker
-
-You can build docker image and run with docker env (cuda 11 and torch 1.10):
-
-```
-docker build -f environment/docker_files/federatedscope-torch1.10.Dockerfile -t alibaba/federatedscope:base-env-torch1.10 .
-docker run --gpus device=all --rm -it --name "fedscope" -w $(pwd) alibaba/federatedscope:base-env-torch1.10 /bin/bash
-```
-If you need to run with down-stream tasks such as graph FL, change the requirement/docker file name into another one when executing the above commands:
-```
-# environment/requirements-torch1.10.txt -> 
-environment/requirements-torch1.10-application.txt
-
-# environment/docker_files/federatedscope-torch1.10.Dockerfile ->
-environment/docker_files/federatedscope-torch1.10-application.Dockerfile
-```
-Note: You can choose to use cuda 10 and torch 1.8 via changing `torch1.10` to `torch1.8`.
-The docker images are based on the nvidia-docker. Please pre-install the NVIDIA drivers and `nvidia-docker2` in the host machine. See more details [here](https://github.com/alibaba/FederatedScope/tree/master/environment/docker_files).
 
 #### Use Conda
 
-We recommend using a new virtual environment to install FederatedScope:
+We recommend using a new virtual environment to install Medscale:
 
 ```bash
-conda create -n fs python=3.9
-conda activate fs
+conda create -n ms python=3.9
+conda activate ms
 ```
 
 If your backend is torch, please install torch in advance ([torch-get-started](https://pytorch.org/get-started/locally/)). For example, if your cuda version is 11.3 please execute the following command:
@@ -111,6 +48,24 @@ For users with Apple M1 chips:
 conda install pytorch torchvision torchaudio -c pytorch
 # Downgrade torchvision to avoid segmentation fault
 python -m pip install torchvision==0.11.3
+```
+
+Finally, after the backend is installed, you can install Medscale from `source`:
+
+##### From source
+
+```bash
+pip install .
+
+# Or (for dev mode)
+pip install -e .[dev]
+pre-commit install
+```
+
+Now, you have successfully installed the minimal version of Medscale. (**Optinal**) For additional packages, run:
+
+```bash
+bash environment/extra_dependencies_torch1.10-medscale.sh
 ```
 
 Finally, after the backend is installed, you can install FederatedScope from `source`:
