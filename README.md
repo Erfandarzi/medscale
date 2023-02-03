@@ -18,11 +18,11 @@ You can try MedScale via [MedScale Playground](https://try.medscale.me/) or [Goo
 
 | [Code Structure](#code-structure) | [Quick Start](#quick-start) | [Advanced](#advanced) | [Documentation](#documentation) | [Publications](#publications) | [Contributing](#contributing) | 
 
-## Quick Start for Medscale
+## Quick Start for Medscale🚀
 
 We provide an end-to-end example for users to start running a medical course with Medscale.
 
-### Step 1. Installation
+### Step 1. Installation📚
 
 First of all, users need to clone the source code and install the required packages (we suggest python version >= 3.9). You can choose between the following two installation methods (via docker or conda) to install Medscale.
 
@@ -46,7 +46,7 @@ If your backend is torch, please install torch in advance ([torch-get-started](h
 conda install -y pytorch=1.10.1 torchvision=0.11.2 torchaudio=0.10.1 torchtext=0.11.1 cudatoolkit=11.3 -c pytorch -c conda-forge
 ```
 
-For users with Apple M1 chips:
+For users with Apple M1 chips💻:
 ```bash
 conda install pytorch torchvision torchaudio -c pytorch
 # Downgrade torchvision to avoid segmentation fault
