@@ -1,8 +1,6 @@
+<h1 style = font-size: 50px>MedScale</h1>
 <h1 align="center">
     <img src="doc/medscale.png" width="300"   overflow= "hidden" alt="medscale-logo">
-</h1> 
- <h1 align="center">
-    Medscale
 </h1> 
  
 ![](https://img.shields.io/badge/language-python-blue.svg)
