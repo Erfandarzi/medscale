@@ -1,4 +1,4 @@
-<!-- <h1 align="center" style = font-size: 200px>MedScale</h1>
+<h1 align="center" style = font-size: 200px>MedScale</h1>
 <h1 align="center">
     <img src="doc/medscale.png" width="300"   overflow= "hidden" alt="medscale-logo">
 </h1> 
@@ -82,7 +82,7 @@ pip install .
 pip install -e .[dev]
 pre-commit install
 ```
-  -->
+ 
 ## License
 
 Our work is under MIT license. Credits to  <a href="https://arxiv.org/abs/2204.05011" target="_blank">Federated Scope</a>   for their amazing pipeline.
