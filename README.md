@@ -138,7 +138,7 @@ For a personalized , improved method you can run:
 ```bash 
 python federatedscope/main.py --cfg scripts/my_configs/pfedme_MRI.yaml
 ```
-##XNAT support to federated pipelines
+## XNAT support to federated pipelines
 
 To add `XNAT` support to the federated learning pipeline, you can use a modified version of XNAT that is optimized and customized for Ubuntu. We recommend you to download the installation script from the [Xnat-Ubuntu](http://github.com/NrgXnat/xnat-docker-compose) repository. After downloading the file, copy it to the root directory of the Ubuntu server and execute it with the command:
 ```bash 
