@@ -94,11 +94,7 @@ You can download lung cancer dataset from kaggle and put it in `dataset/lung`  d
 
  
 ### Running training script
-```bash
-# Or (for dev mode)
-pip install -e .[dev]
-pre-commit install
-```
+ 
 To run a federated learning example with `FedOPT` algorithm, for unbalanced dataset run:
 ```bash 
 python federatedscope/main.py --cfg scripts/my_configs/FedOPT_Lung_cancer.yaml
