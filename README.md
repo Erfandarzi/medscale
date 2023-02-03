@@ -90,7 +90,7 @@ You can download lung cancer dataset from kaggle and put it in 'dataset' reposit
 
 Here's some example images from three classes
 <h1 align="center">
-    <img src="doc/lungcancer.png" width="800"   overflow= "hidden" alt="medscale-logo">
+    <img src="doc/lungcancer.png" width="700"   overflow= "hidden" alt="medscale-logo">
 </h1> 
  
 ### Running training script
