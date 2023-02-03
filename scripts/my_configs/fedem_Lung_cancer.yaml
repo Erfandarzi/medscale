@@ -5,17 +5,11 @@ early_stop:
 seed: 2
 federate:
   mode: standalone
-  total_round_num: 30
+  total_round_num: 10
   sample_client_num: 5
   make_global_eval: True
   merge_test_data: True
   client_num: 5
-fedopt:
-  use: True
-  optimizer:
-    lr: 0.0001
-    weight_decay: 0.0
-    momentum: 0.0
 data:
   root: data/
   type: lung
@@ -25,17 +19,20 @@ data:
   num_workers: 0
   transform: [['ToTensor'], ['Normalize', {'mean': [0.1307], 'std': [0.3081]}]]
   splitter: 'lda'
-  splitter_args: [{'alpha': 0.05}]
+  splitter_args: [{'alpha': 0.3}]
 dataloader:
   batch_size: 1
+personalization:
+  local_update_steps: 1
+  lr: 0.5
 model:
   type: convnet2
   hidden: 2048
   out_channels: 62
   dropout: 0.0
 train:
-  local_update_steps: 1
-  batch_or_epoch: epoch
+  local_update_steps: 5
+  batch_or_epoch: batch
   optimizer:
     lr: 0.01
     weight_decay: 0.0

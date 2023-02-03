@@ -20,7 +20,7 @@ class LDASplitter(BaseSplitter):
 
     def __call__(self, dataset, prior=None, **kwargs):
         from torch.utils.data import Dataset, Subset
-
+        dataset=dataset [0]
         tmp_dataset = [ds for ds in dataset]
         label = np.array([y for x, y in tmp_dataset])
         idx_slice = dirichlet_distribution_noniid_slice(label,
