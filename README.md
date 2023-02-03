@@ -28,7 +28,7 @@ First of all, users need to clone the source code and install the required packa
 
 ```bash
 git clone https://github.com/medscale/medscale.git
-cd medscale.me
+cd medscale
 ```
 
 #### Use Conda
