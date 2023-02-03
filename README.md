@@ -82,7 +82,33 @@ pip install .
 pip install -e .[dev]
 pre-commit install
 ```
- 
+ ## Example Usage
+
+### Downloading Lung cancer dataset
+
+You can download lung cancer dataset from kaggle and put it in 'dataset' repository.
+### Running training script
+```bash
+# Or (for dev mode)
+pip install -e .[dev]
+pre-commit install
+```
+To run a federated learning example with `FedOPT` algorithm, for unbalanced dataset run:
+```bash 
+python federatedscope/main.py --cfg scripts/my_configs/FedOPT_Lung_cancer.yaml
+```
+All adjustable parameters can be found in the second cell. Careful with the `BATCH_SIZE`, as we are using it to parallelize head and time chunk calculations.
+
+To run a federated learning example with `Fedem` algorithm, for unbalanced dataset run:
+```bash 
+python federatedscope/main.py --cfg scripts/my_configs/fedem_Lung_cancer.yaml
+```
+For a personalized , improved method you can run:
+```bash 
+python federatedscope/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
+```
+
+
 ## License
 
 Our work is under MIT license. Credits to  <a href="https://arxiv.org/abs/2204.05011" target="_blank">Federated Scope</a>   for their amazing pipeline.
