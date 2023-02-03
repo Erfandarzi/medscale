@@ -83,7 +83,9 @@ pip install -e .[dev]
 pre-commit install
 ```
  ## Example Usage: Federated lung cancer classification 
-
+<h1 align="center">
+    <img src="doc/lungcancer.png" width="700"   overflow= "hidden" alt="medscale-logo">
+</h1> 
 ### Downloading Lung cancer dataset
 
 You can download lung cancer dataset from kaggle and put it in `dataset/lung`  directory.
@@ -111,12 +113,14 @@ For a personalized , improved method you can run:
 python federatedscope/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
 ```
 
- ## Example Usage: Federated brain MRI tumor detection 
-### Downloading Lung cancer dataset
+ ## Example Usage: Federated  brain MRI tumor detection 
+### Downloading brain MRI tumor dataset
 
-You can download lung cancer dataset from kaggle and put it in `dataset/MRI`  directory.
+You can download brain MRI tumor dataset from kaggle and put it in `dataset/MRI`  directory.
 
-
+<h1 align="center">
+    <img src="doc/FL_MRI.png" width="700"   overflow= "hidden" alt="medscale-logo">
+</h1> 
  
 ### Running training script
 
