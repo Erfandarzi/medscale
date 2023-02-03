@@ -1,10 +1,5 @@
 <h1 align="center">
     <img src="doc/medscale.png" width="400" height="337" object-fit="contain" alt="medscale-logo">
-    .cropped {
-width: 150px; 
-height: 150px; 
-overflow: hidden;
-}
 </h1> 
  
 ![](https://img.shields.io/badge/language-python-blue.svg)
