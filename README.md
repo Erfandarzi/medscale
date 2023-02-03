@@ -86,7 +86,7 @@ pre-commit install
 
 ### Downloading Lung cancer dataset
 
-You can download lung cancer dataset from kaggle and put it in 'dataset' repository.
+You can download lung cancer dataset from kaggle and put it in `dataset/lung`repository.
 
 Here's some example images from three classes
 <h1 align="center">
