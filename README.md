@@ -1,4 +1,4 @@
-<h1 align="center" style = font-size: 200px>MedScale</h1>
+<!-- <h1 align="center" style = font-size: 200px>MedScale</h1> -->
 <h1 align="center">
     <img src="doc/MS.png" width="300"   overflow= "hidden" alt="medscale-logo">
 </h1> 
