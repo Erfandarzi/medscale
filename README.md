@@ -86,6 +86,7 @@ pre-commit install
 <h1 align="center">
     <img src="doc/lungcancer.png" width="700"   overflow= "hidden" alt="medscale-logo">
 </h1> 
+
 ### Downloading Lung cancer dataset
 
 You can download lung cancer dataset from kaggle and put it in `dataset/lung`  directory.
