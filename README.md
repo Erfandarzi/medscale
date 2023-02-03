@@ -87,7 +87,7 @@ pre-commit install
     <img src="doc/lungcancer.png" width="700"   overflow= "hidden" alt="medscale-logo">
 </h1> 
 
-### Downloading Lung cancer dataset
+### Downloading Lung cancer dataset📋
 
 You can download lung cancer dataset from kaggle and put it in `dataset/lung`  directory.
 
@@ -111,7 +111,7 @@ python federatedscope/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
 ```
 
  ## Example Usage: Federated  brain MRI tumor detection 
-### Downloading brain MRI tumor dataset
+### Downloading brain MRI tumor dataset📋
 
 You can download brain MRI tumor dataset from kaggle and put it in `dataset/MRI`  directory. 
 
