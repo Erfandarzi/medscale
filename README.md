@@ -138,6 +138,30 @@ For a personalized , improved method you can run:
 ```bash 
 python federatedscope/main.py --cfg scripts/my_configs/pfedme_MRI.yaml
 ```
+##XNAT support to federated pipelines
+
+To add `XNAT` support to the federated learning pipeline, you can use a modified version of XNAT that is optimized and customized for Ubuntu. We recommend you to download the installation script from the [Xnat-Ubuntu](http://github.com/NrgXnat/xnat-docker-compose) repository. After downloading the file, copy it to the root directory of the Ubuntu server and execute it with the command:
+```bash 
+ sudo bash installScript.sh
+ ```
+This will start the installation process and configure the processing URL and password in the XNAT admin settings.
+ 
+To enable pipelines in your XNAT system, you must add them and configure the container service for external docker environments. First, navigate to` Administer --> Data Types`
+
+```bash 
+ cd Administer/Data Types
+ ```
+ 
+  and click on the element for which you want to enable the Execute option. Scroll down to Available Report Actions and add `PipelineScreen_launch_pipeline` and `Build` to the last entry. After submitting this configuration, a 'Execute Pipeline' button should appear when you open a project with the specific SessionData Element. You can now execute a Pipeline for the Project Data. To add a sample pipeline, navigate to `Administer --> Pipeline --> Add Pipeline`
+  
+  ```bash 
+ cd Administer/Pipeline/AddPipeline
+ ```
+ 
+  and enter the path `/data/xnat/pipeline/catalog/PipelineTest/SampleHelloWorldPipeline.xml ` Make sure to leave the Name Textfield empty to avoid any bugs! After confirming your settings, the Pipeline will be added to your project, allowing you to test the pipeline engine.
+ 
+The Container Service allows you to add docker containers as pipelines. This requires an external `docker` environment. To connect to this environment, you need to setup a network and configure the communication between the main host and the dockerized XNAT. Finally, you can execute the Pipeline test script to ensure that everything is working as expected.
+
 
 ## License
 
