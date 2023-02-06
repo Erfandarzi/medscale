@@ -11,7 +11,7 @@ Medscale is an attempt to build a medical software based on pipelines of Federat
 
 The features of Medscale include support for multi-center clinical trials, data privacy enforcement, automated anomaly detection, and tools for data interpretation and visualization. Currently, the project is in its early stages, and our team is working hard to implement these features and ensure that the platform meets the high standards of data security and performance required for medical applications.
 
-A detailed tutorial is provided on our website: [medscale.me](https://medscale.me/) (Under construction)
+A detailed tutorial will be provided on our website: [medscale.me](https://medscale.me/) (Under construction)
  
 You can try MedScale via [MedScale Playground](https://try.medscale.me/) or [Google Colab](https://colab.research.google.com/github/medscale/MedScale/).
  
@@ -28,7 +28,7 @@ First of all, users need to clone the source code and install the required packa
 
 ```bash
 git clone https://github.com/medscale/medscale.git
-cd medscale.me
+cd medscale
 ```
 
 #### Use Conda
