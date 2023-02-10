@@ -123,7 +123,9 @@ class BaseDataTranslator:
             split_val = self.splitter(val, prior=train_label_distribution)
         if len(test) > 0:
             split_test = self.splitter(test, prior=train_label_distribution)
-
+            print(train_label_distribution)
+            print(len(test))
+            print(len(split_test[i]) for i in split_test)
         # Build data dict with `ClientData`, key `0` for server.
         data_dict = {
             0: ClientData(self.global_cfg, train=train, val=val, test=test)

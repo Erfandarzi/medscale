@@ -32,11 +32,11 @@ class FEMNISTTest(unittest.TestCase):
         cfg.personalization_beta = 1.0
         cfg.personalization_K = 3
 
-        cfg.data.root = 'test_data/'
-        cfg.data.type = 'femnist'
-        cfg.data.splits = [0.6, 0.2, 0.2]
+        cfg.data.root = 'data/'
+        cfg.data.type = 'lung'
+        cfg.data.splits = [0.8, 0, 0.2]
         cfg.data.batch_size = 10
-        cfg.data.subsample = 0.05
+        cfg.data.subsample = 1
         cfg.data.transform = [['ToTensor'],
                               [
                                   'Normalize', {
@@ -45,7 +45,7 @@ class FEMNISTTest(unittest.TestCase):
                                   }
                               ]]
 
-        cfg.model.type = 'convnet2'
+        cfg.model.type = 'local_VIT'
         cfg.model.hidden = 2048
         cfg.model.out_channels = 62
 
@@ -68,7 +68,7 @@ class FEMNISTTest(unittest.TestCase):
         data, modified_cfg = get_data(init_cfg.clone())
         init_cfg.merge_from_other_cfg(modified_cfg)
         self.assertIsNotNone(data)
-
+        print(init_cfg.clone())
         Fed_runner = get_runner(data=data,
                                 server_class=get_server_cls(init_cfg),
                                 client_class=get_client_cls(init_cfg),

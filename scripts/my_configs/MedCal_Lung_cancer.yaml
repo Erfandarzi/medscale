@@ -10,6 +10,7 @@ federate:
   sample_client_num: 10
   make_global_eval: False
   merge_test_data: False
+  online_aggr: True
   client_num: 10
 data:
   root: data/
@@ -19,13 +20,18 @@ data:
   num_workers: 0
   # transform: [['ToTensor'], ['Normalize', {'mean': [0.1307], 'std': [0.3081]}]]
   splitter: 'lda'
-  splitter_args: [{'alpha': 0.3}]
+  splitter_args: [{'alpha': 1}]
 dataloader:
   batch_size: 1
 personalization:
-  local_update_steps: 3
+  local_update_steps: 1
   lr: 0.5
   regular_weight: 1
+finetune:
+  batch_or_epoch: epoch
+  before_eval: false
+  freeze_param: ''
+  local_update_steps: 1
 model:
   type: convnet2
   hidden: 2048

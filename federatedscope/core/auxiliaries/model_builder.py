@@ -72,7 +72,6 @@ def get_shape_from_data(data, model_config, backend='torch'):
         import torch
         import numpy as np
         if issubclass(type(data_representative), torch.utils.data.DataLoader):
-            print( next(iter(data_representative)))
             # print( print(iter(data_representative )))
             x, _ = next(iter(data_representative))
             if isinstance(x, list):
@@ -124,7 +123,6 @@ def get_model(model_config, local_data=None, backend='torch'):
         ``mf.model.model_builder.get_mfnet()``
         ===================================  ==============================
     """
-    print ( local_data)
     print(model_config)
     print(backend)
     if local_data is not None:
