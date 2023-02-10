@@ -15,6 +15,7 @@ AGGREGATOR_TYPE = {
     # i.e., totally global training
     "fedavg": "clients_avg",  # FedAvg
     "pfedme": "server_clients_interpolation",  # pFedMe,  + server-clients
+    "medcal": "server_clients_interpolation",  # pFedMe,  + server-clients
     # interpolation
     "ditto": "clients_avg",  # Ditto
     "fedsageplus": "clients_avg",
@@ -28,6 +29,7 @@ CLIENTS_TYPE = {
     "fedavg": "normal",  # FedAvg
     "pfedme": "normal_loss_regular",  # pFedMe, + regularization-based local
     # loss
+    "medcal": "normal_loss_regular", 
     "ditto": "normal",  # Ditto, + local training for distinct personalized
     # models
     "fedsageplus": "fedsageplus",  # FedSage+ for graph data
@@ -40,6 +42,7 @@ SERVER_TYPE = {
     "local": "normal",
     "fedavg": "normal",  # FedAvg
     "pfedme": "normal",  # pFedMe, + regularization-based local loss
+    "medcal": "normal",  # pFedMe, + regularization-based local loss
     "ditto": "normal",  # Ditto, + local training for distinct personalized
     # models
     "fedsageplus": "fedsageplus",  # FedSage+ for graph data

@@ -11,23 +11,20 @@ federate:
   make_global_eval: False
   merge_test_data: False
   client_num: 10
-fedopt:
-  use: True
-  optimizer:
-    lr: 0.001
-    weight_decay: 0.0
-    momentum: 0.0
+  method: global
 data:
   root: data/
   type: lung
   splits:  [0.8,0,0.2]
   batch_size: 64
   num_workers: 0
-  # transform: [['ToTensor'], ['Normalize', {'mean': [0.1307], 'std': [0.3081]}]]
   splitter: 'lda'
   splitter_args: [{'alpha': 0.3}]
 dataloader:
   batch_size: 1
+personalization:
+  local_update_steps: 1
+  lr: 0.5
 model:
   type: convnet2
   hidden: 2048

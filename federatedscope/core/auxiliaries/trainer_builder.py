@@ -213,6 +213,10 @@ def get_trainer(model=None,
         from federatedscope.core.trainers import wrap_pFedMeTrainer
         # wrap style: instance a (class A) -> instance a (class A)
         trainer = wrap_pFedMeTrainer(trainer)
+    if config.federate.method.lower() == "medcal":
+        from federatedscope.core.trainers import wrap_MedCalTrainer
+    # wrap style: instance a (class A) -> instance a (class A)
+        trainer = wrap_MedCalTrainer(trainer)
     elif config.federate.method.lower() == "ditto":
         from federatedscope.core.trainers import wrap_DittoTrainer
         # wrap style: instance a (class A) -> instance a (class A)

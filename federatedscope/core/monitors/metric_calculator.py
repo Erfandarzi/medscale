@@ -227,7 +227,6 @@ def eval_hits(y_true, y_prob, metric, **kwargs):
 
 def eval_roc_auc(y_true, y_prob, **kwargs):
     rocauc_list = []
-
     for i in range(y_true.shape[1]):
         # AUC is only defined when there is at least one positive data.
         if np.sum(y_true[:, i] == 1) > 0 and np.sum(y_true[:, i] == 0) > 0:

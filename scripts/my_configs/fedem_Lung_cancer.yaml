@@ -7,20 +7,19 @@ backend: torch
 federate:
   mode: standalone
   total_round_num: 10
-  sample_client_num: 5
-  make_global_eval: True
-  merge_test_data: False
-  client_num: 5
+  sample_client_num: 10
+  make_global_eval: False
+  merge_test_data: True
+  client_num: 10
 data:
   root: data/
   type: lung
-  splits:  [0.6,0.2,0.2]
+  splits:  [0.8,0,0.2]
   batch_size: 64
-  subsample: 0.4
   num_workers: 0
-  transform: [['ToTensor'], ['Normalize', {'mean': [0.1307], 'std': [0.3081]}]]
+  # transform: [['ToTensor'], ['Normalize', {'mean': [0.1307], 'std': [0.3081]}]]
   splitter: 'lda'
-  splitter_args: [{'alpha': 0.1}]
+  splitter_args: [{'alpha': 0.3}]
 dataloader:
   batch_size: 1
 personalization:
@@ -45,5 +44,5 @@ trainer:
   type: cvtrainer
 eval:
   freq: 1
-  metrics: ['acc', 'correct']
+  metrics: ['acc', 'correct','f1' ]
   best_res_update_round_wise_key: test_loss

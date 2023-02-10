@@ -76,7 +76,7 @@ def load_my_data(config, client_cfgs=None):
                         data_dict.get('test'))
 
       translator = BaseDataTranslator(config, client_cfgs) 
-      fs_data = translator([data_train ,data_val , data_test ])
+      fs_data = translator(data_train)
       return fs_data, config
 
 
