@@ -5,13 +5,28 @@ set -e
 if [ ! -d "out" ];then
   mkdir out
 fi
+#Exp1: 
+#Table 1: Loss of training for each algorithm per round
+#Table 2: f1 test acc final for each algorithm for alphas
+trainers="local MedCal"
+
+for lda_alpha in 0.1 
+    do
+        for trainer in $trainers
+
+            do 
+                echo " Trainer=${trainer}, data=${dataset}, alpha=${lda_alpha}, starts..."
+                python federatedscope/main.py --cfg scripts/my_configs/${trainer}_Lung_cancer.yaml   data.splitter_args "[{'alpha': ${lda_alpha}}]"     >>out/${trainer}_on_lung_alpha${lda_alpha}.log 2>&1
+                echo " Trainer=${trainer}, data=${dataset}, alpha=${lda_alpha} ends."
+            done
+    done
 
 #Exp1: 
 #Table 1: Loss of training for each algorithm per round
 #Table 2: f1 test acc final for each algorithm for alphas
 trainers="FedAvg FedAvg_resnet FedBN  fedem  FedOPT global local MedCal"
 
-for lda_alpha in 0.1 0.2 0.3 0.5 0.7 0.9
+for lda_alpha in 0.2 0.3 0.5 0.7 0.9
     do
         for trainer in $trainers
 
