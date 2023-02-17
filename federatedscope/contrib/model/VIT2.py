@@ -238,20 +238,25 @@ def HAT_Net_large(pretrained=False, **kwargs):
     model.default_cfg = _cfg()
     return model
 
-def call_vit(model_config, local_data):     
-    visitionT =HAT_Net()
-
-    if ( 'vit_tiny' in model_config.type):
+def call_vit(model_config, local_data): 
+    if  ( 'vit' in model_config.type):
+        visitionT =HAT_Net() 
+        return visitionT
+     
+    elif ( 'vit_tiny' in model_config.type):
         visitionT =HAT_Net_tiny()
+        return visitionT
+     
     elif ( 'vit_small' in model_config.type):
         visitionT =HAT_Net_small()
+        return visitionT
+     
     elif ( 'vit_medium' in model_config.type):
         visitionT =HAT_Net_medium()
+        return visitionT
+     
     elif ( 'vit_large' in model_config.type):
         visitionT =HAT_Net_large()
-        
-        
-    return visitionT
-     
+        return visitionT
 
 register_model('vit', call_vit)
