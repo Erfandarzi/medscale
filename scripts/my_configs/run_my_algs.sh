@@ -8,12 +8,11 @@ fi
 #Exp1: 
 #Table 1: Loss of training for each algorithm per round
 #Table 2: f1 test acc final for each algorithm for alphas
-trainers="FedBN FedAvg  global local"
+trainers="FedProx_vit FedProx FedAvg FedAvg_resnet FedBN global local"
 
 for lda_alpha in 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9
     do
         for trainer in $trainers
-
             do 
                 echo " Trainer=${trainer}, data=${dataset}, alpha=${lda_alpha}, starts..."
                 python federatedscope/main.py --cfg scripts/my_configs/${trainer}_Lung_cancer.yaml   data.splitter_args "[{'alpha': ${lda_alpha}}]"     >>out/${trainer}_on_lung_alpha${lda_alpha}.log 2>&1
@@ -21,7 +20,7 @@ for lda_alpha in 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9
             done
     done
 
-trainers="FedBN FedAvg local"
+trainers="FedProx_vit FedProx FedAvg FedAvg_resnet FedBN local"
 
 for sample_client_num in 2 3 4 5 6 7 8
     do
@@ -35,9 +34,9 @@ for sample_client_num in 2 3 4 5 6 7 8
 
 #Exp2: Ablation personalization
 #plot1 local_update_steps: regular_weight: 1,2,3,4
-trainer="FedBN"
+trainer="FedProx_vit"
 
-alpha= 0.3
+alpha= "0.3"
 
 for local_update_steps in 1 2 3 4 5 6 7
             do 

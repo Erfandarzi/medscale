@@ -293,13 +293,13 @@ def resnet(model_config):
     return net
 
 
-def call_resnet(model_config, local_data):
-    if 'resnet' in model_config.type and 'pre' in model_config.type:
-        model = preact_resnet(model_config)
-        return model
-    elif 'resnet' in model_config.type and 'pre' not in model_config.type:
-        model = resnet(model_config)
-        return model
+# def call_resnet(model_config, local_data):
+#     if 'resnet' in model_config.type and 'pre' in model_config.type:
+#         model = preact_resnet(model_config)
+#         return model
+#     elif 'resnet' in model_config.type and 'pre' not in model_config.type:
+#         model = resnet(model_config)
+#         return model
 
 
-register_model('resnet', call_resnet)
+# register_model('resnet', call_resnet)

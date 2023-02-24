@@ -6,6 +6,10 @@ from timm.models.layers import DropPath, trunc_normal_
 from timm.models.registry import register_model
 from timm.models.vision_transformer import _cfg
 from federatedscope.register import register_model
+from urllib.request import urlopen
+from PIL import Image
+import timm
+from pprint import pprint
 '''Pre-activation ResNet in PyTorch.
 
 Reference:
@@ -239,9 +243,27 @@ def HAT_Net_large(pretrained=False, **kwargs):
     return model
 
 def call_vit(model_config, local_data): 
-    if  ( 'vit' in model_config.type):
-        visitionT =HAT_Net() 
+    if  ( 'vit_small_patch16_224_in21k' in model_config.type):
+        visitionT = timm.create_model('vit_small_patch16_224_in21k', pretrained=True)
         return visitionT
+    elif ('resnet18' in model_config.type):
+        visitionT = timm.create_model('resnet18', pretrained=True)
+        return visitionT
+    elif ('vit_base_patch16_224_dino' in model_config.type):
+        visitionT = timm.create_model('vit_base_patch16_224_dino', pretrained=True)
+        return visitionT
+    elif ('vit_base_patch8_224_dino' in model_config.type):
+        visitionT = timm.create_model('vit_small_patch8_224_dino', pretrained=True)
+        return visitionT
+    elif ('vit_large_r50_s32_384' in model_config.type):
+        visitionT = timm.create_model('vit_large_r50_s32_384', pretrained=True)
+        return visitionT
+    elif ('crossvit_15_240' in model_config.type):
+        visitionT = timm.create_model('crossvit_15_240', pretrained=True)
+    elif ('coatnet_0_rw_224' in model_config.type):
+        visitionT = timm.create_model('coatnet_0_rw_224', pretrained=True)
+        return visitionT
+ 
      
     elif ( 'vit_tiny' in model_config.type):
         visitionT =HAT_Net_tiny()

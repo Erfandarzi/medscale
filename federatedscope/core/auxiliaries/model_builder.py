@@ -123,8 +123,7 @@ def get_model(model_config, local_data=None, backend='torch'):
         ``mf.model.model_builder.get_mfnet()``
         ===================================  ==============================
     """
-    print(model_config)
-    print(backend)
+
     if local_data is not None:
         input_shape = get_shape_from_data(local_data, model_config, backend)
     else:
