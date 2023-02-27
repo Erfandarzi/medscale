@@ -34,7 +34,7 @@ for sample_client_num in 2 3 4 5 6 7 8
 
 #Exp2: Ablation personalization
 #plot1 local_update_steps: regular_weight: 1,2,3,4
-trainer="FedProx_vit"
+trainers="FedProx_vit"
 
 alpha= "0.3"
 
