@@ -9,8 +9,8 @@ fi
 #Exp1: 
 #Table 1: Loss of training for each algorithm per round
 #Table 2: f1 test acc final for each algorithm for alphas
+# trainers="FedAvg FedAvg_resnet FedBN  fedem  FedOPT global local "
 trainers="FedAvg FedAvg_resnet FedBN  fedem  FedOPT global local "
-
 for lda_alpha in 0.3 0.5 0.7 0.9 1
     do
         for trainer in $trainers
