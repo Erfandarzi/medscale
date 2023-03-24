@@ -1,4 +1,4 @@
-# DataZoo
+<!-- # DataZoo
 
 FederatedScope provides a rich collection of federated datasets for researchers, including images, texts, graphs, recommendation systems, and speeches, as well as utility classes `BaseDataTranslator` for building your own FS datasets.
 
@@ -152,4 +152,4 @@ Tools
   | rel_type            | Graph (link-level)  | `alpha`                                          |
   | Scaffold            | Molecular           | -                                                |
   | Scaffold_lda        | Molecular           | `alpha`                                          |
-  | Rand_chunk          | Graph (graph-level) | -                                                |
+  | Rand_chunk          | Graph (graph-level) | -                                                | -->
