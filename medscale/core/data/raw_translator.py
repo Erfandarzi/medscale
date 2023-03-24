@@ -1,4 +1,4 @@
-from federatedscope.core.data.base_translator import BaseDataTranslator
+from medscale.core.data.base_translator import BaseDataTranslator
 
 
 class RawDataTranslator(BaseDataTranslator):

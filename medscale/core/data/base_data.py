@@ -2,8 +2,8 @@ import logging
 
 from scipy.sparse.csc import csc_matrix
 
-from federatedscope.core.data.utils import merge_data
-from federatedscope.core.auxiliaries.dataloader_builder import get_dataloader
+from medscale.core.data.utils import merge_data
+from medscale.core.auxiliaries.dataloader_builder import get_dataloader
 
 logger = logging.getLogger(__name__)
 
@@ -101,7 +101,7 @@ class StandaloneDataDict(dict):
                 self.global_cfg.attack.trigger_type:
             import os
             import torch
-            from federatedscope.attack.auxiliary import \
+            from medscale.attack.auxiliary import \
                 create_ardis_poisoned_dataset, create_ardis_test_dataset
             if not os.path.exists(self.global_cfg.attack.edge_path):
                 os.makedirs(self.global_cfg.attack.edge_path)
@@ -130,7 +130,7 @@ class StandaloneDataDict(dict):
                 )
 
         if 'backdoor' in self.global_cfg.attack.attack_method:
-            from federatedscope.attack.auxiliary import poisoning
+            from medscale.attack.auxiliary import poisoning
             poisoning(datadict, self.global_cfg)
         return datadict
 

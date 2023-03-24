@@ -4,10 +4,10 @@ FederatedScope provides a rich collection of federated datasets for researchers,
 
 ## Built-in FS data
 
-All datasets can be accessed from [`federatedscope.core.auxiliaries.data_builder.get_data`](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/auxiliaries/data_builder.py), which are built to [`federatedscope.core.data.StandaloneDataDict`](https://github.com/alibaba/FederatedScope/tree/master/federatedscope/core/data/base_data.py) (for more details, see [[DataZoo advanced]](#advanced)). By setting `cfg.data.type = DATASET_NAME`, FS would download and pre-process a specific dataset to be passed to `FedRunner`. For example:
+All datasets can be accessed from [`medscale.core.auxiliaries.data_builder.get_data`](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/auxiliaries/data_builder.py), which are built to [`medscale.core.data.StandaloneDataDict`](https://github.com/alibaba/FederatedScope/tree/master/medscale/core/data/base_data.py) (for more details, see [[DataZoo advanced]](#advanced)). By setting `cfg.data.type = DATASET_NAME`, FS would download and pre-process a specific dataset to be passed to `FedRunner`. For example:
 
 ```python
-# Source: federatedscope/main.py
+# Source: medscale/main.py
 
 data, cfg = get_data(cfg)
 runner = FedRunner(data=data,
@@ -20,66 +20,66 @@ We provide a **look-up table** for you to get started with our DataZoo:
 
 | `cfg.data.type`                                              | Domain              |
 | ------------------------------------------------------------ | ------------------- |
-| [FEMNIST](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/cv/dataset/leaf_cv.py) | CV                  |
-| [Celeba](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/cv/dataset/leaf_cv.py) | CV                  |
-| [{DNAME}@torchvision](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/auxiliaries/data_builder.py) | CV                  |
-| [Shakespeare](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/nlp/dataset/leaf_nlp.py) | NLP                 |
-| [SubReddit](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/nlp/dataset/leaf_nlp.py) | NLP                 |
-| [Twitter (Sentiment140)](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/nlp/dataset/leaf_twitter.py) | NLP                 |
-| [{DNAME}@torchtext](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/auxiliaries/data_builder.py) | NLP                 |
-| [{DNAME}@huggingface_datasets](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/auxiliaries/data_builder.py) | NLP                 |
-| [Cora](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_node.py) | Graph (node-level)  |
-| [CiteSeer](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_node.py) | Graph (node-level)  |
-| [PubMed](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_node.py) | Graph (node-level)  |
-| [DBLP_conf](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataset/dblp_new.py) | Graph (node-level)  |
-| [DBLP_org](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataset/dblp_new.py) | Graph (node-level)  |
-| [csbm](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataset/cSBM_dataset.py) | Graph (node-level)  |
-| [Epinions](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataset/recsys.py) | Graph (link-level)  |
-| [Ciao](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataset/recsys.py) | Graph (link-level)  |
-| [FB15k](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_link.py) | Graph (link-level)  |
-| [FB15k-237](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_link.py) | Graph (link-level)  |
-| [WN18](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_link.py) | Graph (link-level)  |
-| [MUTAG](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [BZR](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [COX2](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [DHFR](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [PTC_MR](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [AIDS](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [NCI1](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [ENZYMES](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [DD](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [PROTEINS](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [COLLAB](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [IMDB-BINARY](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [IMDB-MULTI](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [REDDIT-BINARY](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [HIV](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [ESOL](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [FREESOLV](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [LIPO](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [PCBA](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [MUV](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [BACE](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [BBBP](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [TOX21](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [TOXCAST](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [SIDER](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [CLINTOX](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [graph_multi_domain_mol](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [graph_multi_domain_small](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [graph_multi_domain_biochem](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
-| [cikmcup](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/gfl/dataset/cikm_cup.py) | Graph (graph-level) |
-| [toy](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/auxiliaries/data_builder.py) | Tabular             |
-| [synthetic](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/nlp/dataset/leaf_synthetic.py) | Tabular             |
-| [quadratic](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/tabular/dataloader/quadratic.py) | Tabular             |
-| [{DNAME}openml](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/auxiliaries/data_builder.py) | Tabular             |
-| [vertical_fl_data](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/vertical_fl/dataloader/dataloader.py) | Tabular(vertical)   |
-| [VFLMovieLens1M](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/mf/dataset/movielens.py) | Recommendation      |
-| [VFLMovieLens10M](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/mf/dataset/movielens.py) | Recommendation      |
-| [HFLMovieLens1M](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/mf/dataset/movielens.py) | Recommendation      |
-| [HFLMovieLens10M](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/mf/dataset/movielens.py) | Recommendation      |
-| [VFLNetflix](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/mf/dataset/netflix.py) | Recommendation      |
-| [HFLNetflix](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/mf/dataset/netflix.py) | Recommendation      |
+| [FEMNIST](https://github.com/alibaba/FederatedScope/blob/master/medscale/cv/dataset/leaf_cv.py) | CV                  |
+| [Celeba](https://github.com/alibaba/FederatedScope/blob/master/medscale/cv/dataset/leaf_cv.py) | CV                  |
+| [{DNAME}@torchvision](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/auxiliaries/data_builder.py) | CV                  |
+| [Shakespeare](https://github.com/alibaba/FederatedScope/blob/master/medscale/nlp/dataset/leaf_nlp.py) | NLP                 |
+| [SubReddit](https://github.com/alibaba/FederatedScope/blob/master/medscale/nlp/dataset/leaf_nlp.py) | NLP                 |
+| [Twitter (Sentiment140)](https://github.com/alibaba/FederatedScope/blob/master/medscale/nlp/dataset/leaf_twitter.py) | NLP                 |
+| [{DNAME}@torchtext](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/auxiliaries/data_builder.py) | NLP                 |
+| [{DNAME}@huggingface_datasets](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/auxiliaries/data_builder.py) | NLP                 |
+| [Cora](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_node.py) | Graph (node-level)  |
+| [CiteSeer](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_node.py) | Graph (node-level)  |
+| [PubMed](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_node.py) | Graph (node-level)  |
+| [DBLP_conf](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataset/dblp_new.py) | Graph (node-level)  |
+| [DBLP_org](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataset/dblp_new.py) | Graph (node-level)  |
+| [csbm](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataset/cSBM_dataset.py) | Graph (node-level)  |
+| [Epinions](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataset/recsys.py) | Graph (link-level)  |
+| [Ciao](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataset/recsys.py) | Graph (link-level)  |
+| [FB15k](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_link.py) | Graph (link-level)  |
+| [FB15k-237](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_link.py) | Graph (link-level)  |
+| [WN18](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_link.py) | Graph (link-level)  |
+| [MUTAG](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [BZR](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [COX2](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [DHFR](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [PTC_MR](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [AIDS](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [NCI1](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [ENZYMES](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [DD](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [PROTEINS](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [COLLAB](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [IMDB-BINARY](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [IMDB-MULTI](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [REDDIT-BINARY](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [HIV](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [ESOL](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [FREESOLV](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [LIPO](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [PCBA](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [MUV](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [BACE](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [BBBP](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [TOX21](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [TOXCAST](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [SIDER](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [CLINTOX](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [graph_multi_domain_mol](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [graph_multi_domain_small](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [graph_multi_domain_biochem](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataloader/dataloader_graph.py) | Graph (graph-level) |
+| [cikmcup](https://github.com/alibaba/FederatedScope/blob/master/medscale/gfl/dataset/cikm_cup.py) | Graph (graph-level) |
+| [toy](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/auxiliaries/data_builder.py) | Tabular             |
+| [synthetic](https://github.com/alibaba/FederatedScope/blob/master/medscale/nlp/dataset/leaf_synthetic.py) | Tabular             |
+| [quadratic](https://github.com/alibaba/FederatedScope/blob/master/medscale/tabular/dataloader/quadratic.py) | Tabular             |
+| [{DNAME}openml](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/auxiliaries/data_builder.py) | Tabular             |
+| [vertical_fl_data](https://github.com/alibaba/FederatedScope/blob/master/medscale/vertical_fl/dataloader/dataloader.py) | Tabular(vertical)   |
+| [VFLMovieLens1M](https://github.com/alibaba/FederatedScope/blob/master/medscale/mf/dataset/movielens.py) | Recommendation      |
+| [VFLMovieLens10M](https://github.com/alibaba/FederatedScope/blob/master/medscale/mf/dataset/movielens.py) | Recommendation      |
+| [HFLMovieLens1M](https://github.com/alibaba/FederatedScope/blob/master/medscale/mf/dataset/movielens.py) | Recommendation      |
+| [HFLMovieLens10M](https://github.com/alibaba/FederatedScope/blob/master/medscale/mf/dataset/movielens.py) | Recommendation      |
+| [VFLNetflix](https://github.com/alibaba/FederatedScope/blob/master/medscale/mf/dataset/netflix.py) | Recommendation      |
+| [HFLNetflix](https://github.com/alibaba/FederatedScope/blob/master/medscale/mf/dataset/netflix.py) | Recommendation      |
 
 ## <span id="advanced">DataZoo Advanced</span>
 
@@ -87,7 +87,7 @@ In this section, we will introduce key concepts and tools to help you understand
 
 Concepts:
 
-* [`federatedscope.core.data.ClientData`](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/data/base_data.py)
+* [`medscale.core.data.ClientData`](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/data/base_data.py)
 
   * `ClientData` is a subclass of `dict`. In federated learning, each client (server) owns a `ClientData` for training, validating, or testing. Thus, each `ClientData` has one or more of `train`, `val`, and `test` as keys, and `DataLoader` accordingly. 
 
@@ -109,13 +109,13 @@ Concepts:
     >> {'train': DataLoader(train_data), 'test': DataLoader(test_data)}
     ```
 
-* [`federatedscope.core.data.StandaloneDataDict`](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/data/base_data.py)
+* [`medscale.core.data.StandaloneDataDict`](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/data/base_data.py)
   * `StandaloneDataDict` is a subclass of `dict`. As the name implies, `StandaloneDataDict` consists of all `ClientData` with client index as key (`0`, `1`, `2`, ...) in standalone mode. The key `0` is the data of the server for global evaluation or other usages. 
   * The method `preprocess()` in `StandaloneDataDict` makes changes to inner `ClientData` when `cfg` changes, such as in global mode, we set `cfg.federate.method == "global"`, and `StandaloneDataDict` will merge all `ClientData` to one client to perform global training.
 
 Tools
 
-* [`federatedscope.core.data.BaseDataTranslator`](https://github.com/alibaba/FederatedScope/blob/master/federatedscope/core/data/base_translator.py)
+* [`medscale.core.data.BaseDataTranslator`](https://github.com/alibaba/FederatedScope/blob/master/medscale/core/data/base_translator.py)
 
   * `BaseDataTranslator` converts [`torch.utils.data.Dataset`](https://pytorch.org/docs/stable/data.html#torch.utils.data.Dataset) or `dict` of data split to `StandaloneDataDict` according to `cfg`. After translating, it can be directly passed to `FedRunner` to launch a FL course.
 
@@ -138,7 +138,7 @@ Tools
                        config=cfg.clone())
     ```
 
-* [`federatedscope.core.splitters`](federatedscope.core.splitters)
+* [`medscale.core.splitters`](medscale.core.splitters)
 
   * To generate simulated federation datasets, we provide `splitter` who are responsible for dispersing a given standalone dataset into multiple clients, with configurable statistical heterogeneity among them.
 

@@ -38,28 +38,28 @@ def load_dataset(config, client_cfgs=None):
     Loads the dataset for the given config from branches
 
     Args:
-        config: configurations for FL, see ``federatedscope.core.configs``
+        config: configurations for FL, see ``medscale.core.configs``
 
     Note:
-        See https://federatedscope.io/docs/datazoo/ for all available data.
+        See https://medscale.io/docs/datazoo/ for all available data.
     """
 
     if config.data.type.lower() == 'toy':
-        from federatedscope.tabular.dataloader.toy import load_toy_data
+        from medscale.tabular.dataloader.toy import load_toy_data
         dataset, modified_config = load_toy_data(config)
     elif config.data.type.lower() == 'quadratic':
-        from federatedscope.tabular.dataloader import load_quadratic_dataset
+        from medscale.tabular.dataloader import load_quadratic_dataset
         dataset, modified_config = load_quadratic_dataset(config)
     elif config.data.type.lower() in ['femnist', 'celeba']:
-        from federatedscope.cv.dataloader import load_cv_dataset
+        from medscale.cv.dataloader import load_cv_dataset
         dataset, modified_config = load_cv_dataset(config)
     elif config.data.type.lower() in ['cifar4cl', 'cifar4lp']:
-        from federatedscope.cl.dataloader import load_cifar_dataset
+        from medscale.cl.dataloader import load_cifar_dataset
         dataset, modified_config = load_cifar_dataset(config)
     elif config.data.type.lower() in [
             'shakespeare', 'twitter', 'subreddit', 'synthetic'
     ]:
-        from federatedscope.nlp.dataloader import load_nlp_dataset
+        from medscale.nlp.dataloader import load_nlp_dataset
         dataset, modified_config = load_nlp_dataset(config)
     elif config.data.type.lower() in [
             'cora',
@@ -68,34 +68,34 @@ def load_dataset(config, client_cfgs=None):
             'dblp_conf',
             'dblp_org',
     ] or config.data.type.lower().startswith('csbm'):
-        from federatedscope.gfl.dataloader import load_nodelevel_dataset
+        from medscale.gfl.dataloader import load_nodelevel_dataset
         dataset, modified_config = load_nodelevel_dataset(config)
     elif config.data.type.lower() in ['ciao', 'epinions', 'fb15k-237', 'wn18']:
-        from federatedscope.gfl.dataloader import load_linklevel_dataset
+        from medscale.gfl.dataloader import load_linklevel_dataset
         dataset, modified_config = load_linklevel_dataset(config)
     elif config.data.type.lower() in [
             'hiv', 'proteins', 'imdb-binary', 'bbbp', 'tox21', 'bace', 'sider',
             'clintox', 'esol', 'freesolv', 'lipo', 'cikmcup'
     ] or config.data.type.startswith('graph_multi_domain'):
-        from federatedscope.gfl.dataloader import load_graphlevel_dataset
+        from medscale.gfl.dataloader import load_graphlevel_dataset
         dataset, modified_config = load_graphlevel_dataset(config)
     elif config.data.type.lower() in [
             'synthetic_vfl_data', 'adult', 'abalone', 'credit', 'blog'
     ]:
-        from federatedscope.vertical_fl.dataloader import load_vertical_data
+        from medscale.vertical_fl.dataloader import load_vertical_data
         generate = config.data.type.lower() == 'synthetic_vfl_data'
         dataset, modified_config = load_vertical_data(config,
                                                       generate=generate)
     elif 'movielens' in config.data.type.lower(
     ) or 'netflix' in config.data.type.lower():
-        from federatedscope.mf.dataloader import load_mf_dataset
+        from medscale.mf.dataloader import load_mf_dataset
         dataset, modified_config = load_mf_dataset(config)
     elif 'hetero_nlp_tasks' in config.data.type.lower():
-        from federatedscope.nlp.hetero_tasks.dataloader import \
+        from medscale.nlp.hetero_tasks.dataloader import \
             load_heteroNLP_data
         dataset, modified_config = load_heteroNLP_data(config, client_cfgs)
     elif '@' in config.data.type.lower():
-        from federatedscope.core.data.utils import load_external_data
+        from medscale.core.data.utils import load_external_data
         dataset, modified_config = load_external_data(config)
     elif config.data.type is None or config.data.type == "":
         # The participant (only for server in this version) does not own data
@@ -112,18 +112,18 @@ def load_external_data(config=None):
     datasets and applies train/valid/test.
 
     Args:
-        config: `CN` from `federatedscope/core/configs/config.py`
+        config: `CN` from `medscale/core/configs/config.py`
 
     Returns:
         (data, modified_config): tuple of ML split dataset, \
-        and `CN` from `federatedscope/core/configs/config.py`, \
+        and `CN` from `medscale/core/configs/config.py`, \
         which might be modified in the function.
     """
 
     import torch
     from importlib import import_module
     from torch.utils.data import DataLoader
-    from federatedscope.core.auxiliaries.transform_builder import get_transform
+    from medscale.core.auxiliaries.transform_builder import get_transform
 
     def load_torchvision_data(name, splits=None, config=None):
         from torch.utils.data import Subset
@@ -231,7 +231,7 @@ def load_external_data(config=None):
 
     def load_torchtext_data(name, splits=None, config=None):
         from torch.nn.utils.rnn import pad_sequence
-        from federatedscope.nlp.dataset.utils import label_to_index
+        from medscale.nlp.dataset.utils import label_to_index
 
         dataset_func = getattr(import_module('torchtext.datasets'), name)
         if config.data.args:
@@ -548,7 +548,7 @@ def convert_data_mode(data, config):
 
     Args:
         data: ``StandaloneDataDict``
-        config: configuration of FL course, see `federatedscope.core.configs`
+        config: configuration of FL course, see `medscale.core.configs`
 
     Returns:
         ``StandaloneDataDict`` in ``standalone`` mode, or ``ClientData`` in \
@@ -617,7 +617,7 @@ def merge_data(all_data, merged_max_data_id=None, specified_dataset_name=None):
         Merged data.
     """
     import torch.utils.data
-    from federatedscope.core.data.wrap_dataset import WrapDataset
+    from medscale.core.data.wrap_dataset import WrapDataset
 
     # Assert
     if merged_max_data_id is None:
