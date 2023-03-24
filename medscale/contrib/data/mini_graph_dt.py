@@ -1,12 +1,12 @@
 import os
 import numpy as np
 
-from federatedscope.register import register_data
+from medscale.register import register_data
 
 # Run with mini_graph_dt:
-# python federatedscope/main.py --cfg \
-# federatedscope/gfl/baseline/mini_graph_dc/fedavg.yaml --client_cfg \
-# federatedscope/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml
+# python medscale/main.py --cfg \
+# medscale/gfl/baseline/mini_graph_dc/fedavg.yaml --client_cfg \
+# medscale/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml
 # Test Accuracy: ~0.7
 
 
@@ -14,9 +14,9 @@ def load_mini_graph_dt(config, client_cfgs=None):
     import torch
     from torch_geometric.data import InMemoryDataset, Data
     from torch_geometric.datasets import TUDataset, MoleculeNet
-    from federatedscope.core.splitters.graph.scaffold_lda_splitter import \
+    from medscale.core.splitters.graph.scaffold_lda_splitter import \
         GenFeatures
-    from federatedscope.core.data import DummyDataTranslator
+    from medscale.core.data import DummyDataTranslator
 
     class MiniGraphDCDataset(InMemoryDataset):
         NAME = 'mini_graph_dt'

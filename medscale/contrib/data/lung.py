@@ -5,19 +5,19 @@ from torchvision.datasets import ImageFolder, VisionDataset
 from torch import device
 from torch.utils.data import DataLoader 
 from torchvision import datasets, transforms
-from federatedscope.register import register_data
+from medscale.register import register_data
 
 # Run with mini_graph_dt:
-# python federatedscope/main.py --cfg \
-# federatedscope/gfl/baseline/mini_graph_dc/fedavg.yaml --client_cfg \
-# federatedscope/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml
+# python medscale/main.py --cfg \
+# medscale/gfl/baseline/mini_graph_dc/fedavg.yaml --client_cfg \
+# medscale/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml
 # Test Accuracy: ~0.7
 
     
 
    
 def load_my_data(config, size,client_cfgs=None):
-      from federatedscope.core.data import BaseDataTranslator
+      from medscale.core.data import BaseDataTranslator
 
 
       transform=transforms.Compose([

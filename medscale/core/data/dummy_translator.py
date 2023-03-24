@@ -1,5 +1,5 @@
-from federatedscope.core.data.base_translator import BaseDataTranslator
-from federatedscope.core.data.base_data import ClientData
+from medscale.core.data.base_translator import BaseDataTranslator
+from medscale.core.data.base_data import ClientData
 
 
 class DummyDataTranslator(BaseDataTranslator):

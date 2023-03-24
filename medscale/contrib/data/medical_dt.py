@@ -4,12 +4,12 @@ import torch
 from torchvision.datasets import ImageFolder
 from torch import device
 from torchvision import datasets, transforms
-from federatedscope.register import register_data
+from medscale.register import register_data
 
 # Run with mini_graph_dt:
-# python federatedscope/main.py --cfg \
-# federatedscope/gfl/baseline/mini_graph_dc/fedavg.yaml --client_cfg \
-# federatedscope/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml
+# python medscale/main.py --cfg \
+# medscale/gfl/baseline/mini_graph_dc/fedavg.yaml --client_cfg \
+# medscale/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml
 # Test Accuracy: ~0.7
 
     
