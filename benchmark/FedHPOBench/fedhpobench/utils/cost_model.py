@@ -1,5 +1,13 @@
 import math
+<<<<<<< HEAD
 from medscale.core.auxiliaries.model_builder import get_model
+=======
+<<<<<<< HEAD
+from medscale.core.auxiliaries.model_builder import get_model
+=======
+from federatedscope.core.auxiliaries.model_builder import get_model
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 
 
 def merge_cfg(cfg, configuration, fidelity):

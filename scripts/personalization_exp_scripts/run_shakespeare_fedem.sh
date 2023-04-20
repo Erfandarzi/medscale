@@ -28,7 +28,15 @@ do
         do
             for (( g=0; g<${#models[@]}; g++ ))
             do
+<<<<<<< HEAD
                 python medscale/main.py --cfg medscale/nlp/baseline/fedavg_lstm_on_shakespeare.yaml federate.method ${method} dataloader.batch_size ${bs} model.model_num_per_trainer ${model_num_per_trainer} device ${cudaid} train.optimizer.lr ${lrs[$i]} train.local_update_steps ${local_updates[$j]} model.type ${models[$g]} seed $k outdir ${outdir}/${models[$g]}_${lrs[$i]}_${local_updates[$j]}_bs${bs}_on_${dataset}
+=======
+<<<<<<< HEAD
+                python medscale/main.py --cfg medscale/nlp/baseline/fedavg_lstm_on_shakespeare.yaml federate.method ${method} dataloader.batch_size ${bs} model.model_num_per_trainer ${model_num_per_trainer} device ${cudaid} train.optimizer.lr ${lrs[$i]} train.local_update_steps ${local_updates[$j]} model.type ${models[$g]} seed $k outdir ${outdir}/${models[$g]}_${lrs[$i]}_${local_updates[$j]}_bs${bs}_on_${dataset}
+=======
+                python federatedscope/main.py --cfg federatedscope/nlp/baseline/fedavg_lstm_on_shakespeare.yaml federate.method ${method} dataloader.batch_size ${bs} model.model_num_per_trainer ${model_num_per_trainer} device ${cudaid} train.optimizer.lr ${lrs[$i]} train.local_update_steps ${local_updates[$j]} model.type ${models[$g]} seed $k outdir ${outdir}/${models[$g]}_${lrs[$i]}_${local_updates[$j]}_bs${bs}_on_${dataset}
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
             done
         done
     done

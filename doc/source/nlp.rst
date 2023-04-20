@@ -1,6 +1,10 @@
 Federated Natural Language Processing  Module References
 =======================
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 medscale.nlp.dataset
 -----------------------
 
@@ -26,5 +30,35 @@ medscale.nlp.trainer
 -----------------------
 
 .. automodule:: medscale.nlp.trainer
+<<<<<<< HEAD
+=======
+=======
+federatedscope.nlp.dataset
+-----------------------
+
+.. automodule:: federatedscope.nlp.dataset
+    :members:
+    :private-members:
+
+federatedscope.nlp.dataloader
+-----------------------
+
+.. automodule:: federatedscope.nlp.dataloader
+    :members:
+    :private-members:
+
+federatedscope.nlp.model
+-----------------------
+
+.. automodule:: federatedscope.nlp.model
+    :members:
+    :private-members:
+
+federatedscope.nlp.trainer
+-----------------------
+
+.. automodule:: federatedscope.nlp.trainer
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
     :members:
     :private-members:

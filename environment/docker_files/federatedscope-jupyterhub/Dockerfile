@@ -1,7 +1,15 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
+<<<<<<< HEAD
 # The medscale-jupyterhub image includes all runtime stuffs of medscale,
+=======
+<<<<<<< HEAD
+# The medscale-jupyterhub image includes all runtime stuffs of medscale,
+=======
+# The federatedscope-jupyterhub image includes all runtime stuffs of federatedscope,
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 # with customized miniconda, required packages installed and jupyter-singleuser running.
 
 ARG ROOT_CONTAINER=nvidia/cuda:11.3.1-runtime-ubuntu20.04
@@ -198,7 +206,15 @@ SHELL ["/bin/bash", "-c"]
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+<<<<<<< HEAD
 # install packages required by medscale
+=======
+<<<<<<< HEAD
+# install packages required by medscale
+=======
+# install packages required by federatedscope
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 RUN conda update -y conda \
     && conda config --add channels conda-forge
 # basic machine learning env

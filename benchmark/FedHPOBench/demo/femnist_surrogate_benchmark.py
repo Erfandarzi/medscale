@@ -18,9 +18,21 @@ class FENISTSurrogateFedHPOBench(BaseSurrogateFedHPOBench):
                  data_path: Union[str, Path],
                  model_path: Union[str, Path],
                  rng: Union[np.random.RandomState, int, None] = None):
+<<<<<<< HEAD
         data_url = "https://medscale.oss-cn-beijing.aliyuncs.com" \
                     "/fedhpob_cnn_tabular.zip"
         model_url = "https://medscale.oss-cn-beijing.aliyuncs.com" \
+=======
+<<<<<<< HEAD
+        data_url = "https://medscale.oss-cn-beijing.aliyuncs.com" \
+                    "/fedhpob_cnn_tabular.zip"
+        model_url = "https://medscale.oss-cn-beijing.aliyuncs.com" \
+=======
+        data_url = "https://federatedscope.oss-cn-beijing.aliyuncs.com" \
+                    "/fedhpob_cnn_tabular.zip"
+        model_url = "https://federatedscope.oss-cn-beijing.aliyuncs.com" \
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
                     "/fedhpob_cnn_surrogate.zip"
         triplets = ('cnn', 'femnist', 'avg')
         client_num = 200

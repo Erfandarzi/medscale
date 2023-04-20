@@ -1,9 +1,23 @@
 import datetime
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 from medscale.core.auxiliaries.utils import setup_seed
 from medscale.core.auxiliaries.data_builder import get_data
 from medscale.core.auxiliaries.worker_builder import get_client_cls, \
     get_server_cls
 from medscale.core.fed_runner import FedRunner
+<<<<<<< HEAD
+=======
+=======
+from federatedscope.core.auxiliaries.utils import setup_seed
+from federatedscope.core.auxiliaries.data_builder import get_data
+from federatedscope.core.auxiliaries.worker_builder import get_client_cls, \
+    get_server_cls
+from federatedscope.core.fed_runner import FedRunner
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 
 from fedhpobench.benchmarks.base_benchmark import BaseBenchmark
 from fedhpobench.utils.util import disable_fs_logger

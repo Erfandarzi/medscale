@@ -11,17 +11,39 @@ To fully reproduce the experimental results reported in the paper, please use th
 # 1. Data
 All the experimental data can be automatically downloaded and processed via *FederatedScope* from the original public data links.
 
+<<<<<<< HEAD
 In case the slow or blocked internet connection prevents your downloading, we also provide a public [mirror](https://medscale.oss-cn-beijing.aliyuncs.com/pFL-Bench-data.zip) with *aliyun*.
+=======
+<<<<<<< HEAD
+In case the slow or blocked internet connection prevents your downloading, we also provide a public [mirror](https://medscale.oss-cn-beijing.aliyuncs.com/pFL-Bench-data.zip) with *aliyun*.
+=======
+In case the slow or blocked internet connection prevents your downloading, we also provide a public [mirror](https://federatedscope.oss-cn-beijing.aliyuncs.com/pFL-Bench-data.zip) with *aliyun*.
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 You can download the pre-processed datasets from our public mirror and unzip them in `data` directory under your project root.
 
 If you use other customized data directory, please replace the value of `data.root` in the scripts accordingly.
 
 # 2. Docker Environment
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 The experiments are conducted on the *medscale-torch1.8-application* docker image, you can build it using the [Dockfile](https://github.com/alibaba/FederatedScope/blob/master/enviroment/docker_files/medscale-torch1.8-application.Dockerfile). If you do not want to use docker, you can also install the required package according to the steps depicted in the Dockfile.
 
 We also provide a built docker [image](https://medscale.oss-cn-beijing.aliyuncs.com/medscale_cuda10_torch18_app.tar), you can download it and creat your image as 
 ```
 docker load < medscale_cuda10_torch18_app.tar & docker tag 188b4 alibaba/medscale:app-env-torch1.8
+<<<<<<< HEAD
+=======
+=======
+The experiments are conducted on the *federatedscope-torch1.8-application* docker image, you can build it using the [Dockfile](https://github.com/alibaba/FederatedScope/blob/master/enviroment/docker_files/federatedscope-torch1.8-application.Dockerfile). If you do not want to use docker, you can also install the required package according to the steps depicted in the Dockfile.
+
+We also provide a built docker [image](https://federatedscope.oss-cn-beijing.aliyuncs.com/federatedscope_cuda10_torch18_app.tar), you can download it and creat your image as 
+```
+docker load < federatedscope_cuda10_torch18_app.tar & docker tag 188b4 alibaba/federatedscope:app-env-torch1.8
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 
 # 3. Run the experiments
@@ -30,7 +52,15 @@ Here we provide some examples for FEMNIST-s02 at `benchmark/pfl_bench/FEMNIST-s0
 
 Since the searching scripts and best config yaml files for all experiments involve about 600 files and 6w+ code lines, we omit them here.
 
+<<<<<<< HEAD
 You can find the full scripts from the another [branch](https://github.com/alibaba/FederatedScope/tree/Feature/pfl_bench/scripts/personalization_exp_scripts/pfl_bench) or the packed small zip [file](https://medscale.oss-cn-beijing.aliyuncs.com/pfl_bench_scripts.zip), in which we organize the scripts for all the methods and all the datasets as multiple directories named by dataset name.
+=======
+<<<<<<< HEAD
+You can find the full scripts from the another [branch](https://github.com/alibaba/FederatedScope/tree/Feature/pfl_bench/scripts/personalization_exp_scripts/pfl_bench) or the packed small zip [file](https://medscale.oss-cn-beijing.aliyuncs.com/pfl_bench_scripts.zip), in which we organize the scripts for all the methods and all the datasets as multiple directories named by dataset name.
+=======
+You can find the full scripts from the another [branch](https://github.com/alibaba/FederatedScope/tree/Feature/pfl_bench/scripts/personalization_exp_scripts/pfl_bench) or the packed small zip [file](https://federatedscope.oss-cn-beijing.aliyuncs.com/pfl_bench_scripts.zip), in which we organize the scripts for all the methods and all the datasets as multiple directories named by dataset name.
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 
 ## 3.1 The searched best configs
 We put all the config yaml file in the directory `benchmark/pfl_bench/yaml_best_runs`.
@@ -43,13 +73,29 @@ git clone https://github.com/alibaba/FederatedScope.git
 git switch Feature/pfl_bench
 
 # Try a run with the example yaml
+<<<<<<< HEAD
 python medscale/main.py --cfg benchmark/pfl_bench/yaml_best_runs/FedBN_FEMNIST-s02.yaml
+=======
+<<<<<<< HEAD
+python medscale/main.py --cfg benchmark/pfl_bench/yaml_best_runs/FedBN_FEMNIST-s02.yaml
+=======
+python federatedscope/main.py --cfg benchmark/pfl_bench/yaml_best_runs/FedBN_FEMNIST-s02.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 Then all the metrics will be tracked in your logfile and send to wandb monitor.
 
 You can customize the yaml file such as your wandb project name, or directly add new config in the command such as 
 ```
+<<<<<<< HEAD
 python medscale/main.py --cfg benchmark/pfl_bench/yaml_best_runs/FedBN_FEMNIST-s02.yaml federate.local_update_steps 1
+=======
+<<<<<<< HEAD
+python medscale/main.py --cfg benchmark/pfl_bench/yaml_best_runs/FedBN_FEMNIST-s02.yaml federate.local_update_steps 1
+=======
+python federatedscope/main.py --cfg benchmark/pfl_bench/yaml_best_runs/FedBN_FEMNIST-s02.yaml federate.local_update_steps 1
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 More examples for other methods including the combined pFL method variants (e.g., `FedEM-FedBN-FedOPT-FT_cifar10-alpha01.yaml`) are in the directory `benchmark/pfl_bench/yaml_best_runs`.
 
@@ -75,7 +121,15 @@ wandb: View sweep at: http://xx.xx.xxx.xxx:8080/your_sweep_name/pFL-bench/sweeps
    
 1. enter the container
 ```
+<<<<<<< HEAD
 docker run -u root --gpus all -it --rm -v "/mnt1:/mnt" --name your_name-pfl-bench -w /mnt/user_name/FederatedScope alibaba/medscale:app-env-torch1.8 /bin/bash
+=======
+<<<<<<< HEAD
+docker run -u root --gpus all -it --rm -v "/mnt1:/mnt" --name your_name-pfl-bench -w /mnt/user_name/FederatedScope alibaba/medscale:app-env-torch1.8 /bin/bash
+=======
+docker run -u root --gpus all -it --rm -v "/mnt1:/mnt" --name your_name-pfl-bench -w /mnt/user_name/FederatedScope alibaba/federatedscope:app-env-torch1.8 /bin/bash
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
    
 2. setup wandb and FederatedScope
@@ -97,7 +151,15 @@ nohup wandb agent your_name/pFL-bench/sweep_id &
 For the machine used for remote development and debug
 1. enter the container:
 ```
+<<<<<<< HEAD
 docker run -u root -p 8023:22 --gpus all -it --rm -v "/mnt1:/mnt"  --name your_name-pfl-bench-debug -w /mnt/user_name/FederatedScope alibaba/medscale:app-env-torch1.8 /bin/bash
+=======
+<<<<<<< HEAD
+docker run -u root -p 8023:22 --gpus all -it --rm -v "/mnt1:/mnt"  --name your_name-pfl-bench-debug -w /mnt/user_name/FederatedScope alibaba/medscale:app-env-torch1.8 /bin/bash
+=======
+docker run -u root -p 8023:22 --gpus all -it --rm -v "/mnt1:/mnt"  --name your_name-pfl-bench-debug -w /mnt/user_name/FederatedScope alibaba/federatedscope:app-env-torch1.8 /bin/bash
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 
 2. prepare the ssh and wandb

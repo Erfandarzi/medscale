@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 from medscale.core.cmd_args import parse_args
+=======
+<<<<<<< HEAD
+from medscale.core.cmd_args import parse_args
+=======
+from federatedscope.core.cmd_args import parse_args
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 from fedhpobench.config import fhb_cfg, add_configs
 from fedhpobench.optimizers import run_dehb, run_hpbandster, run_optuna, \
     run_smac, run_grid_search

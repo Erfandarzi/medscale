@@ -1,12 +1,27 @@
 # Copyright (c) Alibaba, Inc. and its affiliates.
 import unittest
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 from medscale.core.auxiliaries.data_builder import get_data
 from medscale.core.auxiliaries.utils import setup_seed
 from medscale.core.auxiliaries.logging import update_logger
 from medscale.core.configs.config import global_cfg
 from medscale.core.fed_runner import FedRunner
 from medscale.core.auxiliaries.worker_builder import get_server_cls, get_client_cls
+<<<<<<< HEAD
+=======
+=======
+from federatedscope.core.auxiliaries.data_builder import get_data
+from federatedscope.core.auxiliaries.utils import setup_seed
+from federatedscope.core.auxiliaries.logging import update_logger
+from federatedscope.core.configs.config import global_cfg
+from federatedscope.core.fed_runner import FedRunner
+from federatedscope.core.auxiliaries.worker_builder import get_server_cls, get_client_cls
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 
 SAMPLE_CLIENT_NUM = 5
 

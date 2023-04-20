@@ -332,7 +332,15 @@ def load_best_repeat_res(filter_seed_set=None):
                 expname_tag_new = expname_tag
             seed_num = seed.replace("seed", "")
             all_missing_scripts[seed].append(
+<<<<<<< HEAD
                 f"python medscale/main.py --cfg scripts/personalization_exp_scripts/pfl_bench/yaml_best_runs/{yaml_name} seed {seed_num} expname_tag {expname_tag_new} wandb.name_project pfl-bench-best-repeat"
+=======
+<<<<<<< HEAD
+                f"python medscale/main.py --cfg scripts/personalization_exp_scripts/pfl_bench/yaml_best_runs/{yaml_name} seed {seed_num} expname_tag {expname_tag_new} wandb.name_project pfl-bench-best-repeat"
+=======
+                f"python federatedscope/main.py --cfg scripts/personalization_exp_scripts/pfl_bench/yaml_best_runs/{yaml_name} seed {seed_num} expname_tag {expname_tag_new} wandb.name_project pfl-bench-best-repeat"
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
             )
         elif finished_run_cnt != 1 and print_missing:
             print(f"run_cnt = {finished_run_cnt} for the exp {expname_tag}")

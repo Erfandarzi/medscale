@@ -530,7 +530,15 @@ def generate_repeat_scripts(best_cfg_path, seed_sets=None):
         method, data = exp_name.split("_")
         for seed in seed_sets:
             print(
+<<<<<<< HEAD
                 f"python medscale/main.py --cfg scripts/personalization_exp_scripts/pfl_bench/yaml_best_runs/{file_name} seed {seed} expname_tag {exp_name}_seed{seed} wandb.name_project pfl-bench-best-repeat"
+=======
+<<<<<<< HEAD
+                f"python medscale/main.py --cfg scripts/personalization_exp_scripts/pfl_bench/yaml_best_runs/{file_name} seed {seed} expname_tag {exp_name}_seed{seed} wandb.name_project pfl-bench-best-repeat"
+=======
+                f"python federatedscope/main.py --cfg scripts/personalization_exp_scripts/pfl_bench/yaml_best_runs/{file_name} seed {seed} expname_tag {exp_name}_seed{seed} wandb.name_project pfl-bench-best-repeat"
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
             )
             file_cnt += 1
             if file_cnt % 10 == 0:

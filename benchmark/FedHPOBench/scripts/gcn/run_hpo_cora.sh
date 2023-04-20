@@ -21,7 +21,15 @@ for ((l = 0; l < ${#lrs[@]}; l++)); do
     for ((d = 0; d < ${#dps[@]}; d++)); do
       for ((s = 0; s < ${#steps[@]}; s++)); do
         for k in {1..3}; do
+<<<<<<< HEAD
           python medscale/main.py --cfg fedhpo/graph/${dataset}/${dataset}.yaml device $cudaid optimizer.lr ${lrs[$l]} optimizer.weight_decay ${wds[$w]} model.dropout ${dps[$d]} federate.local_update_steps ${steps[$s]} federate.sample_client_num $sample_num seed $k outdir ${out_dir}_${sample_num} expname lr${lrs[$l]}_wd${wds[$w]}_dropout${dps[$d]}_step${steps[$s]}_seed${k} >/dev/null 2>&1
+=======
+<<<<<<< HEAD
+          python medscale/main.py --cfg fedhpo/graph/${dataset}/${dataset}.yaml device $cudaid optimizer.lr ${lrs[$l]} optimizer.weight_decay ${wds[$w]} model.dropout ${dps[$d]} federate.local_update_steps ${steps[$s]} federate.sample_client_num $sample_num seed $k outdir ${out_dir}_${sample_num} expname lr${lrs[$l]}_wd${wds[$w]}_dropout${dps[$d]}_step${steps[$s]}_seed${k} >/dev/null 2>&1
+=======
+          python federatedscope/main.py --cfg fedhpo/graph/${dataset}/${dataset}.yaml device $cudaid optimizer.lr ${lrs[$l]} optimizer.weight_decay ${wds[$w]} model.dropout ${dps[$d]} federate.local_update_steps ${steps[$s]} federate.sample_client_num $sample_num seed $k outdir ${out_dir}_${sample_num} expname lr${lrs[$l]}_wd${wds[$w]}_dropout${dps[$d]}_step${steps[$s]}_seed${k} >/dev/null 2>&1
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
         done
       done
     done

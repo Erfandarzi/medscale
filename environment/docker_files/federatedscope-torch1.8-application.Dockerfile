@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 # The medscale image includes all runtime stuffs of medscale,
+=======
+<<<<<<< HEAD
+# The medscale image includes all runtime stuffs of medscale,
+=======
+# The federatedscope image includes all runtime stuffs of federatedscope,
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 # with customized miniconda and required packages installed.
 
 # based on the nvidia-docker
@@ -27,7 +35,15 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 ENV PATH=/root/miniconda3/bin:${PATH}
 RUN source activate
 
+<<<<<<< HEAD
 # install packages required by medscale
+=======
+<<<<<<< HEAD
+# install packages required by medscale
+=======
+# install packages required by federatedscope
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 RUN conda update -y conda \
     && conda config --add channels conda-forge
 
