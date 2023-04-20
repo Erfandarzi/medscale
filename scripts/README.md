@@ -1,6 +1,10 @@
 ## Scripts for Reproduction
 We provide some scripts for reproducing existing algorithms with FederatedScope, which are constantly being updated.
+<<<<<<< HEAD
 We greatly appreciate any [contribution](https://medscale.io/docs/contributor/) to FederatedScope!
+=======
+We greatly appreciate any [contribution](https://federatedscope.io/docs/contributor/) to FederatedScope!
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 - [Distribute Mode](#distribute-mode)
 - [Asynchronous Training Strategy](#asynchronous-training-strategy)
@@ -18,7 +22,11 @@ bash distributed_scripts/run_distributed_lr.sh
 ```
 The FL course consists of 1 server and 3 clients, which executes on one device as simulation. Each client owns private data and the server holds a test set for global evaluation.
 - For running with multiple devices, you need to specify the host/port of IP addresses in the configurations (i.e., the yaml files) and make sure these devices are connected.
+<<<<<<< HEAD
 Then you can launch the participants (i.e., `python medscale/main.py --cfg xxx.yaml`) on each provided device (Remember to launch the server first).
+=======
+Then you can launch the participants (i.e., `python federatedscope/main.py --cfg xxx.yaml`) on each provided device (Remember to launch the server first).
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 - For the situation that server doesn't own data and the evaluation is performed at clients, use `distributed_server_no_data.yaml` at this [line](https://github.com/alibaba/FederatedScope/blob/master/scripts/distributed_scripts/run_distributed_lr.sh#L11).
 
 Also, users can run distribute mode with other provided datasets and models. Take training ConvNet on FEMNIST as an example:
@@ -33,36 +41,61 @@ Users can run the following comments for reproducing, and modify/add the yaml fi
 Train ConvNet on FEMNIST with vanilla FedAvg:
 ```shell script
 cd ..
+<<<<<<< HEAD
 python medscale/main.py --cfg medscale/cv/baseline/fedavg_convnet2_on_femnist.yaml
 # or 
 # python medscale/main.py --cfg scripts/example_configs/femnist.yaml
+=======
+python federatedscope/main.py --cfg federatedscope/cv/baseline/fedavg_convnet2_on_femnist.yaml
+# or 
+# python federatedscope/main.py --cfg scripts/example_configs/femnist.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 Train ConvNet on CelebA with vanilla FedAvg:
 ```shell script
 cd ..
+<<<<<<< HEAD
 python medscale/main.py --cfg medscale/cv/baseline/fedavg_convnet2_on_celeba.yaml
+=======
+python federatedscope/main.py --cfg federatedscope/cv/baseline/fedavg_convnet2_on_celeba.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 Train ConvNet on FEMNIST with FedBN:
 ```shell script
 cd ..
+<<<<<<< HEAD
 python medscale/main.py --cfg medscale/cv/baseline/fedbn_convnet2_on_femnist.yaml
+=======
+python federatedscope/main.py --cfg federatedscope/cv/baseline/fedbn_convnet2_on_femnist.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 ### Asynchronous Training Strategy
 We provide an example for training ConvNet on CIFAR-10 with asynchronous training strategies:
 ```shell script
 cd ..
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/example_configs/asyn_cifar10.yaml
 ```
 The FL courses consists of 1 server and 200 clients, which applies `goal_achieved` strategies and set the `min_received_num=10` and `staleness_toleration=10`.
 Users can change the configurations related to asynchronous training for customization. Please see [configurations](https://github.com/alibaba/FederatedScope/tree/master/medscale/core/configs).
+=======
+python federatedscope/main.py --cfg scripts/example_configs/asyn_cifar10.yaml
+```
+The FL courses consists of 1 server and 200 clients, which applies `goal_achieved` strategies and set the `min_received_num=10` and `staleness_toleration=10`.
+Users can change the configurations related to asynchronous training for customization. Please see [configurations](https://github.com/alibaba/FederatedScope/tree/master/federatedscope/core/configs).
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 Note that users can manually download [cifar-10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset and put it to `FederatedScope/data` if the automatic download process failed. And for `resource_info_file`, we take the [client_device_capacity](https://github.com/SymbioticLab/FedScale/blob/master/benchmark/dataset/data/device_info/client_device_capacity) provided by [1] as an example.
 
 ### Graph Federated Learning
+<<<<<<< HEAD
 Please refer to [gfl](https://github.com/alibaba/FederatedScope/tree/master/medscale/gfl) for more details.
+=======
+Please refer to [gfl](https://github.com/alibaba/FederatedScope/tree/master/federatedscope/gfl) for more details.
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 ### Attacks in Federated Learning
 
@@ -75,27 +108,47 @@ Run the attack in [2]:
 
 - The case that the target data are not in the training set:
 ```shell script
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/attack_exp_scripts/privacy_attack/gradient_ascent_MIA_on_femnist.yaml
+=======
+python federatedscope/main.py --cfg scripts/attack_exp_scripts/privacy_attack/gradient_ascent_MIA_on_femnist.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 - The case that the target data are not in the training set:
 ```shell script
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/attack_exp_scripts/privacy_attack/gradient_ascent_MIA_on_femnist_simu_in.yaml
+=======
+python federatedscope/main.py --cfg scripts/attack_exp_scripts/privacy_attack/gradient_ascent_MIA_on_femnist_simu_in.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 Property inference attack: Run the BPC [2] attack
 ```shell script
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/attack_exp_scripts/privacy_attack/PIA_toy.yaml
+=======
+python federatedscope/main.py --cfg scripts/attack_exp_scripts/privacy_attack/PIA_toy.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 Class representative attack: Run DCGAN [3] attack
 ```shell script
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/attack_exp_scripts/privacy_attack/CRA_fedavg_convnet2_on_femnist.yaml
+=======
+python federatedscope/main.py --cfg scripts/attack_exp_scripts/privacy_attack/CRA_fedavg_convnet2_on_femnist.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 Training data/label inference attack: Run the DLG [4] attack 
 ```shell script
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/attack_exp_scripts/privacy_attack/reconstruct_fedavg_opt_on_femnist.yaml
+=======
+python federatedscope/main.py --cfg scripts/attack_exp_scripts/privacy_attack/reconstruct_fedavg_opt_on_femnist.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 
@@ -103,7 +156,11 @@ python medscale/main.py --cfg scripts/attack_exp_scripts/privacy_attack/reconstr
 
 Run the BadNets [5] attack:
 ```shell script
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/attack_exp_scripts/backdoor_attack/backdoor_badnet_fedavg_convnet2_on_femnist.yaml
+=======
+python federatedscope/main.py --cfg scripts/attack_exp_scripts/backdoor_attack/backdoor_badnet_fedavg_convnet2_on_femnist.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 ### Federated Optimization Algorithm

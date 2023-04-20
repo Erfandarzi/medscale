@@ -3,19 +3,32 @@ import os
 import logging
 import unittest
 
+<<<<<<< HEAD
 from medscale.core.configs.config import global_cfg
+=======
+from federatedscope.core.configs.config import global_cfg
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 logger = logging.getLogger(__name__)
 
 
 class YAMLTest(unittest.TestCase):
     def setUp(self):
+<<<<<<< HEAD
         self.exclude_all = ['benchmark', 'scripts', 'medscale/autotune']
         self.exclude_file = [
             '.pre-commit-config.yaml', 'meta.yaml',
             'medscale/gfl/baseline/isolated_gin_minibatch_on_cikmcup_per_client.yaml',
             'medscale/gfl/baseline/fedavg_gin_minibatch_on_cikmcup_per_client.yaml',
             'medscale/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml'
+=======
+        self.exclude_all = ['benchmark', 'scripts', 'federatedscope/autotune']
+        self.exclude_file = [
+            '.pre-commit-config.yaml', 'meta.yaml',
+            'federatedscope/gfl/baseline/isolated_gin_minibatch_on_cikmcup_per_client.yaml',
+            'federatedscope/gfl/baseline/fedavg_gin_minibatch_on_cikmcup_per_client.yaml',
+            'federatedscope/gfl/baseline/mini_graph_dc/fedavg_per_client.yaml'
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
         ]
         self.exclude_str = ['config.yaml', 'config_client']
         self.root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

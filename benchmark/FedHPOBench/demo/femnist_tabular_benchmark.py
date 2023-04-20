@@ -33,7 +33,11 @@ class FEMNISTTabularFedHPOBench(BaseTabularFedHPOBench):
             Random seed for the benchmarks
         """
 
+<<<<<<< HEAD
         url = "https://medscale.oss-cn-beijing.aliyuncs.com" \
+=======
+        url = "https://federatedscope.oss-cn-beijing.aliyuncs.com" \
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
               "/fedhpob_cnn_tabular.zip"
         triplets = ('cnn', 'femnist', 'avg')
         client_num = 200

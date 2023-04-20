@@ -57,7 +57,11 @@ git switch feature/B-FHTL
 
 # Step-4. run the baseline (taking fedavg with Graph-DC as an example)
 cd FederatedScope
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/B-FHTL_exp_scripts/Graph-DC/fedavg.yaml
+=======
+python federatedscope/main.py --cfg scripts/B-FHTL_exp_scripts/Graph-DC/fedavg.yaml
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 # If you want to run the hpo scripts
 cd scripts/B-FHTL_exp_scripts/Graph-DC/hpo

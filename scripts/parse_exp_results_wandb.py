@@ -3,7 +3,11 @@ import logging
 import yaml
 import re
 
+<<<<<<< HEAD
 from medscale.core.auxiliaries.logging import logfile_2_wandb_dict
+=======
+from federatedscope.core.auxiliaries.logging import logfile_2_wandb_dict
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 parser = argparse.ArgumentParser(description='FederatedScope result parsing')
 parser.add_argument('--exp_dir',

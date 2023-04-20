@@ -1,5 +1,9 @@
 import ConfigSpace as CS
+<<<<<<< HEAD
 from medscale.core.configs.config import CN
+=======
+from federatedscope.core.configs.config import CN
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 from fedhpobench.benchmarks import TabularBenchmark
 from fedhpobench.benchmarks import RawBenchmark
 from fedhpobench.benchmarks import SurrogateBenchmark

@@ -2,7 +2,11 @@ from __future__ import absolute_import, division, print_function
 
 import setuptools
 
+<<<<<<< HEAD
 __name__ = 'medscale'
+=======
+__name__ = 'federatedscope'
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 __version__ = '0.2.1'
 URL = 'https://github.com/alibaba/FederatedScope'
 

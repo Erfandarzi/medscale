@@ -3,8 +3,13 @@ import os
 import pickle
 import datetime
 import numpy as np
+<<<<<<< HEAD
 from medscale.core.configs.config import global_cfg
 from medscale.core.auxiliaries.data_builder import get_data
+=======
+from federatedscope.core.configs.config import global_cfg
+from federatedscope.core.auxiliaries.data_builder import get_data
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 from fedhpobench.utils.tabular_dataloader import load_data
 from fedhpobench.utils.util import disable_fs_logger
 from fedhpobench.utils.cost_model import get_cost_model

@@ -23,7 +23,11 @@ do
         do
             for (( g=0; g<${#models[@]}; g++ ))
             do
+<<<<<<< HEAD
                 python medscale/main.py --cfg medscale/nlp/baseline/fedavg_lstm_on_shakespeare.yaml federate.method ${method} dataloader.batch_size ${bs} personalization.regular_weight ${personalization_regular_weight} device ${cudaid} train.optimizer.lr ${lrs[$i]} train.local_update_steps ${local_updates[$j]} model.type ${models[$g]} seed $k outdir ${outdir}/${models[$g]}_${lrs[$i]}_${local_updates[$j]}_bs${bs}_on_${dataset}
+=======
+                python federatedscope/main.py --cfg federatedscope/nlp/baseline/fedavg_lstm_on_shakespeare.yaml federate.method ${method} dataloader.batch_size ${bs} personalization.regular_weight ${personalization_regular_weight} device ${cudaid} train.optimizer.lr ${lrs[$i]} train.local_update_steps ${local_updates[$j]} model.type ${models[$g]} seed $k outdir ${outdir}/${models[$g]}_${lrs[$i]}_${local_updates[$j]}_bs${bs}_on_${dataset}
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
             done
         done
     done

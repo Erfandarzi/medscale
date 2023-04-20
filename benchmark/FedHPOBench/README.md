@@ -50,7 +50,11 @@ All data files are available on AliyunOSS, you need to download the data files a
 The naming pattern of the url of data files obeys the rule:
 
 ```
+<<<<<<< HEAD
 https://medscale.oss-cn-beijing.aliyuncs.com/fedhpob_{BENCHMARK}_{MODE}.zip
+=======
+https://federatedscope.oss-cn-beijing.aliyuncs.com/fedhpob_{BENCHMARK}_{MODE}.zip
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 ```
 
 where `{BENCHMARK}` should be one of `cnn`, `bert`, `gcn`, `lr`,  `mlp` or `cross_device`, and `{MODE}` should be one of `tabular` or `surrogate`.

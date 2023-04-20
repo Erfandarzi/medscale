@@ -1,6 +1,7 @@
 Federated Matrix Factorization Module References
 =======================
 
+<<<<<<< HEAD
 medscale.mf.dataset
 -----------------------
 
@@ -26,5 +27,32 @@ medscale.mf.trainer
 -----------------------
 
 .. automodule:: medscale.mf.trainer
+=======
+federatedscope.mf.dataset
+-----------------------
+
+.. automodule:: federatedscope.mf.dataset
+    :members:
+    :private-members:
+
+federatedscope.mf.model
+-----------------------
+
+.. automodule:: federatedscope.mf.model
+    :members:
+    :private-members:
+
+federatedscope.mf.dataloader
+-----------------------
+
+.. automodule:: federatedscope.mf.dataloader
+    :members:
+    :private-members:
+
+federatedscope.mf.trainer
+-----------------------
+
+.. automodule:: federatedscope.mf.trainer
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
     :members:
     :private-members:

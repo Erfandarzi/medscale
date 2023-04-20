@@ -32,12 +32,20 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
+<<<<<<< HEAD
 project = u'medscale'
+=======
+project = u'federatedscope'
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 copyright = u'2022, The DAIL Team'
 author = u'The DAIL Team'
 
 # The full version, including alpha/beta/rc tags
+<<<<<<< HEAD
 from medscale import __version__ as version
+=======
+from federatedscope import __version__ as version
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 
 release = version
 

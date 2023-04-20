@@ -25,7 +25,11 @@ for ((l = 0; l < ${#lrs[@]}; l++)); do
   for ((d = 0; d < ${#dps[@]}; d++)); do
     for ((s = 0; s < ${#sample_rates[@]}; s++)); do
       for k in {1..3}; do
+<<<<<<< HEAD
         python medscale/main.py --cfg benchmark/FedHPOBench/scripts/cnn/${dataset}_dp.yaml \
+=======
+        python federatedscope/main.py --cfg benchmark/FedHPOBench/scripts/cnn/${dataset}_dp.yaml \
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
         device $cudaid train.optimizer.lr ${lrs[$l]} \
         train.optimizer.weight_decay ${wd} \
         model.dropout ${dps[$d]} train.local_update_steps ${step} \

@@ -23,7 +23,11 @@ for ((l = 0; l < ${#lrs[@]}; l++)); do
       for ((s = 0; s < ${#steps[@]}; s++)); do
         for ((b = 0; b < ${#batch_sizes[@]}; b++)); do
           for k in {1..3}; do
+<<<<<<< HEAD
             python medscale/main.py --cfg fedhpo/cnn/${dataset}.yaml device $cudaid optimizer.lr ${lrs[$l]} optimizer.weight_decay ${wds[$w]} model.dropout ${dps[$d]} federate.local_update_steps ${steps[$s]} data.batch_size ${batch_sizes[$b]} federate.sample_client_rate $sample_rate seed $k outdir ${out_dir}_${sample_rate} expname lr${lrs[$l]}_wd${wds[$w]}_dropout${dps[$d]}_step${steps[$s]}_batch${batch_sizes[$b]}_seed${k} >/dev/null 2>&1
+=======
+            python federatedscope/main.py --cfg fedhpo/cnn/${dataset}.yaml device $cudaid optimizer.lr ${lrs[$l]} optimizer.weight_decay ${wds[$w]} model.dropout ${dps[$d]} federate.local_update_steps ${steps[$s]} data.batch_size ${batch_sizes[$b]} federate.sample_client_rate $sample_rate seed $k outdir ${out_dir}_${sample_rate} expname lr${lrs[$l]}_wd${wds[$w]}_dropout${dps[$d]}_step${steps[$s]}_batch${batch_sizes[$b]}_seed${k} >/dev/null 2>&1
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
           done
         done
       done

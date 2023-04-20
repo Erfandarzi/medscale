@@ -5,6 +5,7 @@ cd ..
 echo "Test distributed mode with XGB..."
 
 ### server
+<<<<<<< HEAD
 python medscale/main.py --cfg scripts/distributed_scripts/distributed_configs/distributed_xgb_server.yaml &
 sleep 2
 
@@ -12,5 +13,14 @@ sleep 2
 python medscale/main.py --cfg scripts/distributed_scripts/distributed_configs/distributed_xgb_client_1.yaml &
 sleep 2
 python medscale/main.py --cfg scripts/distributed_scripts/distributed_configs/distributed_xgb_client_2.yaml &
+=======
+python federatedscope/main.py --cfg scripts/distributed_scripts/distributed_configs/distributed_xgb_server.yaml &
+sleep 2
+
+# clients
+python federatedscope/main.py --cfg scripts/distributed_scripts/distributed_configs/distributed_xgb_client_1.yaml &
+sleep 2
+python federatedscope/main.py --cfg scripts/distributed_scripts/distributed_configs/distributed_xgb_client_2.yaml &
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
 sleep 2
 

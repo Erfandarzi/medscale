@@ -23,7 +23,11 @@ def merge_dict(dict1, dict2):
 
 def disable_fs_logger(cfg, clear_before_add=False):
     # Disable FS logger
+<<<<<<< HEAD
     root_logger = logging.getLogger("medscale")
+=======
+    root_logger = logging.getLogger("federatedscope")
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
     # clear all existing handlers and add the default stream
     if clear_before_add:
         root_logger.handlers = []

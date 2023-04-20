@@ -25,7 +25,11 @@ do
         log=${outdir}/gin_lr-${lrs[$i]}_epoch-${local_updates[$j]}_on_${dataset}.log
         for k in {1..3}
         do
+<<<<<<< HEAD
             python medscale/main.py --cfg benchmark/B-FHTL/scripts/Grpah-DC/fedavg_gnn_minibatch_on_multi_task.yaml \
+=======
+            python federatedscope/main.py --cfg benchmark/B-FHTL/scripts/Grpah-DC/fedavg_gnn_minibatch_on_multi_task.yaml \
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
             data.root ${root} \
             device ${cudaid} \
             data.type ${dataset} \
@@ -34,7 +38,11 @@ do
             federate.batch_or_epoch 'epoch' \
             seed $k >>${log} 2>&1
         done
+<<<<<<< HEAD
         python medscale/parse_exp_results.py --input ${log}
+=======
+        python federatedscope/parse_exp_results.py --input ${log}
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
     done
 done
 
