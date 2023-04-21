@@ -1,0 +1,661 @@
+2023-02-17 21:24:07,915 (logging:124) INFO: the current machine is at 192.168.0.1
+2023-02-17 21:24:07,915 (logging:126) INFO: the current dir is /home/ubuntu/medscale
+2023-02-17 21:24:07,915 (logging:127) INFO: the output dir is exp/FedAvg_resnet18_on_lung_lr0.01_lstep2/sub_exp_20230217212407
+2023-02-17 21:24:15,955 (cfg_data:145) WARNING: config `cfg.data.batch_size` will be removed in the future, use `cfg.dataloader.batch_size` instead.
+2023-02-17 21:24:15,955 (cfg_data:145) WARNING: config `cfg.data.batch_size` will be removed in the future, use `cfg.dataloader.batch_size` instead.
+2023-02-17 21:24:15,979 (config:243) INFO: the used configs are: 
+aggregator:
+  inside_weight: 1.0
+  num_agg_groups: 1
+  num_agg_topk: []
+  outside_weight: 0.0
+asyn:
+  use: False
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  edge_num: 100
+  edge_path: edge_data/
+  freq: 10
+  info_diff_type: l2
+  inject_round: 0
+  insert_round: 100000
+  label_type: dirty
+  max_ite: 400
+  mean: [0.1307]
+  mia_is_simulate_in: False
+  mia_simulate_in_round: 20
+  pgd_eps: 2
+  pgd_lr: 0.1
+  pgd_poisoning: False
+  poison_ratio: 0.5
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  scale_para: 1.0
+  scale_poisoning: False
+  self_epoch: 6
+  self_lr: 0.05
+  self_opt: False
+  setting: fix
+  std: [0.3081]
+  target_label_ind: -1
+  trigger_path: trigger/
+  trigger_type: edge
+backend: torch
+cfg_file: 
+check_completeness: False
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 16
+  cSBM_phi: [0.5, 0.5, 0.5]
+  cache_dir: 
+  consistent_label_distribution: False
+  drop_last: False
+  hetero_data_name: []
+  hetero_synth_batch_size: 32
+  hetero_synth_feat_dim: 128
+  hetero_synth_prim_weight: 0.5
+  is_debug: False
+  loader: 
+  max_query_len: 128
+  max_seq_len: 384
+  max_tgt_len: 128
+  num_contrast: 0
+  num_of_client_for_data: []
+  num_steps: 30
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  save_data: False
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0, 0.2]
+  splitter: lda
+  splitter_args: [{'alpha': 0.7}]
+  subsample: 1.0
+  target_transform: []
+  test_pre_transform: []
+  test_target_transform: []
+  test_transform: []
+  transform: []
+  trunc_stride: 128
+  type: lung
+  val_pre_transform: []
+  val_target_transform: []
+  val_transform: []
+  walk_length: 2
+dataloader:
+  batch_size: 16
+  drop_last: False
+  num_steps: 30
+  num_workers: 0
+  pin_memory: False
+  shuffle: True
+  sizes: [10, 5]
+  theta: -1
+  type: base
+  walk_length: 2
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 5
+eval:
+  best_res_update_round_wise_key: test_loss
+  count_flops: True
+  freq: 1
+  metrics: ['acc', 'correct', 'f1']
+  monitoring: []
+  report: ['weighted_avg', 'avg', 'fairness', 'raw']
+  split: ['test', 'val']
+expname: FedAvg_resnet18_on_lung_lr0.01_lstep2
+expname_tag: 
+feat_engr:
+  num_bins: 5
+  scenario: hfl
+  secure:
+    dp:
+      
+    encrypt:
+      type: dummy
+    key_size: 3072
+    type: encrypt
+  selec_threshold: 0.05
+  selec_woe_binning: quantile
+  type: 
+federate:
+  atc_load_from: 
+  atc_vanilla: False
+  client_num: 10
+  data_weighted_aggr: False
+  ignore_weight: False
+  join_in_info: []
+  make_global_eval: False
+  merge_test_data: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  resource_info_file: 
+  restore_from: 
+  sample_client_num: 10
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 10
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+  scheduler:
+    type: 
+    warmup_ratio: 0.0
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_accum_count: 1
+  grad_clip: 5.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    pi_lr: 0.01
+    psn: False
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    iter: 0
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+  working_folder: hpo
+model:
+  contrast_temp: 1.0
+  contrast_topk: 100
+  downstream_tasks: []
+  dropout: 0.0
+  embed_size: 8
+  gamma: 0
+  graph_pooling: mean
+  hidden: 2048
+  in_channels: 0
+  input_shape: ()
+  label_smoothing: 0.1
+  lambda_: 0.1
+  layer: 2
+  length_penalty: 2.0
+  max_answer_len: 30
+  max_length: 200
+  max_tree_depth: 3
+  min_length: 1
+  model_num_per_trainer: 1
+  model_type: google/bert_uncased_L-2_H-128_A-2
+  n_best_size: 20
+  no_repeat_ngram_size: 3
+  null_score_diff_threshold: 0.0
+  num_beams: 5
+  num_item: 0
+  num_labels: 1
+  num_of_trees: 10
+  num_user: 0
+  out_channels: 62
+  pretrain_tasks: []
+  stage: 
+  task: node
+  type: resnet18
+  use_bias: True
+  use_contrastive_loss: False
+nbafl:
+  use: False
+outdir: exp/FedAvg_resnet18_on_lung_lr0.01_lstep2/sub_exp_20230217212407
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['bn', 'norms']
+  local_update_steps: 2
+  lr: 0.01
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 2
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: epoch
+  local_update_steps: 2
+  optimizer:
+    lr: 0.01
+    type: SGD
+    weight_decay: 0.0
+  scheduler:
+    type: 
+    warmup_ratio: 0.0
+trainer:
+  disp_freq: 50
+  local_entropy:
+    alpha: 0.75
+    eps: 0.001
+    gamma: 0.0001
+  sam:
+    adaptive: False
+    eta: 0.0
+    rho: 1.0
+  type: cvtrainer
+  val_freq: 100000000
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2023-02-17 21:24:16,055 (utils:144) INFO: The device information file is not provided
+2023-02-17 21:24:16,253 (fed_runner:169) INFO: Server has been set up ... 
+2023-02-17 21:24:16,459 (fed_runner:221) INFO: Client 1 has been set up ... 
+2023-02-17 21:24:16,636 (fed_runner:221) INFO: Client 2 has been set up ... 
+2023-02-17 21:24:16,830 (fed_runner:221) INFO: Client 3 has been set up ... 
+2023-02-17 21:24:17,048 (fed_runner:221) INFO: Client 4 has been set up ... 
+2023-02-17 21:24:17,267 (fed_runner:221) INFO: Client 5 has been set up ... 
+2023-02-17 21:24:17,413 (fed_runner:221) INFO: Client 6 has been set up ... 
+2023-02-17 21:24:17,628 (fed_runner:221) INFO: Client 7 has been set up ... 
+2023-02-17 21:24:17,777 (fed_runner:221) INFO: Client 8 has been set up ... 
+2023-02-17 21:24:18,000 (fed_runner:221) INFO: Client 9 has been set up ... 
+2023-02-17 21:24:18,192 (fed_runner:221) INFO: Client 10 has been set up ... 
+<<<<<<< HEAD
+2023-02-17 21:24:18,193 (trainer:341) INFO: Model meta-info: <class 'medscale.contrib.model.resnet.ResNet'>.
+=======
+<<<<<<< HEAD
+2023-02-17 21:24:18,193 (trainer:341) INFO: Model meta-info: <class 'medscale.contrib.model.resnet.ResNet'>.
+=======
+2023-02-17 21:24:18,193 (trainer:341) INFO: Model meta-info: <class 'medscale.contrib.model.resnet.ResNet'>.
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
+2023-02-17 21:24:18,194 (trainer:349) INFO: Num of original para names: 122.
+2023-02-17 21:24:18,194 (trainer:350) INFO: Num of original trainable para names: 62.
+2023-02-17 21:24:18,194 (trainer:352) INFO: Num of preserved para names in local update: 37. 
+Preserved para names in local update: {'layer1.0.conv1.weight', 'layer2.0.conv2.weight', 'layer3.1.conv2.weight', 'layer2.0.shortcut.1.running_mean', 'layer4.1.conv2.weight', 'layer3.0.shortcut.1.weight', 'layer4.0.shortcut.0.weight', 'layer3.0.shortcut.1.running_var', 'layer1.1.conv1.weight', 'linear.weight', 'layer2.1.conv1.weight', 'layer3.0.conv1.weight', 'layer4.0.shortcut.1.bias', 'layer2.1.conv2.weight', 'layer3.0.shortcut.0.weight', 'layer4.0.shortcut.1.running_var', 'layer3.1.conv1.weight', 'layer3.0.shortcut.1.running_mean', 'layer2.0.shortcut.0.weight', 'layer4.0.shortcut.1.running_mean', 'layer3.0.shortcut.1.num_batches_tracked', 'linear.bias', 'conv1.weight', 'layer2.0.shortcut.1.running_var', 'layer4.0.shortcut.1.num_batches_tracked', 'layer4.0.shortcut.1.weight', 'layer2.0.conv1.weight', 'layer2.0.shortcut.1.num_batches_tracked', 'layer1.0.conv2.weight', 'layer3.0.conv2.weight', 'layer4.0.conv1.weight', 'layer2.0.shortcut.1.bias', 'layer1.1.conv2.weight', 'layer4.1.conv1.weight', 'layer2.0.shortcut.1.weight', 'layer4.0.conv2.weight', 'layer3.0.shortcut.1.bias'}.
+2023-02-17 21:24:18,195 (trainer:356) INFO: Num of filtered para names in local update: 85. 
+Filtered para names in local update: {'layer3.0.bn2.bias', 'layer3.0.bn2.num_batches_tracked', 'layer1.1.bn1.running_mean', 'layer1.1.bn2.running_var', 'layer4.0.bn1.bias', 'layer4.1.bn1.running_var', 'layer3.0.bn1.num_batches_tracked', 'layer2.0.bn1.running_var', 'layer2.1.bn1.bias', 'layer3.0.bn1.running_mean', 'layer2.0.bn2.running_mean', 'layer3.1.bn1.bias', 'layer1.1.bn2.bias', 'layer4.1.bn2.num_batches_tracked', 'layer2.1.bn1.weight', 'layer1.1.bn1.bias', 'layer2.1.bn2.running_mean', 'layer3.0.bn2.running_var', 'layer1.0.bn1.running_var', 'layer1.0.bn1.num_batches_tracked', 'layer3.1.bn2.weight', 'layer1.0.bn2.bias', 'layer2.0.bn2.bias', 'layer1.0.bn2.weight', 'bn1.weight', 'layer3.1.bn1.running_var', 'layer3.1.bn1.weight', 'layer4.1.bn1.bias', 'layer2.1.bn1.running_mean', 'layer4.0.bn1.num_batches_tracked', 'layer4.1.bn2.weight', 'layer2.1.bn2.weight', 'bn1.bias', 'layer3.0.bn1.running_var', 'layer4.0.bn2.weight', 'layer4.1.bn2.running_var', 'layer4.1.bn1.weight', 'layer2.0.bn2.running_var', 'layer1.0.bn1.bias', 'bn1.running_var', 'layer3.1.bn2.bias', 'layer3.0.bn2.weight', 'layer4.1.bn1.running_mean', 'bn1.running_mean', 'layer3.1.bn1.num_batches_tracked', 'layer2.0.bn2.num_batches_tracked', 'layer4.0.bn2.running_var', 'layer2.1.bn2.num_batches_tracked', 'layer4.1.bn2.bias', 'layer4.0.bn1.weight', 'layer3.1.bn2.running_mean', 'layer3.0.bn1.weight', 'layer2.0.bn2.weight', 'layer1.1.bn2.weight', 'layer2.0.bn1.weight', 'layer2.1.bn2.running_var', 'layer1.0.bn1.running_mean', 'layer3.0.bn2.running_mean', 'layer1.0.bn2.running_var', 'layer2.0.bn1.num_batches_tracked', 'layer1.0.bn2.num_batches_tracked', 'layer1.1.bn1.weight', 'layer4.0.bn1.running_mean', 'layer4.1.bn1.num_batches_tracked', 'layer4.0.bn1.running_var', 'layer3.1.bn2.running_var', 'layer1.0.bn2.running_mean', 'layer2.1.bn2.bias', 'layer3.1.bn2.num_batches_tracked', 'layer2.0.bn1.bias', 'layer1.1.bn2.running_mean', 'layer2.0.bn1.running_mean', 'layer2.1.bn1.running_var', 'layer3.0.bn1.bias', 'layer3.1.bn1.running_mean', 'layer2.1.bn1.num_batches_tracked', 'layer1.1.bn1.num_batches_tracked', 'layer1.1.bn1.running_var', 'layer4.0.bn2.num_batches_tracked', 'layer1.0.bn1.weight', 'layer4.0.bn2.running_mean', 'layer4.1.bn2.running_mean', 'bn1.num_batches_tracked', 'layer4.0.bn2.bias', 'layer1.1.bn2.num_batches_tracked'}.
+2023-02-17 21:24:18,196 (trainer:361) INFO: After register default hooks,
+	the hooks_in_train is:
+	{
+	  "on_fit_start": [
+	    "_hook_on_fit_start_init",
+	    "_hook_on_fit_start_calculate_model_size"
+	  ],
+	  "on_epoch_start": [
+	    "_hook_on_epoch_start"
+	  ],
+	  "on_batch_start": [
+	    "_hook_on_batch_start_init"
+	  ],
+	  "on_batch_forward": [
+	    "_hook_on_batch_forward",
+	    "_hook_on_batch_forward_regularizer",
+	    "_hook_on_batch_forward_flop_count"
+	  ],
+	  "on_batch_backward": [
+	    "_hook_on_batch_backward"
+	  ],
+	  "on_batch_end": [
+	    "_hook_on_batch_end"
+	  ],
+	  "on_fit_end": [
+	    "_hook_on_fit_end"
+	  ]
+	};
+	the hooks_in_eval is:
+            t{
+	  "on_fit_start": [
+	    "_hook_on_fit_start_init"
+	  ],
+	  "on_epoch_start": [
+	    "_hook_on_epoch_start"
+	  ],
+	  "on_batch_start": [
+	    "_hook_on_batch_start_init"
+	  ],
+	  "on_batch_forward": [
+	    "_hook_on_batch_forward"
+	  ],
+	  "on_batch_end": [
+	    "_hook_on_batch_end"
+	  ],
+	  "on_fit_end": [
+	    "_hook_on_fit_end"
+	  ]
+	}
+2023-02-17 21:24:18,239 (server:804) INFO: ----------- Starting training (Round #0) -------------
+2023-02-17 21:24:25,341 (client:306) INFO: {'Role': 'Client #1', 'Round': 0, 'Results_raw': {'train_acc': 0.88, 'train_f1': 0.312057, 'train_avg_loss': 0.514739, 'train_loss': 205.895753, 'train_total': 400, 'train_correct': 352.0}}
+2023-02-17 21:24:26,103 (client:306) INFO: {'Role': 'Client #2', 'Round': 0, 'Results_raw': {'train_acc': 0.361111, 'train_f1': 0.322061, 'train_avg_loss': 1.268278, 'train_loss': 91.316007, 'train_total': 72, 'train_correct': 26.0}}
+2023-02-17 21:24:28,172 (client:306) INFO: {'Role': 'Client #5', 'Round': 0, 'Results_raw': {'train_acc': 0.696429, 'train_f1': 0.534929, 'train_avg_loss': 0.691117, 'train_loss': 154.810166, 'train_total': 224, 'train_correct': 156.0}}
+2023-02-17 21:24:28,406 (client:306) INFO: {'Role': 'Client #4', 'Round': 0, 'Results_raw': {'train_acc': 0.571429, 'train_f1': 0.344444, 'train_avg_loss': 0.945534, 'train_loss': 13.237478, 'train_total': 14, 'train_correct': 8.0}}
+2023-02-17 21:24:29,709 (client:306) INFO: {'Role': 'Client #10', 'Round': 0, 'Results_raw': {'train_acc': 0.522388, 'train_f1': 0.333949, 'train_avg_loss': 0.969307, 'train_loss': 129.887158, 'train_total': 134, 'train_correct': 70.0}}
+2023-02-17 21:24:32,733 (client:306) INFO: {'Role': 'Client #3', 'Round': 0, 'Results_raw': {'train_acc': 0.893491, 'train_f1': 0.338334, 'train_avg_loss': 0.444044, 'train_loss': 150.086769, 'train_total': 338, 'train_correct': 302.0}}
+2023-02-17 21:24:35,337 (client:306) INFO: {'Role': 'Client #9', 'Round': 0, 'Results_raw': {'train_acc': 0.580986, 'train_f1': 0.54774, 'train_avg_loss': 0.871511, 'train_loss': 247.509131, 'train_total': 284, 'train_correct': 165.0}}
+2023-02-17 21:24:36,209 (client:306) INFO: {'Role': 'Client #7', 'Round': 0, 'Results_raw': {'train_acc': 0.611111, 'train_f1': 0.325803, 'train_avg_loss': 0.926776, 'train_loss': 83.40987, 'train_total': 90, 'train_correct': 55.0}}
+2023-02-17 21:24:36,577 (client:306) INFO: {'Role': 'Client #8', 'Round': 0, 'Results_raw': {'train_acc': 0.433333, 'train_f1': 0.211382, 'train_avg_loss': 1.049358, 'train_loss': 31.480752, 'train_total': 30, 'train_correct': 13.0}}
+2023-02-17 21:24:38,214 (client:306) INFO: {'Role': 'Client #6', 'Round': 0, 'Results_raw': {'train_acc': 0.505952, 'train_f1': 0.337326, 'train_avg_loss': 1.042607, 'train_loss': 175.157932, 'train_total': 168, 'train_correct': 85.0}}
+2023-02-17 21:24:38,219 (monitor:541) INFO: {'Role': 'Server #', 'Round': 0, 'Results_model_metric': {}}
+2023-02-17 21:24:38,299 (server:330) INFO: Server: Starting evaluation at the end of round 0.
+2023-02-17 21:24:38,301 (server:336) INFO: ----------- Starting a new training round (Round #1) -------------
+2023-02-17 21:24:38,449 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:38,588 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:39,105 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:39,239 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:39,439 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:39,529 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:39,619 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:40,005 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:40,139 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:40,403 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:41,107 (client:306) INFO: {'Role': 'Client #2', 'Round': 1, 'Results_raw': {'train_acc': 0.430556, 'train_f1': 0.392806, 'train_avg_loss': 1.238715, 'train_loss': 89.187452, 'train_total': 72, 'train_correct': 31.0}}
+2023-02-17 21:24:43,131 (client:306) INFO: {'Role': 'Client #5', 'Round': 1, 'Results_raw': {'train_acc': 0.665179, 'train_f1': 0.499031, 'train_avg_loss': 0.732687, 'train_loss': 164.121983, 'train_total': 224, 'train_correct': 149.0}}
+2023-02-17 21:24:43,445 (client:306) INFO: {'Role': 'Client #8', 'Round': 1, 'Results_raw': {'train_acc': 0.533333, 'train_f1': 0.341667, 'train_avg_loss': 1.871555, 'train_loss': 56.14665, 'train_total': 30, 'train_correct': 16.0}}
+2023-02-17 21:24:45,018 (client:306) INFO: {'Role': 'Client #6', 'Round': 1, 'Results_raw': {'train_acc': 0.505952, 'train_f1': 0.347342, 'train_avg_loss': 1.021514, 'train_loss': 171.614402, 'train_total': 168, 'train_correct': 85.0}}
+2023-02-17 21:24:48,009 (client:306) INFO: {'Role': 'Client #3', 'Round': 1, 'Results_raw': {'train_acc': 0.923077, 'train_f1': 0.32, 'train_avg_loss': 0.381639, 'train_loss': 128.993861, 'train_total': 338, 'train_correct': 312.0}}
+2023-02-17 21:24:48,186 (client:306) INFO: {'Role': 'Client #4', 'Round': 1, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.333333, 'train_avg_loss': 1.305006, 'train_loss': 18.270087, 'train_total': 14, 'train_correct': 7.0}}
+2023-02-17 21:24:49,007 (client:306) INFO: {'Role': 'Client #7', 'Round': 1, 'Results_raw': {'train_acc': 0.811111, 'train_f1': 0.400258, 'train_avg_loss': 0.689496, 'train_loss': 62.054679, 'train_total': 90, 'train_correct': 73.0}}
+2023-02-17 21:24:50,254 (client:306) INFO: {'Role': 'Client #10', 'Round': 1, 'Results_raw': {'train_acc': 0.574627, 'train_f1': 0.365237, 'train_avg_loss': 0.943937, 'train_loss': 126.487568, 'train_total': 134, 'train_correct': 77.0}}
+2023-02-17 21:24:52,784 (client:306) INFO: {'Role': 'Client #9', 'Round': 1, 'Results_raw': {'train_acc': 0.626761, 'train_f1': 0.580841, 'train_avg_loss': 0.75087, 'train_loss': 213.247185, 'train_total': 284, 'train_correct': 178.0}}
+2023-02-17 21:24:56,442 (client:306) INFO: {'Role': 'Client #1', 'Round': 1, 'Results_raw': {'train_acc': 0.8525, 'train_f1': 0.321738, 'train_avg_loss': 0.578171, 'train_loss': 231.268397, 'train_total': 400, 'train_correct': 341.0}}
+2023-02-17 21:24:56,444 (server:590) INFO: {'Role': 'Server #', 'Round': 0, 'Results_weighted_avg': {'test_acc': 0.340909, 'test_f1': 0.192785, 'test_avg_loss': 1.021766, 'test_loss': 34.964332, 'test_total': 22.0, 'test_correct': 7.5}, 'Results_avg': {'test_acc': 0.33841, 'test_f1': 0.187831, 'test_avg_loss': 1.086195, 'test_loss': 22.478852, 'test_total': 22.0, 'test_correct': 7.5}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 7.5, 'test_acc_std': 0.244493, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.65, 'test_acc_min': 0.0, 'test_acc_max': 0.65, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.65, 'test_acc_cos1': 0.810581, 'test_acc_entropy': 1.953909, 'test_f1_std': 0.141788, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.391304, 'test_f1_min': 0.0, 'test_f1_max': 0.391304, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.391304, 'test_f1_cos1': 0.79813, 'test_f1_entropy': 1.939322, 'test_avg_loss_std': 0.221351, 'test_avg_loss_bottom_decile': 0.84244, 'test_avg_loss_top_decile': 1.578081, 'test_avg_loss_min': 0.842431, 'test_avg_loss_max': 1.578081, 'test_avg_loss_bottom10%': 0.842431, 'test_avg_loss_top10%': 1.578081, 'test_avg_loss_cos1': 0.979861, 'test_avg_loss_entropy': 2.282765, 'test_loss_std': 16.089144, 'test_loss_bottom_decile': 7.285692, 'test_loss_top_decile': 62.242228, 'test_loss_min': 6.261634, 'test_loss_max': 62.242228, 'test_loss_bottom10%': 6.261634, 'test_loss_top10%': 62.242228, 'test_loss_cos1': 0.813172, 'test_loss_entropy': 2.079085}}
+2023-02-17 21:24:56,450 (monitor:541) INFO: {'Role': 'Server #', 'Round': 1, 'Results_model_metric': {}}
+2023-02-17 21:24:56,530 (server:330) INFO: Server: Starting evaluation at the end of round 1.
+2023-02-17 21:24:56,532 (server:336) INFO: ----------- Starting a new training round (Round #2) -------------
+2023-02-17 21:24:56,682 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:56,815 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:57,326 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:57,459 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:57,655 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:57,734 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:57,817 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:58,189 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:58,313 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:24:58,570 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:01,564 (client:306) INFO: {'Role': 'Client #3', 'Round': 2, 'Results_raw': {'train_acc': 0.934911, 'train_f1': 0.32212, 'train_avg_loss': 0.323012, 'train_loss': 109.178066, 'train_total': 338, 'train_correct': 316.0}}
+2023-02-17 21:25:02,387 (client:306) INFO: {'Role': 'Client #7', 'Round': 2, 'Results_raw': {'train_acc': 0.8, 'train_f1': 0.296296, 'train_avg_loss': 0.683789, 'train_loss': 61.541044, 'train_total': 90, 'train_correct': 72.0}}
+2023-02-17 21:25:04,934 (client:306) INFO: {'Role': 'Client #9', 'Round': 2, 'Results_raw': {'train_acc': 0.619718, 'train_f1': 0.555427, 'train_avg_loss': 0.778551, 'train_loss': 221.108423, 'train_total': 284, 'train_correct': 176.0}}
+2023-02-17 21:25:06,963 (client:306) INFO: {'Role': 'Client #5', 'Round': 2, 'Results_raw': {'train_acc': 0.727679, 'train_f1': 0.540351, 'train_avg_loss': 0.671324, 'train_loss': 150.376634, 'train_total': 224, 'train_correct': 163.0}}
+2023-02-17 21:25:07,672 (client:306) INFO: {'Role': 'Client #2', 'Round': 2, 'Results_raw': {'train_acc': 0.444444, 'train_f1': 0.427342, 'train_avg_loss': 1.22542, 'train_loss': 88.230254, 'train_total': 72, 'train_correct': 32.0}}
+2023-02-17 21:25:07,851 (client:306) INFO: {'Role': 'Client #4', 'Round': 2, 'Results_raw': {'train_acc': 0.357143, 'train_f1': 0.251852, 'train_avg_loss': 1.166746, 'train_loss': 16.334438, 'train_total': 14, 'train_correct': 5.0}}
+2023-02-17 21:25:09,096 (client:306) INFO: {'Role': 'Client #10', 'Round': 2, 'Results_raw': {'train_acc': 0.567164, 'train_f1': 0.352539, 'train_avg_loss': 0.875802, 'train_loss': 117.357533, 'train_total': 134, 'train_correct': 76.0}}
+2023-02-17 21:25:10,676 (client:306) INFO: {'Role': 'Client #6', 'Round': 2, 'Results_raw': {'train_acc': 0.529762, 'train_f1': 0.372589, 'train_avg_loss': 0.943361, 'train_loss': 158.484598, 'train_total': 168, 'train_correct': 89.0}}
+2023-02-17 21:25:10,987 (client:306) INFO: {'Role': 'Client #8', 'Round': 2, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.422336, 'train_avg_loss': 1.246528, 'train_loss': 37.395833, 'train_total': 30, 'train_correct': 15.0}}
+2023-02-17 21:25:14,651 (client:306) INFO: {'Role': 'Client #1', 'Round': 2, 'Results_raw': {'train_acc': 0.8475, 'train_f1': 0.306649, 'train_avg_loss': 0.558575, 'train_loss': 223.430126, 'train_total': 400, 'train_correct': 339.0}}
+2023-02-17 21:25:14,653 (server:590) INFO: {'Role': 'Server #', 'Round': 1, 'Results_weighted_avg': {'test_acc': 0.322727, 'test_f1': 0.210505, 'test_avg_loss': 1.009725, 'test_loss': 33.869801, 'test_total': 22.0, 'test_correct': 7.1}, 'Results_avg': {'test_acc': 0.298678, 'test_f1': 0.193276, 'test_avg_loss': 1.096843, 'test_loss': 22.213951, 'test_total': 22.0, 'test_correct': 7.1}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 7.1, 'test_acc_std': 0.242083, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.65, 'test_acc_min': 0.0, 'test_acc_max': 0.65, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.65, 'test_acc_cos1': 0.776868, 'test_acc_entropy': 1.888319, 'test_f1_std': 0.16628, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.438503, 'test_f1_min': 0.0, 'test_f1_max': 0.438503, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.438503, 'test_f1_cos1': 0.758064, 'test_f1_entropy': 1.856117, 'test_avg_loss_std': 0.302196, 'test_avg_loss_bottom_decile': 0.82965, 'test_avg_loss_top_decile': 1.755679, 'test_avg_loss_min': 0.785746, 'test_avg_loss_max': 1.755679, 'test_avg_loss_bottom10%': 0.785746, 'test_avg_loss_top10%': 1.755679, 'test_avg_loss_cos1': 0.964078, 'test_avg_loss_entropy': 2.267541, 'test_loss_std': 15.30951, 'test_loss_bottom_decile': 6.982697, 'test_loss_top_decile': 60.06768, 'test_loss_min': 6.325991, 'test_loss_max': 60.06768, 'test_loss_bottom10%': 6.325991, 'test_loss_top10%': 60.06768, 'test_loss_cos1': 0.823394, 'test_loss_entropy': 2.091089}}
+2023-02-17 21:25:14,659 (monitor:541) INFO: {'Role': 'Server #', 'Round': 2, 'Results_model_metric': {}}
+2023-02-17 21:25:14,734 (server:330) INFO: Server: Starting evaluation at the end of round 2.
+2023-02-17 21:25:14,736 (server:336) INFO: ----------- Starting a new training round (Round #3) -------------
+2023-02-17 21:25:14,883 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:15,017 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:15,523 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:15,648 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:15,844 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:15,924 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:16,008 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:16,378 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:16,502 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:16,757 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:18,064 (client:306) INFO: {'Role': 'Client #10', 'Round': 3, 'Results_raw': {'train_acc': 0.604478, 'train_f1': 0.388916, 'train_avg_loss': 0.856328, 'train_loss': 114.747904, 'train_total': 134, 'train_correct': 81.0}}
+2023-02-17 21:25:21,114 (client:306) INFO: {'Role': 'Client #3', 'Round': 3, 'Results_raw': {'train_acc': 0.928994, 'train_f1': 0.322051, 'train_avg_loss': 0.346747, 'train_loss': 117.200557, 'train_total': 338, 'train_correct': 314.0}}
+2023-02-17 21:25:23,664 (client:306) INFO: {'Role': 'Client #9', 'Round': 3, 'Results_raw': {'train_acc': 0.669014, 'train_f1': 0.617755, 'train_avg_loss': 0.715589, 'train_loss': 203.227192, 'train_total': 284, 'train_correct': 190.0}}
+2023-02-17 21:25:23,972 (client:306) INFO: {'Role': 'Client #8', 'Round': 3, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.378049, 'train_avg_loss': 1.378392, 'train_loss': 41.351772, 'train_total': 30, 'train_correct': 15.0}}
+2023-02-17 21:25:24,793 (client:306) INFO: {'Role': 'Client #7', 'Round': 3, 'Results_raw': {'train_acc': 0.8, 'train_f1': 0.431579, 'train_avg_loss': 0.68071, 'train_loss': 61.263931, 'train_total': 90, 'train_correct': 72.0}}
+2023-02-17 21:25:26,375 (client:306) INFO: {'Role': 'Client #6', 'Round': 3, 'Results_raw': {'train_acc': 0.482143, 'train_f1': 0.325818, 'train_avg_loss': 1.055065, 'train_loss': 177.250883, 'train_total': 168, 'train_correct': 81.0}}
+2023-02-17 21:25:30,065 (client:306) INFO: {'Role': 'Client #1', 'Round': 3, 'Results_raw': {'train_acc': 0.87, 'train_f1': 0.33618, 'train_avg_loss': 0.492831, 'train_loss': 197.132503, 'train_total': 400, 'train_correct': 348.0}}
+2023-02-17 21:25:30,790 (client:306) INFO: {'Role': 'Client #2', 'Round': 3, 'Results_raw': {'train_acc': 0.416667, 'train_f1': 0.379151, 'train_avg_loss': 1.214865, 'train_loss': 87.470245, 'train_total': 72, 'train_correct': 30.0}}
+2023-02-17 21:25:30,973 (client:306) INFO: {'Role': 'Client #4', 'Round': 3, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.34386, 'train_avg_loss': 1.082609, 'train_loss': 15.156527, 'train_total': 14, 'train_correct': 7.0}}
+2023-02-17 21:25:33,038 (client:306) INFO: {'Role': 'Client #5', 'Round': 3, 'Results_raw': {'train_acc': 0.830357, 'train_f1': 0.705059, 'train_avg_loss': 0.452779, 'train_loss': 101.422511, 'train_total': 224, 'train_correct': 186.0}}
+2023-02-17 21:25:33,040 (server:590) INFO: {'Role': 'Server #', 'Round': 2, 'Results_weighted_avg': {'test_acc': 0.340909, 'test_f1': 0.23459, 'test_avg_loss': 1.049494, 'test_loss': 35.268456, 'test_total': 22.0, 'test_correct': 7.5}, 'Results_avg': {'test_acc': 0.330283, 'test_f1': 0.221424, 'test_avg_loss': 1.150716, 'test_loss': 23.088878, 'test_total': 22.0, 'test_correct': 7.5}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 7.5, 'test_acc_std': 0.237389, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.615385, 'test_acc_min': 0.0, 'test_acc_max': 0.615385, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.615385, 'test_acc_cos1': 0.812018, 'test_acc_entropy': 1.956117, 'test_f1_std': 0.179913, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.499666, 'test_f1_min': 0.0, 'test_f1_max': 0.499666, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.499666, 'test_f1_cos1': 0.776104, 'test_f1_entropy': 1.90228, 'test_avg_loss_std': 0.43923, 'test_avg_loss_bottom_decile': 0.785364, 'test_avg_loss_top_decile': 2.296645, 'test_avg_loss_min': 0.680421, 'test_avg_loss_max': 2.296645, 'test_avg_loss_bottom10%': 0.680421, 'test_avg_loss_top10%': 2.296645, 'test_avg_loss_cos1': 0.934255, 'test_avg_loss_entropy': 2.23865, 'test_loss_std': 16.845096, 'test_loss_bottom_decile': 7.601897, 'test_loss_top_decile': 66.343171, 'test_loss_min': 6.300385, 'test_loss_max': 66.343171, 'test_loss_bottom10%': 6.300385, 'test_loss_top10%': 66.343171, 'test_loss_cos1': 0.80785, 'test_loss_entropy': 2.072056}}
+2023-02-17 21:25:33,046 (monitor:541) INFO: {'Role': 'Server #', 'Round': 3, 'Results_model_metric': {}}
+2023-02-17 21:25:33,129 (server:330) INFO: Server: Starting evaluation at the end of round 3.
+2023-02-17 21:25:33,131 (server:336) INFO: ----------- Starting a new training round (Round #4) -------------
+2023-02-17 21:25:33,280 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:33,415 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:33,928 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:34,054 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:34,251 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:34,333 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:34,419 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:34,792 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:34,918 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:35,176 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:35,360 (client:306) INFO: {'Role': 'Client #4', 'Round': 4, 'Results_raw': {'train_acc': 0.571429, 'train_f1': 0.4, 'train_avg_loss': 1.038726, 'train_loss': 14.542171, 'train_total': 14, 'train_correct': 8.0}}
+2023-02-17 21:25:36,624 (client:306) INFO: {'Role': 'Client #10', 'Round': 4, 'Results_raw': {'train_acc': 0.664179, 'train_f1': 0.433843, 'train_avg_loss': 0.644823, 'train_loss': 86.406255, 'train_total': 134, 'train_correct': 89.0}}
+2023-02-17 21:25:36,937 (client:306) INFO: {'Role': 'Client #8', 'Round': 4, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.433604, 'train_avg_loss': 1.562393, 'train_loss': 46.87178, 'train_total': 30, 'train_correct': 15.0}}
+2023-02-17 21:25:37,665 (client:306) INFO: {'Role': 'Client #2', 'Round': 4, 'Results_raw': {'train_acc': 0.611111, 'train_f1': 0.587849, 'train_avg_loss': 0.964211, 'train_loss': 69.423208, 'train_total': 72, 'train_correct': 44.0}}
+2023-02-17 21:25:39,702 (client:306) INFO: {'Role': 'Client #5', 'Round': 4, 'Results_raw': {'train_acc': 0.732143, 'train_f1': 0.582868, 'train_avg_loss': 0.581202, 'train_loss': 130.189238, 'train_total': 224, 'train_correct': 164.0}}
+2023-02-17 21:25:43,362 (client:306) INFO: {'Role': 'Client #1', 'Round': 4, 'Results_raw': {'train_acc': 0.86, 'train_f1': 0.342523, 'train_avg_loss': 0.465316, 'train_loss': 186.126583, 'train_total': 400, 'train_correct': 344.0}}
+2023-02-17 21:25:44,181 (client:306) INFO: {'Role': 'Client #7', 'Round': 4, 'Results_raw': {'train_acc': 0.733333, 'train_f1': 0.345051, 'train_avg_loss': 0.92586, 'train_loss': 83.327388, 'train_total': 90, 'train_correct': 66.0}}
+2023-02-17 21:25:47,164 (client:306) INFO: {'Role': 'Client #3', 'Round': 4, 'Results_raw': {'train_acc': 0.908284, 'train_f1': 0.344919, 'train_avg_loss': 0.337353, 'train_loss': 114.02521, 'train_total': 338, 'train_correct': 307.0}}
+2023-02-17 21:25:48,737 (client:306) INFO: {'Role': 'Client #6', 'Round': 4, 'Results_raw': {'train_acc': 0.547619, 'train_f1': 0.368348, 'train_avg_loss': 1.028633, 'train_loss': 172.810391, 'train_total': 168, 'train_correct': 92.0}}
+2023-02-17 21:25:51,281 (client:306) INFO: {'Role': 'Client #9', 'Round': 4, 'Results_raw': {'train_acc': 0.771127, 'train_f1': 0.728078, 'train_avg_loss': 0.561652, 'train_loss': 159.509138, 'train_total': 284, 'train_correct': 219.0}}
+2023-02-17 21:25:51,284 (server:590) INFO: {'Role': 'Server #', 'Round': 3, 'Results_weighted_avg': {'test_acc': 0.359091, 'test_f1': 0.228185, 'test_avg_loss': 1.188022, 'test_loss': 42.340736, 'test_total': 22.0, 'test_correct': 7.9}, 'Results_avg': {'test_acc': 0.373283, 'test_f1': 0.238578, 'test_avg_loss': 1.24778, 'test_loss': 26.136475, 'test_total': 22.0, 'test_correct': 7.9}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 7.9, 'test_acc_std': 0.249461, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.65, 'test_acc_min': 0.0, 'test_acc_max': 0.65, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.65, 'test_acc_cos1': 0.831427, 'test_acc_entropy': 1.977275, 'test_f1_std': 0.168287, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.422222, 'test_f1_min': 0.0, 'test_f1_max': 0.422222, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.422222, 'test_f1_cos1': 0.817164, 'test_f1_entropy': 1.955281, 'test_avg_loss_std': 0.518019, 'test_avg_loss_bottom_decile': 0.68063, 'test_avg_loss_top_decile': 2.602259, 'test_avg_loss_min': 0.680498, 'test_avg_loss_max': 2.602259, 'test_avg_loss_bottom10%': 0.680498, 'test_avg_loss_top10%': 2.602259, 'test_avg_loss_cos1': 0.923573, 'test_avg_loss_entropy': 2.22588, 'test_loss_std': 22.966912, 'test_loss_bottom_decile': 9.032118, 'test_loss_top_decile': 88.311304, 'test_loss_min': 6.546638, 'test_loss_max': 88.311304, 'test_loss_bottom10%': 6.546638, 'test_loss_top10%': 88.311304, 'test_loss_cos1': 0.751186, 'test_loss_entropy': 1.99823}}
+2023-02-17 21:25:51,290 (monitor:541) INFO: {'Role': 'Server #', 'Round': 4, 'Results_model_metric': {}}
+2023-02-17 21:25:51,371 (server:330) INFO: Server: Starting evaluation at the end of round 4.
+2023-02-17 21:25:51,373 (server:336) INFO: ----------- Starting a new training round (Round #5) -------------
+2023-02-17 21:25:51,519 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:51,653 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:52,161 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:52,286 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:52,480 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:52,565 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:52,650 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:53,025 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:53,150 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:53,405 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:25:55,440 (client:306) INFO: {'Role': 'Client #5', 'Round': 5, 'Results_raw': {'train_acc': 0.848214, 'train_f1': 0.730617, 'train_avg_loss': 0.396552, 'train_loss': 88.827684, 'train_total': 224, 'train_correct': 190.0}}
+2023-02-17 21:25:56,684 (client:306) INFO: {'Role': 'Client #10', 'Round': 5, 'Results_raw': {'train_acc': 0.679104, 'train_f1': 0.44965, 'train_avg_loss': 0.709315, 'train_loss': 95.048177, 'train_total': 134, 'train_correct': 91.0}}
+2023-02-17 21:25:56,991 (client:306) INFO: {'Role': 'Client #8', 'Round': 5, 'Results_raw': {'train_acc': 0.566667, 'train_f1': 0.488889, 'train_avg_loss': 1.654486, 'train_loss': 49.634567, 'train_total': 30, 'train_correct': 17.0}}
+2023-02-17 21:25:59,569 (client:306) INFO: {'Role': 'Client #9', 'Round': 5, 'Results_raw': {'train_acc': 0.757042, 'train_f1': 0.720245, 'train_avg_loss': 0.562155, 'train_loss': 159.651886, 'train_total': 284, 'train_correct': 215.0}}
+2023-02-17 21:26:00,286 (client:306) INFO: {'Role': 'Client #2', 'Round': 5, 'Results_raw': {'train_acc': 0.541667, 'train_f1': 0.439701, 'train_avg_loss': 1.172484, 'train_loss': 84.418842, 'train_total': 72, 'train_correct': 39.0}}
+2023-02-17 21:26:00,466 (client:306) INFO: {'Role': 'Client #4', 'Round': 5, 'Results_raw': {'train_acc': 0.571429, 'train_f1': 0.4, 'train_avg_loss': 1.007514, 'train_loss': 14.1052, 'train_total': 14, 'train_correct': 8.0}}
+2023-02-17 21:26:04,147 (client:306) INFO: {'Role': 'Client #1', 'Round': 5, 'Results_raw': {'train_acc': 0.8375, 'train_f1': 0.367631, 'train_avg_loss': 0.508908, 'train_loss': 203.563112, 'train_total': 400, 'train_correct': 335.0}}
+2023-02-17 21:26:07,150 (client:306) INFO: {'Role': 'Client #3', 'Round': 5, 'Results_raw': {'train_acc': 0.923077, 'train_f1': 0.386584, 'train_avg_loss': 0.30864, 'train_loss': 104.320455, 'train_total': 338, 'train_correct': 312.0}}
+2023-02-17 21:26:07,969 (client:306) INFO: {'Role': 'Client #7', 'Round': 5, 'Results_raw': {'train_acc': 0.688889, 'train_f1': 0.375595, 'train_avg_loss': 0.733807, 'train_loss': 66.042608, 'train_total': 90, 'train_correct': 62.0}}
+2023-02-17 21:26:09,558 (client:306) INFO: {'Role': 'Client #6', 'Round': 5, 'Results_raw': {'train_acc': 0.494048, 'train_f1': 0.333031, 'train_avg_loss': 1.080608, 'train_loss': 181.542148, 'train_total': 168, 'train_correct': 83.0}}
+2023-02-17 21:26:09,561 (server:590) INFO: {'Role': 'Server #', 'Round': 4, 'Results_weighted_avg': {'test_acc': 0.409091, 'test_f1': 0.315267, 'test_avg_loss': 1.174864, 'test_loss': 41.318597, 'test_total': 22.0, 'test_correct': 9.0}, 'Results_avg': {'test_acc': 0.3864, 'test_f1': 0.268978, 'test_avg_loss': 1.254695, 'test_loss': 25.847018, 'test_total': 22.0, 'test_correct': 9.0}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 9.0, 'test_acc_std': 0.285345, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.863636, 'test_acc_min': 0.0, 'test_acc_max': 0.863636, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.863636, 'test_acc_cos1': 0.80443, 'test_acc_entropy': 1.943599, 'test_f1_std': 0.251519, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.861053, 'test_f1_min': 0.0, 'test_f1_max': 0.861053, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.861053, 'test_f1_cos1': 0.730414, 'test_f1_entropy': 1.84134, 'test_avg_loss_std': 0.536277, 'test_avg_loss_bottom_decile': 0.650978, 'test_avg_loss_top_decile': 2.455947, 'test_avg_loss_min': 0.502851, 'test_avg_loss_max': 2.455947, 'test_avg_loss_bottom10%': 0.502851, 'test_avg_loss_top10%': 2.455947, 'test_avg_loss_cos1': 0.919529, 'test_avg_loss_entropy': 2.213552, 'test_loss_std': 23.119067, 'test_loss_bottom_decile': 9.254326, 'test_loss_top_decile': 89.000276, 'test_loss_min': 6.181491, 'test_loss_max': 89.000276, 'test_loss_bottom10%': 6.181491, 'test_loss_top10%': 89.000276, 'test_loss_cos1': 0.745345, 'test_loss_entropy': 1.991959}}
+2023-02-17 21:26:09,567 (monitor:541) INFO: {'Role': 'Server #', 'Round': 5, 'Results_model_metric': {}}
+2023-02-17 21:26:09,645 (server:330) INFO: Server: Starting evaluation at the end of round 5.
+2023-02-17 21:26:09,648 (server:336) INFO: ----------- Starting a new training round (Round #6) -------------
+2023-02-17 21:26:09,798 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:09,934 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:10,443 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:10,569 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:10,763 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:10,847 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:10,932 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:11,303 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:11,427 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:11,683 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:12,508 (client:306) INFO: {'Role': 'Client #7', 'Round': 6, 'Results_raw': {'train_acc': 0.755556, 'train_f1': 0.377784, 'train_avg_loss': 0.714742, 'train_loss': 64.326784, 'train_total': 90, 'train_correct': 68.0}}
+2023-02-17 21:26:15,057 (client:306) INFO: {'Role': 'Client #9', 'Round': 6, 'Results_raw': {'train_acc': 0.75, 'train_f1': 0.702977, 'train_avg_loss': 0.532479, 'train_loss': 151.223996, 'train_total': 284, 'train_correct': 213.0}}
+2023-02-17 21:26:18,111 (client:306) INFO: {'Role': 'Client #3', 'Round': 6, 'Results_raw': {'train_acc': 0.928994, 'train_f1': 0.321557, 'train_avg_loss': 0.291625, 'train_loss': 98.56932, 'train_total': 338, 'train_correct': 314.0}}
+2023-02-17 21:26:18,851 (client:306) INFO: {'Role': 'Client #2', 'Round': 6, 'Results_raw': {'train_acc': 0.583333, 'train_f1': 0.537649, 'train_avg_loss': 0.950354, 'train_loss': 68.42548, 'train_total': 72, 'train_correct': 42.0}}
+2023-02-17 21:26:20,912 (client:306) INFO: {'Role': 'Client #5', 'Round': 6, 'Results_raw': {'train_acc': 0.790179, 'train_f1': 0.645844, 'train_avg_loss': 0.489411, 'train_loss': 109.627954, 'train_total': 224, 'train_correct': 177.0}}
+2023-02-17 21:26:22,514 (client:306) INFO: {'Role': 'Client #6', 'Round': 6, 'Results_raw': {'train_acc': 0.547619, 'train_f1': 0.373811, 'train_avg_loss': 0.930419, 'train_loss': 156.310378, 'train_total': 168, 'train_correct': 92.0}}
+2023-02-17 21:26:26,217 (client:306) INFO: {'Role': 'Client #1', 'Round': 6, 'Results_raw': {'train_acc': 0.83, 'train_f1': 0.343687, 'train_avg_loss': 0.537042, 'train_loss': 214.816917, 'train_total': 400, 'train_correct': 332.0}}
+2023-02-17 21:26:26,400 (client:306) INFO: {'Role': 'Client #4', 'Round': 6, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.333333, 'train_avg_loss': 0.969509, 'train_loss': 13.573126, 'train_total': 14, 'train_correct': 7.0}}
+2023-02-17 21:26:27,655 (client:306) INFO: {'Role': 'Client #10', 'Round': 6, 'Results_raw': {'train_acc': 0.716418, 'train_f1': 0.470798, 'train_avg_loss': 0.688616, 'train_loss': 92.274526, 'train_total': 134, 'train_correct': 96.0}}
+2023-02-17 21:26:27,967 (client:306) INFO: {'Role': 'Client #8', 'Round': 6, 'Results_raw': {'train_acc': 0.566667, 'train_f1': 0.412698, 'train_avg_loss': 1.098939, 'train_loss': 32.968164, 'train_total': 30, 'train_correct': 17.0}}
+2023-02-17 21:26:27,970 (server:590) INFO: {'Role': 'Server #', 'Round': 5, 'Results_weighted_avg': {'test_acc': 0.504545, 'test_f1': 0.412258, 'test_avg_loss': 0.97691, 'test_loss': 28.999176, 'test_total': 22.0, 'test_correct': 11.1}, 'Results_avg': {'test_acc': 0.431878, 'test_f1': 0.353796, 'test_avg_loss': 1.173927, 'test_loss': 21.492013, 'test_total': 22.0, 'test_correct': 11.1}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 11.1, 'test_acc_std': 0.324922, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.916667, 'test_acc_min': 0.0, 'test_acc_max': 0.916667, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.916667, 'test_acc_cos1': 0.799099, 'test_acc_entropy': 1.921253, 'test_f1_std': 0.302086, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.911111, 'test_f1_min': 0.0, 'test_f1_max': 0.911111, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.911111, 'test_f1_cos1': 0.760495, 'test_f1_entropy': 1.878416, 'test_avg_loss_std': 0.585139, 'test_avg_loss_bottom_decile': 0.558885, 'test_avg_loss_top_decile': 2.471593, 'test_avg_loss_min': 0.512528, 'test_avg_loss_max': 2.471593, 'test_avg_loss_bottom10%': 0.512528, 'test_avg_loss_top10%': 2.471593, 'test_avg_loss_cos1': 0.894983, 'test_avg_loss_entropy': 2.188324, 'test_loss_std': 12.723219, 'test_loss_bottom_decile': 7.155501, 'test_loss_top_decile': 46.240146, 'test_loss_min': 6.706616, 'test_loss_max': 46.240146, 'test_loss_bottom10%': 6.706616, 'test_loss_top10%': 46.240146, 'test_loss_cos1': 0.860516, 'test_loss_entropy': 2.125622}}
+2023-02-17 21:26:27,976 (monitor:541) INFO: {'Role': 'Server #', 'Round': 6, 'Results_model_metric': {}}
+2023-02-17 21:26:28,054 (server:330) INFO: Server: Starting evaluation at the end of round 6.
+2023-02-17 21:26:28,056 (server:336) INFO: ----------- Starting a new training round (Round #7) -------------
+2023-02-17 21:26:28,204 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:28,338 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:28,854 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:28,983 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:29,181 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:29,263 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:29,349 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:29,730 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:29,858 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:30,121 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:32,190 (client:306) INFO: {'Role': 'Client #5', 'Round': 7, 'Results_raw': {'train_acc': 0.794643, 'train_f1': 0.65, 'train_avg_loss': 0.476229, 'train_loss': 106.675304, 'train_total': 224, 'train_correct': 178.0}}
+2023-02-17 21:26:32,369 (client:306) INFO: {'Role': 'Client #4', 'Round': 7, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.418301, 'train_avg_loss': 1.041423, 'train_loss': 14.579926, 'train_total': 14, 'train_correct': 7.0}}
+2023-02-17 21:26:33,954 (client:306) INFO: {'Role': 'Client #6', 'Round': 7, 'Results_raw': {'train_acc': 0.636905, 'train_f1': 0.430933, 'train_avg_loss': 0.790555, 'train_loss': 132.813196, 'train_total': 168, 'train_correct': 107.0}}
+2023-02-17 21:26:35,215 (client:306) INFO: {'Role': 'Client #10', 'Round': 7, 'Results_raw': {'train_acc': 0.716418, 'train_f1': 0.475986, 'train_avg_loss': 0.635098, 'train_loss': 85.103183, 'train_total': 134, 'train_correct': 96.0}}
+2023-02-17 21:26:35,937 (client:306) INFO: {'Role': 'Client #2', 'Round': 7, 'Results_raw': {'train_acc': 0.555556, 'train_f1': 0.472381, 'train_avg_loss': 1.039494, 'train_loss': 74.843532, 'train_total': 72, 'train_correct': 40.0}}
+2023-02-17 21:26:38,549 (client:306) INFO: {'Role': 'Client #9', 'Round': 7, 'Results_raw': {'train_acc': 0.746479, 'train_f1': 0.705445, 'train_avg_loss': 0.512222, 'train_loss': 145.471137, 'train_total': 284, 'train_correct': 212.0}}
+2023-02-17 21:26:38,865 (client:306) INFO: {'Role': 'Client #8', 'Round': 7, 'Results_raw': {'train_acc': 0.5, 'train_f1': 0.440622, 'train_avg_loss': 1.670924, 'train_loss': 50.127724, 'train_total': 30, 'train_correct': 15.0}}
+2023-02-17 21:26:42,551 (client:306) INFO: {'Role': 'Client #1', 'Round': 7, 'Results_raw': {'train_acc': 0.8475, 'train_f1': 0.365487, 'train_avg_loss': 0.458687, 'train_loss': 183.474835, 'train_total': 400, 'train_correct': 339.0}}
+2023-02-17 21:26:45,557 (client:306) INFO: {'Role': 'Client #3', 'Round': 7, 'Results_raw': {'train_acc': 0.923077, 'train_f1': 0.355541, 'train_avg_loss': 0.313024, 'train_loss': 105.801981, 'train_total': 338, 'train_correct': 312.0}}
+2023-02-17 21:26:46,381 (client:306) INFO: {'Role': 'Client #7', 'Round': 7, 'Results_raw': {'train_acc': 0.777778, 'train_f1': 0.455908, 'train_avg_loss': 0.634994, 'train_loss': 57.149459, 'train_total': 90, 'train_correct': 70.0}}
+2023-02-17 21:26:46,384 (server:590) INFO: {'Role': 'Server #', 'Round': 6, 'Results_weighted_avg': {'test_acc': 0.540909, 'test_f1': 0.440225, 'test_avg_loss': 0.978068, 'test_loss': 29.001005, 'test_total': 22.0, 'test_correct': 11.9}, 'Results_avg': {'test_acc': 0.488752, 'test_f1': 0.397656, 'test_avg_loss': 1.176782, 'test_loss': 21.517492, 'test_total': 22.0, 'test_correct': 11.9}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 11.9, 'test_acc_std': 0.327946, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.916667, 'test_acc_min': 0.0, 'test_acc_max': 0.916667, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.916667, 'test_acc_cos1': 0.830391, 'test_acc_entropy': 1.988061, 'test_f1_std': 0.305082, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.911111, 'test_f1_min': 0.0, 'test_f1_max': 0.911111, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.911111, 'test_f1_cos1': 0.793402, 'test_f1_entropy': 1.944603, 'test_avg_loss_std': 0.629776, 'test_avg_loss_bottom_decile': 0.444178, 'test_avg_loss_top_decile': 2.429551, 'test_avg_loss_min': 0.417523, 'test_avg_loss_max': 2.429551, 'test_avg_loss_bottom10%': 0.417523, 'test_avg_loss_top10%': 2.429551, 'test_avg_loss_cos1': 0.88168, 'test_avg_loss_entropy': 2.161127, 'test_loss_std': 14.008733, 'test_loss_bottom_decile': 5.79966, 'test_loss_top_decile': 46.581425, 'test_loss_min': 5.330133, 'test_loss_max': 46.581425, 'test_loss_bottom10%': 5.330133, 'test_loss_top10%': 46.581425, 'test_loss_cos1': 0.838045, 'test_loss_entropy': 2.092841}}
+2023-02-17 21:26:46,390 (monitor:541) INFO: {'Role': 'Server #', 'Round': 7, 'Results_model_metric': {}}
+2023-02-17 21:26:46,473 (server:330) INFO: Server: Starting evaluation at the end of round 7.
+2023-02-17 21:26:46,475 (server:336) INFO: ----------- Starting a new training round (Round #8) -------------
+2023-02-17 21:26:46,622 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:46,759 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:47,269 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:47,395 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:47,595 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:47,678 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:47,762 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:48,139 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:48,264 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:48,521 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:26:48,700 (client:306) INFO: {'Role': 'Client #4', 'Round': 8, 'Results_raw': {'train_acc': 0.571429, 'train_f1': 0.4, 'train_avg_loss': 0.95739, 'train_loss': 13.403466, 'train_total': 14, 'train_correct': 8.0}}
+2023-02-17 21:26:49,414 (client:306) INFO: {'Role': 'Client #2', 'Round': 8, 'Results_raw': {'train_acc': 0.541667, 'train_f1': 0.493789, 'train_avg_loss': 1.081143, 'train_loss': 77.84227, 'train_total': 72, 'train_correct': 39.0}}
+2023-02-17 21:26:50,671 (client:306) INFO: {'Role': 'Client #10', 'Round': 8, 'Results_raw': {'train_acc': 0.776119, 'train_f1': 0.509811, 'train_avg_loss': 0.567064, 'train_loss': 75.986516, 'train_total': 134, 'train_correct': 104.0}}
+2023-02-17 21:26:53,241 (client:306) INFO: {'Role': 'Client #9', 'Round': 8, 'Results_raw': {'train_acc': 0.760563, 'train_f1': 0.714573, 'train_avg_loss': 0.508358, 'train_loss': 144.373587, 'train_total': 284, 'train_correct': 216.0}}
+2023-02-17 21:26:54,815 (client:306) INFO: {'Role': 'Client #6', 'Round': 8, 'Results_raw': {'train_acc': 0.511905, 'train_f1': 0.351691, 'train_avg_loss': 0.987431, 'train_loss': 165.888361, 'train_total': 168, 'train_correct': 86.0}}
+2023-02-17 21:26:55,650 (client:306) INFO: {'Role': 'Client #7', 'Round': 8, 'Results_raw': {'train_acc': 0.8, 'train_f1': 0.382479, 'train_avg_loss': 0.634936, 'train_loss': 57.144264, 'train_total': 90, 'train_correct': 72.0}}
+2023-02-17 21:26:58,655 (client:306) INFO: {'Role': 'Client #3', 'Round': 8, 'Results_raw': {'train_acc': 0.923077, 'train_f1': 0.381517, 'train_avg_loss': 0.28855, 'train_loss': 97.529807, 'train_total': 338, 'train_correct': 312.0}}
+2023-02-17 21:27:02,357 (client:306) INFO: {'Role': 'Client #1', 'Round': 8, 'Results_raw': {'train_acc': 0.8525, 'train_f1': 0.351366, 'train_avg_loss': 0.457144, 'train_loss': 182.857459, 'train_total': 400, 'train_correct': 341.0}}
+2023-02-17 21:27:02,667 (client:306) INFO: {'Role': 'Client #8', 'Round': 8, 'Results_raw': {'train_acc': 0.566667, 'train_f1': 0.488889, 'train_avg_loss': 1.310173, 'train_loss': 39.305179, 'train_total': 30, 'train_correct': 17.0}}
+2023-02-17 21:27:04,715 (client:306) INFO: {'Role': 'Client #5', 'Round': 8, 'Results_raw': {'train_acc': 0.892857, 'train_f1': 0.817391, 'train_avg_loss': 0.375274, 'train_loss': 84.061456, 'train_total': 224, 'train_correct': 200.0}}
+2023-02-17 21:27:04,717 (server:590) INFO: {'Role': 'Server #', 'Round': 7, 'Results_weighted_avg': {'test_acc': 0.613636, 'test_f1': 0.489391, 'test_avg_loss': 0.913947, 'test_loss': 25.108625, 'test_total': 22.0, 'test_correct': 13.5}, 'Results_avg': {'test_acc': 0.520765, 'test_f1': 0.428268, 'test_avg_loss': 1.141662, 'test_loss': 20.10684, 'test_total': 22.0, 'test_correct': 13.5}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 13.5, 'test_acc_std': 0.351741, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.916667, 'test_acc_min': 0.0, 'test_acc_max': 0.916667, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.916667, 'test_acc_cos1': 0.828683, 'test_acc_entropy': 1.982232, 'test_f1_std': 0.308116, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.916084, 'test_f1_min': 0.0, 'test_f1_max': 0.916084, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.916084, 'test_f1_cos1': 0.811747, 'test_f1_entropy': 1.965395, 'test_avg_loss_std': 0.650309, 'test_avg_loss_bottom_decile': 0.432394, 'test_avg_loss_top_decile': 2.203185, 'test_avg_loss_min': 0.408859, 'test_avg_loss_max': 2.203185, 'test_avg_loss_bottom10%': 0.408859, 'test_avg_loss_top10%': 2.203185, 'test_avg_loss_cos1': 0.868921, 'test_avg_loss_entropy': 2.139294, 'test_loss_std': 12.540208, 'test_loss_bottom_decile': 5.188724, 'test_loss_top_decile': 45.762396, 'test_loss_min': 4.931392, 'test_loss_max': 45.762396, 'test_loss_bottom10%': 4.931392, 'test_loss_top10%': 45.762396, 'test_loss_cos1': 0.848502, 'test_loss_entropy': 2.107111}}
+2023-02-17 21:27:04,723 (monitor:541) INFO: {'Role': 'Server #', 'Round': 8, 'Results_model_metric': {}}
+2023-02-17 21:27:04,800 (server:330) INFO: Server: Starting evaluation at the end of round 8.
+2023-02-17 21:27:04,802 (server:336) INFO: ----------- Starting a new training round (Round #9) -------------
+2023-02-17 21:27:04,950 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:05,085 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:05,608 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:05,735 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:05,933 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:06,013 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:06,096 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:06,473 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:06,598 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:06,853 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:07,046 (client:306) INFO: {'Role': 'Client #4', 'Round': 9, 'Results_raw': {'train_acc': 0.571429, 'train_f1': 0.488889, 'train_avg_loss': 0.997771, 'train_loss': 13.968787, 'train_total': 14, 'train_correct': 8.0}}
+2023-02-17 21:27:10,041 (client:306) INFO: {'Role': 'Client #3', 'Round': 9, 'Results_raw': {'train_acc': 0.931953, 'train_f1': 0.396091, 'train_avg_loss': 0.283644, 'train_loss': 95.87153, 'train_total': 338, 'train_correct': 315.0}}
+2023-02-17 21:27:10,750 (client:306) INFO: {'Role': 'Client #2', 'Round': 9, 'Results_raw': {'train_acc': 0.611111, 'train_f1': 0.578698, 'train_avg_loss': 0.866661, 'train_loss': 62.39961, 'train_total': 72, 'train_correct': 44.0}}
+2023-02-17 21:27:13,301 (client:306) INFO: {'Role': 'Client #9', 'Round': 9, 'Results_raw': {'train_acc': 0.78169, 'train_f1': 0.754832, 'train_avg_loss': 0.498372, 'train_loss': 141.537557, 'train_total': 284, 'train_correct': 222.0}}
+2023-02-17 21:27:13,612 (client:306) INFO: {'Role': 'Client #8', 'Round': 9, 'Results_raw': {'train_acc': 0.566667, 'train_f1': 0.464646, 'train_avg_loss': 1.49431, 'train_loss': 44.829292, 'train_total': 30, 'train_correct': 17.0}}
+2023-02-17 21:27:14,870 (client:306) INFO: {'Role': 'Client #10', 'Round': 9, 'Results_raw': {'train_acc': 0.791045, 'train_f1': 0.521124, 'train_avg_loss': 0.520909, 'train_loss': 69.801822, 'train_total': 134, 'train_correct': 106.0}}
+2023-02-17 21:27:15,697 (client:306) INFO: {'Role': 'Client #7', 'Round': 9, 'Results_raw': {'train_acc': 0.766667, 'train_f1': 0.420443, 'train_avg_loss': 0.639148, 'train_loss': 57.523317, 'train_total': 90, 'train_correct': 69.0}}
+2023-02-17 21:27:17,278 (client:306) INFO: {'Role': 'Client #6', 'Round': 9, 'Results_raw': {'train_acc': 0.511905, 'train_f1': 0.342742, 'train_avg_loss': 1.02912, 'train_loss': 172.892086, 'train_total': 168, 'train_correct': 86.0}}
+2023-02-17 21:27:20,956 (client:306) INFO: {'Role': 'Client #1', 'Round': 9, 'Results_raw': {'train_acc': 0.8825, 'train_f1': 0.386687, 'train_avg_loss': 0.438627, 'train_loss': 175.450939, 'train_total': 400, 'train_correct': 353.0}}
+2023-02-17 21:27:22,992 (client:306) INFO: {'Role': 'Client #5', 'Round': 9, 'Results_raw': {'train_acc': 0.866071, 'train_f1': 0.78022, 'train_avg_loss': 0.327605, 'train_loss': 73.383505, 'train_total': 224, 'train_correct': 194.0}}
+2023-02-17 21:27:22,995 (server:590) INFO: {'Role': 'Server #', 'Round': 8, 'Results_weighted_avg': {'test_acc': 0.595455, 'test_f1': 0.468045, 'test_avg_loss': 0.966585, 'test_loss': 26.355701, 'test_total': 22.0, 'test_correct': 13.1}, 'Results_avg': {'test_acc': 0.49122, 'test_f1': 0.398698, 'test_avg_loss': 1.207016, 'test_loss': 21.264869, 'test_total': 22.0, 'test_correct': 13.1}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 13.1, 'test_acc_std': 0.342789, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.916667, 'test_acc_min': 0.0, 'test_acc_max': 0.916667, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.916667, 'test_acc_cos1': 0.820066, 'test_acc_entropy': 1.965785, 'test_f1_std': 0.302083, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.916084, 'test_f1_min': 0.0, 'test_f1_max': 0.916084, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.916084, 'test_f1_cos1': 0.797055, 'test_f1_entropy': 1.940927, 'test_avg_loss_std': 0.678713, 'test_avg_loss_bottom_decile': 0.450728, 'test_avg_loss_top_decile': 2.3526, 'test_avg_loss_min': 0.446819, 'test_avg_loss_max': 2.3526, 'test_avg_loss_bottom10%': 0.446819, 'test_avg_loss_top10%': 2.3526, 'test_avg_loss_cos1': 0.871648, 'test_avg_loss_entropy': 2.142207, 'test_loss_std': 13.559985, 'test_loss_bottom_decile': 5.361822, 'test_loss_top_decile': 51.99899, 'test_loss_min': 5.292764, 'test_loss_max': 51.99899, 'test_loss_bottom10%': 5.292764, 'test_loss_top10%': 51.99899, 'test_loss_cos1': 0.843162, 'test_loss_entropy': 2.105164}}
+2023-02-17 21:27:23,000 (monitor:541) INFO: {'Role': 'Server #', 'Round': 9, 'Results_model_metric': {}}
+2023-02-17 21:27:23,075 (server:347) INFO: Server: Training is finished! Starting evaluation.
+2023-02-17 21:27:23,231 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:23,373 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:23,893 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:24,028 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:24,235 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:24,326 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:24,411 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:24,798 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:24,934 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:25,193 (context:294) WARNING: No val_data or val_loader in the trainer, will skip evaluation.If this is not the case you want, please check whether there is typo for the name
+2023-02-17 21:27:25,196 (server:590) INFO: {'Role': 'Server #', 'Round': 9, 'Results_weighted_avg': {'test_acc': 0.522727, 'test_f1': 0.368504, 'test_avg_loss': 1.033448, 'test_loss': 29.988143, 'test_total': 22.0, 'test_correct': 11.5}, 'Results_avg': {'test_acc': 0.419511, 'test_f1': 0.30704, 'test_avg_loss': 1.249255, 'test_loss': 22.735861, 'test_total': 22.0, 'test_correct': 11.5}, 'Results_fairness': {'test_total': 22.0, 'test_correct': 11.5, 'test_acc_std': 0.28347, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.777778, 'test_acc_min': 0.0, 'test_acc_max': 0.777778, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.777778, 'test_acc_cos1': 0.828574, 'test_acc_entropy': 1.982768, 'test_f1_std': 0.210506, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.636364, 'test_f1_min': 0.0, 'test_f1_max': 0.636364, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.636364, 'test_f1_cos1': 0.824774, 'test_f1_entropy': 1.981877, 'test_avg_loss_std': 0.59545, 'test_avg_loss_bottom_decile': 0.645633, 'test_avg_loss_top_decile': 2.438694, 'test_avg_loss_min': 0.643333, 'test_avg_loss_max': 2.438694, 'test_avg_loss_bottom10%': 0.643333, 'test_avg_loss_top10%': 2.438694, 'test_avg_loss_cos1': 0.902702, 'test_avg_loss_entropy': 2.192815, 'test_loss_std': 13.41343, 'test_loss_bottom_decile': 8.148623, 'test_loss_top_decile': 46.585337, 'test_loss_min': 6.909478, 'test_loss_max': 46.585337, 'test_loss_bottom10%': 6.909478, 'test_loss_top10%': 46.585337, 'test_loss_cos1': 0.861281, 'test_loss_entropy': 2.128089}}
+2023-02-17 21:27:25,197 (server:395) INFO: Server: Final evaluation is finished! Starting merging results.
+2023-02-17 21:27:25,197 (server:521) INFO: {'Role': 'Server #', 'Round': 'Final', 'Results_raw': {'client_best_individual': {'test_loss': 4.931392, 'test_acc': 0.916667, 'test_f1': 0.916084, 'test_avg_loss': 0.408859, 'test_total': 6.0, 'test_correct': 53.0}, 'client_summarized_weighted_avg': {'test_loss': 25.108625, 'test_acc': 0.613636, 'test_f1': 0.489391, 'test_avg_loss': 0.913947, 'test_total': 22.0, 'test_correct': 13.5}, 'client_summarized_avg': {'test_loss': 20.10684, 'test_acc': 0.520765, 'test_f1': 0.428268, 'test_avg_loss': 1.141662, 'test_total': 22.0, 'test_correct': 13.5}, 'client_summarized_fairness': {'test_loss_entropy': 1.991959, 'test_loss_cos1': 0.745345, 'test_loss_top10%': 89.000276, 'test_loss_bottom10%': 6.181491, 'test_loss_max': 89.000276, 'test_loss_min': 6.181491, 'test_loss_top_decile': 89.000276, 'test_loss_bottom_decile': 9.254326, 'test_loss_std': 23.119067, 'test_total': 22.0, 'test_correct': 9.0, 'test_acc_std': 0.285345, 'test_acc_bottom_decile': 0.0, 'test_acc_top_decile': 0.863636, 'test_acc_min': 0.0, 'test_acc_max': 0.863636, 'test_acc_bottom10%': 0.0, 'test_acc_top10%': 0.863636, 'test_acc_cos1': 0.80443, 'test_acc_entropy': 1.943599, 'test_f1_std': 0.251519, 'test_f1_bottom_decile': 0.0, 'test_f1_top_decile': 0.861053, 'test_f1_min': 0.0, 'test_f1_max': 0.861053, 'test_f1_bottom10%': 0.0, 'test_f1_top10%': 0.861053, 'test_f1_cos1': 0.730414, 'test_f1_entropy': 1.84134, 'test_avg_loss_std': 0.536277, 'test_avg_loss_bottom_decile': 0.650978, 'test_avg_loss_top_decile': 2.455947, 'test_avg_loss_min': 0.502851, 'test_avg_loss_max': 2.455947, 'test_avg_loss_bottom10%': 0.502851, 'test_avg_loss_top10%': 2.455947, 'test_avg_loss_cos1': 0.919529, 'test_avg_loss_entropy': 2.213552}}}
+2023-02-17 21:27:25,198 (server:540) INFO: {'Role': 'Client #1', 'Round': 10, 'Results_raw': {'test_acc': 0.142857, 'test_f1': 0.111111, 'test_avg_loss': 2.438694, 'test_loss': 34.141709, 'test_total': 14, 'test_correct': 2.0}}
+2023-02-17 21:27:25,199 (server:540) INFO: {'Role': 'Client #7', 'Round': 10, 'Results_raw': {'test_acc': 0.777778, 'test_f1': 0.400419, 'test_avg_loss': 0.645633, 'test_loss': 40.67488, 'test_total': 63, 'test_correct': 49.0}}
+2023-02-17 21:27:25,199 (server:540) INFO: {'Role': 'Client #8', 'Round': 10, 'Results_raw': {'test_acc': 0.0, 'test_f1': 0.0, 'test_avg_loss': 1.607175, 'test_loss': 11.250222, 'test_total': 7, 'test_correct': 0.0}}
+2023-02-17 21:27:25,199 (server:540) INFO: {'Role': 'Client #4', 'Round': 10, 'Results_raw': {'test_acc': 0.0, 'test_f1': 0.0, 'test_avg_loss': 1.606391, 'test_loss': 46.585337, 'test_total': 29, 'test_correct': 0.0}}
+2023-02-17 21:27:25,199 (server:540) INFO: {'Role': 'Client #2', 'Round': 10, 'Results_raw': {'test_acc': 0.5, 'test_f1': 0.4375, 'test_avg_loss': 0.679052, 'test_loss': 8.148623, 'test_total': 12, 'test_correct': 6.0}}
+2023-02-17 21:27:25,200 (server:540) INFO: {'Role': 'Client #6', 'Round': 10, 'Results_raw': {'test_acc': 0.5, 'test_f1': 0.222222, 'test_avg_loss': 1.15158, 'test_loss': 6.909478, 'test_total': 6, 'test_correct': 3.0}}
+2023-02-17 21:27:25,200 (server:540) INFO: {'Role': 'Client #5', 'Round': 10, 'Results_raw': {'test_acc': 0.659091, 'test_f1': 0.636364, 'test_avg_loss': 0.643333, 'test_loss': 28.306648, 'test_total': 44, 'test_correct': 29.0}}
+2023-02-17 21:27:25,200 (server:540) INFO: {'Role': 'Client #9', 'Round': 10, 'Results_raw': {'test_acc': 0.75, 'test_f1': 0.508021, 'test_avg_loss': 0.702086, 'test_loss': 14.041724, 'test_total': 20, 'test_correct': 15.0}}
+2023-02-17 21:27:25,201 (server:540) INFO: {'Role': 'Client #3', 'Round': 10, 'Results_raw': {'test_acc': 0.615385, 'test_f1': 0.488095, 'test_avg_loss': 1.076656, 'test_loss': 13.996523, 'test_total': 13, 'test_correct': 8.0}}
+2023-02-17 21:27:25,201 (server:540) INFO: {'Role': 'Client #10', 'Round': 10, 'Results_raw': {'test_acc': 0.25, 'test_f1': 0.266667, 'test_avg_loss': 1.941956, 'test_loss': 23.303468, 'test_total': 12, 'test_correct': 3.0}}
+2023-02-17 21:27:25,202 (monitor:172) INFO: In worker #0, the system-related metrics are: {'id': 0, 'fl_end_time_minutes': 3.149172, 'total_model_size': 0, 'total_flops': 0, 'total_upload_bytes': 8324800, 'total_download_bytes': 1152040, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,205 (client:513) INFO: ================= client 1 received finish message =================
+2023-02-17 21:27:25,213 (monitor:172) INFO: In worker #1, the system-related metrics are: {'id': 1, 'fl_end_time_minutes': 3.146538, 'total_model_size': 11182659, 'total_flops': 22244527104000.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,214 (client:513) INFO: ================= client 3 received finish message =================
+2023-02-17 21:27:25,222 (monitor:172) INFO: In worker #3, the system-related metrics are: {'id': 3, 'fl_end_time_minutes': 3.140489, 'total_model_size': 11182659, 'total_flops': 18796625402880.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,223 (client:513) INFO: ================= client 7 received finish message =================
+2023-02-17 21:27:25,231 (monitor:172) INFO: In worker #7, the system-related metrics are: {'id': 7, 'fl_end_time_minutes': 3.127339, 'total_model_size': 11182659, 'total_flops': 5005018598400.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,231 (client:513) INFO: ================= client 10 received finish message =================
+2023-02-17 21:27:25,239 (monitor:172) INFO: In worker #10, the system-related metrics are: {'id': 10, 'fl_end_time_minutes': 3.118092, 'total_model_size': 11182659, 'total_flops': 7451916579840.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,240 (client:513) INFO: ================= client 9 received finish message =================
+2023-02-17 21:27:25,247 (monitor:172) INFO: In worker #9, the system-related metrics are: {'id': 9, 'fl_end_time_minutes': 3.121422, 'total_model_size': 11182659, 'total_flops': 15793614243840.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,248 (client:513) INFO: ================= client 6 received finish message =================
+2023-02-17 21:27:25,256 (monitor:172) INFO: In worker #6, the system-related metrics are: {'id': 6, 'fl_end_time_minutes': 3.13136, 'total_model_size': 11182659, 'total_flops': 9342701383680.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,257 (client:513) INFO: ================= client 8 received finish message =================
+2023-02-17 21:27:25,265 (monitor:172) INFO: In worker #8, the system-related metrics are: {'id': 8, 'fl_end_time_minutes': 3.125435, 'total_model_size': 11182659, 'total_flops': 1668339532800.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,265 (client:513) INFO: ================= client 5 received finish message =================
+2023-02-17 21:27:25,273 (monitor:172) INFO: In worker #5, the system-related metrics are: {'id': 5, 'fl_end_time_minutes': 3.134072, 'total_model_size': 11182659, 'total_flops': 12456935178240.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,274 (client:513) INFO: ================= client 2 received finish message =================
+2023-02-17 21:27:25,282 (monitor:172) INFO: In worker #2, the system-related metrics are: {'id': 2, 'fl_end_time_minutes': 3.144682, 'total_model_size': 11182659, 'total_flops': 4004014878720.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,282 (client:513) INFO: ================= client 4 received finish message =================
+2023-02-17 21:27:25,290 (monitor:172) INFO: In worker #4, the system-related metrics are: {'id': 4, 'fl_end_time_minutes': 3.138047, 'total_model_size': 11182659, 'total_flops': 778558448640.0, 'total_upload_bytes': 115296, 'total_download_bytes': 832480, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2023-02-17 21:27:25,291 (monitor:337) INFO: We will compress the file eval_results.raw into a .gz file, and delete the old one
+2023-02-17 21:27:25,295 (monitor:245) INFO: After merging the system metrics from all works, we got avg: defaultdict(None, {'id': 'sys_avg', 'sys_avg/fl_end_time_minutes': 3.134241, 'sys_avg/total_model_size': '9.7M', 'sys_avg/total_flops': '8.06T', 'sys_avg/total_upload_bytes': '841.42K', 'sys_avg/total_download_bytes': '841.34K', 'sys_avg/global_convergence_round': 0.0, 'sys_avg/local_convergence_round': 0.0, 'sys_avg/global_convergence_time_minutes': 0.0, 'sys_avg/local_convergence_time_minutes': 0.0})
+2023-02-17 21:27:25,295 (monitor:248) INFO: After merging the system metrics from all works, we got std: defaultdict(None, {'id': 'sys_std', 'sys_std/fl_end_time_minutes': 0.009979, 'sys_std/total_model_size': '3.07M', 'sys_std/total_flops': '6.58T', 'sys_std/total_upload_bytes': '2.25M', 'sys_std/total_download_bytes': '89.71K', 'sys_std/global_convergence_round': 0.0, 'sys_std/local_convergence_round': 0.0, 'sys_std/global_convergence_time_minutes': 0.0, 'sys_std/local_convergence_time_minutes': 0.0})

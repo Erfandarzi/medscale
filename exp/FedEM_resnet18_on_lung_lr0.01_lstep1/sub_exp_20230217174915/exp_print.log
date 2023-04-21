@@ -1,0 +1,523 @@
+2023-02-17 17:49:15,266 (logging:124) INFO: the current machine is at 192.168.0.1
+2023-02-17 17:49:15,267 (logging:126) INFO: the current dir is /home/ubuntu/medscale
+2023-02-17 17:49:15,267 (logging:127) INFO: the output dir is exp/FedEM_resnet18_on_lung_lr0.01_lstep1/sub_exp_20230217174915
+2023-02-17 17:49:23,304 (cfg_data:145) WARNING: config `cfg.data.batch_size` will be removed in the future, use `cfg.dataloader.batch_size` instead.
+2023-02-17 17:49:23,304 (cfg_data:145) WARNING: config `cfg.data.batch_size` will be removed in the future, use `cfg.dataloader.batch_size` instead.
+2023-02-17 17:49:23,328 (config:243) INFO: the used configs are: 
+aggregator:
+  inside_weight: 1.0
+  num_agg_groups: 1
+  num_agg_topk: []
+  outside_weight: 0.0
+asyn:
+  use: False
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  edge_num: 100
+  edge_path: edge_data/
+  freq: 10
+  info_diff_type: l2
+  inject_round: 0
+  insert_round: 100000
+  label_type: dirty
+  max_ite: 400
+  mean: [0.1307]
+  mia_is_simulate_in: False
+  mia_simulate_in_round: 20
+  pgd_eps: 2
+  pgd_lr: 0.1
+  pgd_poisoning: False
+  poison_ratio: 0.5
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  scale_para: 1.0
+  scale_poisoning: False
+  self_epoch: 6
+  self_lr: 0.05
+  self_opt: False
+  setting: fix
+  std: [0.3081]
+  target_label_ind: -1
+  trigger_path: trigger/
+  trigger_type: edge
+backend: torch
+cfg_file: 
+check_completeness: False
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 16
+  cSBM_phi: [0.5, 0.5, 0.5]
+  cache_dir: 
+  consistent_label_distribution: False
+  drop_last: False
+  hetero_data_name: []
+  hetero_synth_batch_size: 32
+  hetero_synth_feat_dim: 128
+  hetero_synth_prim_weight: 0.5
+  is_debug: False
+  loader: 
+  max_query_len: 128
+  max_seq_len: 384
+  max_tgt_len: 128
+  num_contrast: 0
+  num_of_client_for_data: []
+  num_steps: 30
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  save_data: False
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0, 0.2]
+  splitter: lda
+  splitter_args: [{'alpha': 0.3}]
+  subsample: 1.0
+  target_transform: []
+  test_pre_transform: []
+  test_target_transform: []
+  test_transform: []
+  transform: []
+  trunc_stride: 128
+  type: lung
+  val_pre_transform: []
+  val_target_transform: []
+  val_transform: []
+  walk_length: 2
+dataloader:
+  batch_size: 16
+  drop_last: False
+  num_steps: 30
+  num_workers: 0
+  pin_memory: False
+  shuffle: True
+  sizes: [10, 5]
+  theta: -1
+  type: base
+  walk_length: 2
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 5
+eval:
+  best_res_update_round_wise_key: test_loss
+  count_flops: True
+  freq: 1
+  metrics: ['acc', 'correct', 'f1']
+  monitoring: []
+  report: ['weighted_avg', 'avg', 'fairness', 'raw']
+  split: ['test', 'val']
+expname: FedEM_resnet18_on_lung_lr0.01_lstep1
+expname_tag: 
+feat_engr:
+  num_bins: 5
+  scenario: hfl
+  secure:
+    dp:
+      
+    encrypt:
+      type: dummy
+    key_size: 3072
+    type: encrypt
+  selec_threshold: 0.05
+  selec_woe_binning: quantile
+  type: 
+federate:
+  atc_load_from: 
+  atc_vanilla: False
+  client_num: 10
+  data_weighted_aggr: False
+  ignore_weight: False
+  join_in_info: []
+  make_global_eval: False
+  merge_test_data: False
+  method: FedEM
+  mode: standalone
+  online_aggr: False
+  resource_info_file: 
+  restore_from: 
+  sample_client_num: 10
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 10
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+  scheduler:
+    type: 
+    warmup_ratio: 0.0
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_accum_count: 1
+  grad_clip: 5.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    pi_lr: 0.01
+    psn: False
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    iter: 0
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+  working_folder: hpo
+model:
+  contrast_temp: 1.0
+  contrast_topk: 100
+  downstream_tasks: []
+  dropout: 0.0
+  embed_size: 8
+  gamma: 0
+  graph_pooling: mean
+  hidden: 2048
+  in_channels: 0
+  input_shape: ()
+  label_smoothing: 0.1
+  lambda_: 0.1
+  layer: 2
+  length_penalty: 2.0
+  max_answer_len: 30
+  max_length: 200
+  max_tree_depth: 3
+  min_length: 1
+  model_num_per_trainer: 1
+  model_type: google/bert_uncased_L-2_H-128_A-2
+  n_best_size: 20
+  no_repeat_ngram_size: 3
+  null_score_diff_threshold: 0.0
+  num_beams: 5
+  num_item: 0
+  num_labels: 1
+  num_of_trees: 10
+  num_user: 0
+  out_channels: 62
+  pretrain_tasks: []
+  stage: 
+  task: node
+  type: resnet18
+  use_bias: True
+  use_contrastive_loss: False
+nbafl:
+  use: False
+outdir: exp/FedEM_resnet18_on_lung_lr0.01_lstep1/sub_exp_20230217174915
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: []
+  local_update_steps: 1
+  lr: 0.5
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 2
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: epoch
+  local_update_steps: 1
+  optimizer:
+    lr: 0.01
+    type: SGD
+    weight_decay: 0.0
+  scheduler:
+    type: 
+    warmup_ratio: 0.0
+trainer:
+  disp_freq: 50
+  local_entropy:
+    alpha: 0.75
+    eps: 0.001
+    gamma: 0.0001
+  sam:
+    adaptive: False
+    eta: 0.0
+    rho: 1.0
+  type: cvtrainer
+  val_freq: 100000000
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2023-02-17 17:49:23,329 (worker_builder:174) WARNING: Server for method FedEM is not implemented. Will use default one
+2023-02-17 17:49:23,330 (worker_builder:71) WARNING: Clients for method FedEM is not implemented. Will use default one
+2023-02-17 17:49:23,404 (utils:144) INFO: The device information file is not provided
+2023-02-17 17:49:23,598 (aggregator_builder:67) WARNING: Aggregator for method FedEM is not implemented. Will use default one
+2023-02-17 17:49:23,598 (fed_runner:169) INFO: Server has been set up ... 
+2023-02-17 17:49:23,799 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:26,543 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:26,543 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:26,586 (fed_runner:221) INFO: Client 1 has been set up ... 
+2023-02-17 17:49:26,790 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:26,791 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:26,791 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:26,833 (fed_runner:221) INFO: Client 2 has been set up ... 
+2023-02-17 17:49:26,961 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:26,961 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:26,962 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,003 (fed_runner:221) INFO: Client 3 has been set up ... 
+2023-02-17 17:49:27,204 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:27,204 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,205 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,246 (fed_runner:221) INFO: Client 4 has been set up ... 
+2023-02-17 17:49:27,344 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:27,345 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,345 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,386 (fed_runner:221) INFO: Client 5 has been set up ... 
+2023-02-17 17:49:27,597 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:27,597 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,598 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,639 (fed_runner:221) INFO: Client 6 has been set up ... 
+2023-02-17 17:49:27,772 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:27,773 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,773 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:27,813 (fed_runner:221) INFO: Client 7 has been set up ... 
+2023-02-17 17:49:28,017 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:28,018 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:28,018 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:28,058 (fed_runner:221) INFO: Client 8 has been set up ... 
+2023-02-17 17:49:28,262 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:28,262 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:28,262 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:28,303 (fed_runner:221) INFO: Client 9 has been set up ... 
+2023-02-17 17:49:28,512 (trainer:161) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2023-02-17 17:49:28,513 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:28,513 (context:228) WARNING: cur_split `None` not found in data_split, will use `train` split to calculate `ctx.var`.
+2023-02-17 17:49:28,553 (fed_runner:221) INFO: Client 10 has been set up ... 
+<<<<<<< HEAD
+2023-02-17 17:49:28,553 (trainer:341) INFO: Model meta-info: <class 'medscale.contrib.model.resnet.ResNet'>.
+=======
+<<<<<<< HEAD
+2023-02-17 17:49:28,553 (trainer:341) INFO: Model meta-info: <class 'medscale.contrib.model.resnet.ResNet'>.
+=======
+2023-02-17 17:49:28,553 (trainer:341) INFO: Model meta-info: <class 'medscale.contrib.model.resnet.ResNet'>.
+>>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
+>>>>>>> 64b283ee525ef53c32509882719e74890329b83f
+2023-02-17 17:49:28,555 (trainer:349) INFO: Num of original para names: 122.
+2023-02-17 17:49:28,555 (trainer:350) INFO: Num of original trainable para names: 62.
+2023-02-17 17:49:28,555 (trainer:352) INFO: Num of preserved para names in local update: 122. 
+Preserved para names in local update: {'bn1.running_mean', 'bn1.num_batches_tracked', 'layer3.1.bn1.num_batches_tracked', 'layer2.1.bn2.bias', 'layer4.0.bn2.running_var', 'layer2.1.bn2.running_mean', 'layer2.0.bn1.running_mean', 'layer3.0.bn1.weight', 'layer1.0.bn2.bias', 'layer4.0.shortcut.0.weight', 'bn1.weight', 'conv1.weight', 'layer2.0.conv2.weight', 'layer4.1.bn1.weight', 'layer1.1.bn2.weight', 'layer2.1.bn2.num_batches_tracked', 'layer3.0.shortcut.1.running_var', 'layer2.0.bn2.weight', 'layer2.0.bn1.bias', 'layer2.0.bn2.num_batches_tracked', 'layer4.1.bn2.weight', 'layer3.1.bn1.weight', 'layer1.1.bn2.running_mean', 'layer2.1.bn1.running_mean', 'layer2.0.shortcut.0.weight', 'layer2.0.bn2.bias', 'layer4.1.bn1.num_batches_tracked', 'layer3.0.bn1.bias', 'layer3.0.bn1.running_mean', 'layer4.0.bn2.weight', 'layer2.1.bn1.bias', 'layer3.0.bn2.bias', 'layer4.0.shortcut.1.running_mean', 'layer2.0.conv1.weight', 'layer1.1.bn1.running_var', 'layer3.0.bn2.running_mean', 'layer4.1.conv2.weight', 'layer3.0.shortcut.1.bias', 'bn1.running_var', 'layer1.0.bn2.num_batches_tracked', 'layer3.1.bn1.running_mean', 'layer1.1.bn1.weight', 'layer4.1.bn1.running_mean', 'layer2.1.bn2.weight', 'layer1.0.bn1.weight', 'layer2.1.bn1.weight', 'layer2.1.bn1.running_var', 'layer3.0.bn2.num_batches_tracked', 'layer4.0.shortcut.1.running_var', 'layer2.0.bn2.running_mean', 'layer4.0.shortcut.1.num_batches_tracked', 'layer3.1.bn2.weight', 'layer3.0.shortcut.1.running_mean', 'layer1.1.bn2.bias', 'layer3.0.shortcut.1.weight', 'layer2.0.bn1.weight', 'layer2.0.shortcut.1.weight', 'layer1.0.bn1.bias', 'layer3.0.bn1.num_batches_tracked', 'layer1.1.bn1.running_mean', 'layer4.1.bn1.bias', 'layer4.0.bn1.bias', 'layer4.0.bn1.num_batches_tracked', 'layer4.0.bn2.num_batches_tracked', 'layer2.0.bn1.num_batches_tracked', 'layer3.0.conv2.weight', 'layer3.1.conv1.weight', 'layer2.0.bn1.running_var', 'linear.weight', 'layer4.0.conv2.weight', 'layer3.0.conv1.weight', 'layer3.0.bn2.running_var', 'layer3.1.bn2.running_mean', 'layer2.0.shortcut.1.bias', 'layer4.1.bn2.num_batches_tracked', 'layer4.1.bn2.running_mean', 'layer4.1.bn2.bias', 'layer3.1.bn1.bias', 'layer2.0.bn2.running_var', 'layer1.1.bn1.num_batches_tracked', 'layer4.1.bn1.running_var', 'layer1.1.bn1.bias', 'layer1.0.bn1.num_batches_tracked', 'layer4.1.conv1.weight', 'layer4.0.bn1.weight', 'layer3.1.bn2.running_var', 'layer1.0.bn2.running_var', 'layer3.1.bn2.num_batches_tracked', 'layer1.0.bn1.running_mean', 'layer1.1.conv1.weight', 'layer3.0.shortcut.1.num_batches_tracked', 'layer4.1.bn2.running_var', 'layer1.1.bn2.running_var', 'layer3.1.bn2.bias', 'layer1.1.conv2.weight', 'layer2.1.bn2.running_var', 'layer1.1.bn2.num_batches_tracked', 'layer4.0.bn1.running_mean', 'layer4.0.bn2.running_mean', 'layer4.0.shortcut.1.bias', 'layer4.0.bn2.bias', 'layer3.0.bn1.running_var', 'layer4.0.bn1.running_var', 'layer2.0.shortcut.1.running_mean', 'layer2.0.shortcut.1.running_var', 'layer3.0.shortcut.0.weight', 'layer3.1.bn1.running_var', 'layer1.0.bn2.running_mean', 'layer4.0.conv1.weight', 'layer1.0.conv1.weight', 'layer3.1.conv2.weight', 'linear.bias', 'layer2.1.bn1.num_batches_tracked', 'layer1.0.bn2.weight', 'layer2.0.shortcut.1.num_batches_tracked', 'layer2.1.conv1.weight', 'layer1.0.conv2.weight', 'layer2.1.conv2.weight', 'layer3.0.bn2.weight', 'layer4.0.shortcut.1.weight', 'bn1.bias', 'layer1.0.bn1.running_var'}.
+2023-02-17 17:49:28,556 (trainer:356) INFO: Num of filtered para names in local update: 0. 
+Filtered para names in local update: set().
+2023-02-17 17:49:28,557 (trainer:361) INFO: After register default hooks,
+	the hooks_in_train is:
+	[
+	  {
+	    "on_fit_start": [
+	      "_hook_on_fit_start_mixture_weights_update",
+	      "_hook_on_fit_start_flop_count",
+	      "_hook_on_fit_start_init",
+	      "_hook_on_fit_start_calculate_model_size"
+	    ],
+	    "on_epoch_start": [
+	      "_hook_on_epoch_start"
+	    ],
+	    "on_batch_start": [
+	      "_hook_on_batch_start_track_batch_idx",
+	      "_hook_on_batch_start_init"
+	    ],
+	    "on_batch_forward": [
+	      "_hook_on_batch_forward",
+	      "_hook_on_batch_forward_regularizer",
+	      "_hook_on_batch_forward_flop_count",
+	      "_hook_on_batch_forward_weighted_loss"
+	    ],
+	    "on_batch_backward": [
+	      "_hook_on_batch_backward"
+	    ],
+	    "on_batch_end": [
+	      "_hook_on_batch_end"
+	    ],
+	    "on_fit_end": [
+	      "_hook_on_fit_end",
+	      "_hook_on_fit_end_flop_count"
+	    ]
+	  }
+	];
+	the hooks_in_eval is:
+            t[
+	  {
+	    "on_fit_start": [
+	      "_hook_on_fit_start_init"
+	    ],
+	    "on_epoch_start": [
+	      "_hook_on_epoch_start"
+	    ],
+	    "on_batch_start": [
+	      "_hook_on_batch_start_track_batch_idx",
+	      "_hook_on_batch_start_init"
+	    ],
+	    "on_batch_forward": [
+	      "_hook_on_batch_forward"
+	    ],
+	    "on_batch_end": [
+	      "_hook_on_batch_end_gather_loss",
+	      "_hook_on_batch_end"
+	    ],
+	    "on_fit_end": [
+	      "_hook_on_fit_end_ensemble_eval"
+	    ]
+	  }
+	]
+2023-02-17 17:49:28,601 (server:804) INFO: ----------- Starting training (Round #0) -------------
+2023-02-17 17:49:28,618 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:28,619 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:28,619 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:29,501 (client:306) INFO: {'Role': 'Client #9', 'Round': 0, 'Results_raw': {'train_loss': 2.802579, 'train_avg_loss': 0.467096, 'train_correct': 6.0, 'train_acc': 1.0, 'train_total': 6, 'train_f1': 1.0}}
+2023-02-17 17:49:29,517 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:29,518 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:29,518 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:29,643 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:29,764 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:29,887 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,009 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,129 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,250 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,369 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,489 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,610 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,731 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,851 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:30,976 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:31,098 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,257 (client:306) INFO: {'Role': 'Client #3', 'Round': 0, 'Results_raw': {'train_loss': 85.344447, 'train_avg_loss': 0.382711, 'train_correct': 198.0, 'train_acc': 0.887892, 'train_total': 223, 'train_f1': 0.507204}}
+2023-02-17 17:49:33,273 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,274 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,274 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,398 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,525 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,649 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,773 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:33,895 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:34,019 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:34,149 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:34,267 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:34,391 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:35,849 (client:306) INFO: {'Role': 'Client #10', 'Round': 0, 'Results_raw': {'train_loss': 117.487289, 'train_avg_loss': 0.793833, 'train_correct': 94.0, 'train_acc': 0.635135, 'train_total': 148, 'train_f1': 0.396379}}
+2023-02-17 17:49:35,866 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:35,866 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:35,866 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,000 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,129 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,259 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,389 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,519 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,646 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,776 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:36,899 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:37,026 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:37,159 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:38,949 (client:306) INFO: {'Role': 'Client #8', 'Round': 0, 'Results_raw': {'train_loss': 88.744481, 'train_avg_loss': 0.510026, 'train_correct': 149.0, 'train_acc': 0.856322, 'train_total': 174, 'train_f1': 0.498096}}
+2023-02-17 17:49:38,967 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:38,967 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:38,967 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,194 (client:306) INFO: {'Role': 'Client #1', 'Round': 0, 'Results_raw': {'train_loss': 12.202123, 'train_avg_loss': 1.74316, 'train_correct': 0.0, 'train_acc': 0.0, 'train_total': 7, 'train_f1': 0.0}}
+2023-02-17 17:49:39,211 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,211 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,211 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,339 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,836 (client:306) INFO: {'Role': 'Client #2', 'Round': 0, 'Results_raw': {'train_loss': 24.402989, 'train_avg_loss': 0.787193, 'train_correct': 27.0, 'train_acc': 0.870968, 'train_total': 31, 'train_f1': 0.310345}}
+2023-02-17 17:49:39,853 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,853 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,853 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:39,979 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:40,104 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:40,229 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:40,357 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:40,484 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:40,614 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:41,645 (client:306) INFO: {'Role': 'Client #4', 'Round': 0, 'Results_raw': {'train_loss': 8.728959, 'train_avg_loss': 0.089071, 'train_correct': 98.0, 'train_acc': 1.0, 'train_total': 98, 'train_f1': 1.0}}
+2023-02-17 17:49:41,661 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:41,661 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:41,662 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,031 (client:306) INFO: {'Role': 'Client #7', 'Round': 0, 'Results_raw': {'train_loss': 22.044676, 'train_avg_loss': 1.377792, 'train_correct': 4.0, 'train_acc': 0.25, 'train_total': 16, 'train_f1': 0.2}}
+2023-02-17 17:49:42,048 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,048 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,048 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,168 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,289 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,411 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,534 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,655 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,778 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:42,901 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:43,025 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:43,151 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:43,275 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:44,872 (client:306) INFO: {'Role': 'Client #5', 'Round': 0, 'Results_raw': {'train_loss': 174.582005, 'train_avg_loss': 1.058073, 'train_correct': 74.0, 'train_acc': 0.448485, 'train_total': 165, 'train_f1': 0.313333}}
+2023-02-17 17:49:44,889 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:44,889 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:44,889 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
+2023-02-17 17:49:45,141 (client:306) INFO: {'Role': 'Client #6', 'Round': 0, 'Results_raw': {'train_loss': 15.027231, 'train_avg_loss': 1.669692, 'train_correct': 0.0, 'train_acc': 0.0, 'train_total': 9, 'train_f1': 0.0}}
+2023-02-17 17:49:45,156 (monitor:541) INFO: {'Role': 'Server #', 'Round': 0, 'Results_model_metric': {}}
+2023-02-17 17:49:45,248 (server:330) INFO: Server: Starting evaluation at the end of round 0.
+2023-02-17 17:49:45,250 (server:336) INFO: ----------- Starting a new training round (Round #1) -------------
+2023-02-17 17:49:45,273 (context:224) WARNING: cur_mode `test` mismatch mode `train`, will use `train` to calculate `ctx.var`.
