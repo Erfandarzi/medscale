@@ -27,15 +27,9 @@ We provide an end-to-end example for users to start running a medical course wit
 First of all, users need to clone the source code and install the required packages (we suggest python version >= 3.9). You can choose between the following two installation methods (via docker or conda) to install Medscale.
 
 ```bash
-<<<<<<< HEAD
 git clone https://github.com/erfandarzi/medscale.git
 =======
-<<<<<<< HEAD
-git clone https://github.com/erfandarzi/medscale.git
-=======
-git clone https://github.com/medscale/medscale.git
->>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
+
 cd medscale
 ```
 
