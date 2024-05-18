@@ -26,8 +26,6 @@ We provide an end-to-end example for users to start running a medical course wit
 First of all, users need to clone the source code and install the required packages (we suggest python version >= 3.9). You can choose between the following two installation methods (via docker or conda) to install Medscale.
 
 ```bash
-git clone https://github.com/erfandarzi/medscale.git
-=======
 
 cd medscale
 ```
@@ -98,39 +96,24 @@ You can download lung cancer dataset from kaggle and put it in `dataset/lung`  d
  
 To run a federated learning example with `FedOPT` algorithm, for unbalanced dataset run:
 ```bash 
-<<<<<<< HEAD
 python medscale/main.py --cfg scripts/my_configs/FedOPT_Lung_cancer.yaml
-=======
-<<<<<<< HEAD
 python medscale/main.py --cfg scripts/my_configs/FedOPT_Lung_cancer.yaml
-=======
 python medscale/main.py --cfg scripts/my_configs/FedOPT_Lung_cancer.yaml
->>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 All adjustable parameters can be found in the second cell. Careful with the `BATCH_SIZE`, as we are using it to parallelize head and time chunk calculations.
 
 To run a federated learning example with `Fedem` algorithm, for unbalanced dataset run:
 ```bash 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 python medscale/main.py --cfg scripts/my_configs/fedem_Lung_cancer.yaml
 ```
 For a personalized , improved method you can run:
 ```bash 
 python medscale/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
-<<<<<<< HEAD
-=======
-=======
 python medscale/main.py --cfg scripts/my_configs/fedem_Lung_cancer.yaml
 ```
 For a personalized , improved method you can run:
 ```bash 
 python medscale/main.py --cfg scripts/my_configs/pfedme_lung_cancer.yaml
->>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 
  ## Example Usage: Federated  brain MRI tumor detection 
@@ -152,39 +135,24 @@ You can put as many MRI data samples in the directory. Download Kaggle datasets 
 
 To run a federated learning example with `FedOPT` algorithm, for unbalanced dataset run:
 ```bash 
-<<<<<<< HEAD
 python medscale/main.py --cfg scripts/my_configs/FedOPT_MRI.yaml
-=======
-<<<<<<< HEAD
 python medscale/main.py --cfg scripts/my_configs/FedOPT_MRI.yaml
-=======
 python medscale/main.py --cfg scripts/my_configs/FedOPT_MRI.yaml
->>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 All adjustable parameters can be found in the second cell. Careful with the `BATCH_SIZE`, as we are using it to parallelize head and time chunk calculations.
 
 To run a federated learning example with `Fedem` algorithm, for unbalanced dataset run:
 ```bash 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 python medscale/main.py --cfg scripts/my_configs/fedem_MRI.yaml
 ```
 For a personalized , improved method you can run:
 ```bash 
 python medscale/main.py --cfg scripts/my_configs/pfedme_MRI.yaml
-<<<<<<< HEAD
-=======
-=======
 python medscale/main.py --cfg scripts/my_configs/fedem_MRI.yaml
 ```
 For a personalized , improved method you can run:
 ```bash 
 python medscale/main.py --cfg scripts/my_configs/pfedme_MRI.yaml
->>>>>>> fe4962455354c9c11afd9c9806ceda28eb280737
->>>>>>> 64b283ee525ef53c32509882719e74890329b83f
 ```
 ## XNAT support to federated pipelines
 
